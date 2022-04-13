@@ -1,0 +1,345 @@
+
+<html>
+  <head>
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+  <style>
+
+  #frozen-steak{
+    position: absolute;
+    top: 20px;
+    left: 400px;
+    z-index: 2;
+  }
+  #frozen-steak-img{
+    height: 50px;
+    width: 70px;
+  }
+
+
+  #thyme{
+    position: absolute;
+    top: 85px;
+    left: 395px;
+    z-index: 2;
+  }
+  #thyme-img{
+    height: 30px;
+    width: 80px;
+  }
+
+  #uncut-butter{
+    position: absolute;
+    top: 35px;
+    left: 500px;
+    z-index: 2;
+  }
+  #uncut-butter-img{
+    height: 60px;
+    width: 70px;
+  }
+
+  #uncut-garlic{
+    position: absolute;
+    top: 130px;
+    left: 410px;
+    z-index: 2;
+  }
+  #uncut-garlic-img{
+    height: 40px;
+    width: 50px;
+  }
+
+  #salt{
+    position: absolute;
+    top: 120px;
+    left: 500px;
+    z-index: 2;
+  }
+  #salt-img{
+    height: 50px;
+    width: 20px;
+  }
+
+  #pepper{
+    position: absolute;
+    top: 105px;
+    left: 550px;
+    z-index: 2;
+  }
+  #pepper-img{
+    height: 55px;
+    width: 35px;
+  }
+
+  #olive-oil{
+    position: absolute;
+    top: 60px;
+    left: 605px;
+    z-index: 2;
+  }
+  #olive-oil-img{
+    height: 100px;
+    width: 40px;
+  }
+
+
+  #knife{
+    position: absolute;
+    top: 340px;
+    left: 50px;
+    height: 100px;
+    width: 100px;
+    z-index: 3;
+  }
+
+
+
+
+  .ingredient .description{
+    visibility: hidden;
+    width: 70px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 110%;
+  }
+
+  .ingredient .description::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+  }
+
+  .ingredient:hover .description{
+    visibility: visible;
+  }
+
+
+
+  #cutting-board{
+    position: absolute;
+    top: 350px;
+    left: 200px;
+    height: 200px;
+    width: 400px;
+    z-index: 1;
+  }
+
+  #empty-pan{
+    position: absolute;
+    top: 340px;
+    left: 800px;
+    height: 170px;
+    width: 300px;
+    z-index: 1;
+  }
+
+
+  #temperature{
+    position: absolute;
+    top: 520px;
+    left: 860px;
+  }
+  .dot {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border-style: solid;
+    margin: 5px;
+    display: inline-block;
+  }
+
+  #low{
+    background-color: lightgreen;
+  }
+
+  #med{
+    background-color: orange;
+  }
+
+  #high{
+    background-color: red;
+  }
+
+
+
+  #temperature-labels{
+    position: absolute;
+    top: 550px;
+    left: 862px;
+
+  }
+  .label{
+    font-weight: bold;
+    font-size: 13px;
+    margin: 8px;
+  }
+
+  </style>
+
+
+<script>
+
+
+$(document).ready(function(){
+
+  //counter
+  let step=1;
+
+
+  //Selected item is above other items while dragging
+  $(".ingredient").mouseenter(
+  function() {
+    $(this).css("z-index", "3");
+  }
+  );
+
+  $(".ingredient").mouseleave(
+  function() {
+    $(this).css("z-index", "2");
+  }
+  );
+
+  //Draggable items
+  $("#frozen-steak").draggable({
+        revert: "invalid"
+  });
+
+  $("#thyme").draggable({
+        revert: "invalid"
+  });
+
+  $("#uncut-butter").draggable({
+        revert: "invalid"
+  });
+
+  $("#uncut-garlic").draggable({
+        revert: "invalid"
+  });
+
+  $("#salt").draggable({
+        revert: "invalid"
+  });
+
+  $("#pepper").draggable({
+        revert: "invalid"
+  });
+
+  $("#olive-oil").draggable({
+        revert: "invalid"
+  });
+
+  $("#knife").draggable({
+        revert: "invalid"
+  });
+
+
+  //Droppable items
+  $("#cutting-board").droppable({
+    accept: false
+  });
+
+  $("#empty-pan").droppable({
+    accept: false
+  });
+
+
+  //Droppable-conditions
+  if(step==1){
+    $("#cutting-board").droppable( "option", "accept", "#frozen-steak");
+
+
+    $("#cutting-board").on("drop", function( event, ui ) {
+
+      $("#frozen-steak").find(".description").remove();
+      $("#frozen-steak").css("top", "370px");
+      $("#frozen-steak").css("left", "300px");
+      $("#frozen-steak-img").css("height", "160px");
+      $("#frozen-steak-img").css("width", "220px");
+
+
+    } );
+
+  }
+
+
+
+
+});
+
+
+</script>
+
+
+  </head>
+  <body>
+
+
+  <div class="ingredient" id="frozen-steak">
+      <img id="frozen-steak-img" src="images/frozen-steak.png" alt="Frozen Steak"> </img>
+      <span class="description">Steak</span>
+  </div>
+  <div class="ingredient" id="thyme">
+      <img id="thyme-img" src="images/thyme.png" alt="Thyme"> </img>
+      <span class="description">Thyme</span>
+  </div>
+  <div class="ingredient" id="uncut-butter">
+      <img id="uncut-butter-img" src="images/uncut-butter.png" alt="Uncut Butter"> </img>
+      <span class="description">Butter</span>
+  </div>
+  <div class="ingredient" id="uncut-garlic">
+      <img id="uncut-garlic-img" src="images/uncut-garlic.png" alt="Uncut Garlic"> </img>
+      <span class="description">Garlic</span>
+  </div>
+  <div class="ingredient" id="salt">
+      <img id="salt-img" src="images/salt.png" alt="Salt"> </img>
+      <span class="description">Salt</span>
+  </div>
+  <div class="ingredient" id="pepper">
+      <img id="pepper-img" src="images/pepper.png" alt="Pepper"> </img>
+      <span class="description">Pepper</span>
+  </div>
+  <div class="ingredient" id="olive-oil">
+      <img id="olive-oil-img" src="images/olive-oil.png" alt="Olive Oil"> </img>
+      <span class="description">Olive Oil</span>
+  </div>
+
+
+
+
+  <img id="knife" src="images/knife.png" alt="Knife">
+
+  <img src="images/cutting-board.png" alt="Cutting Board" id="cutting-board"> </img>
+  <img src="images/empty-pan.png" alt="Empty Pan" id="empty-pan"> </img>
+
+  <div id="temperature">
+  <span class="dot" id="low"></span>
+  <span class="dot" id="med"></span>
+  <span class="dot" id="high"></span>
+  </div>
+  <div id="temperature-labels">
+  <span class="label">low</span>
+  <span class="label">med</span>
+  <span class="label">high</span>
+  </div>
+
+
+
+
+
+  </body>
+</html>
