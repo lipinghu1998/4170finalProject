@@ -378,6 +378,27 @@
   font-weight: bold;
 
 }
+#cut-butter{
+  position: absolute;
+  top: 50px;
+  left: 480px;
+  z-index: 2;
+}
+#cut-butter-img{
+  height: 60px;
+  width: 70px;
+}
+
+#cut-garlic{
+  position: absolute;
+  top: 130px;
+  left: 410px;
+  z-index: 2;
+}
+#cut-garlic-img{
+  height: 40px;
+  width: 50px;
+}
 
 
 
@@ -711,6 +732,54 @@ $(document).ready(function(){
               function close_popup(){
                 $("#pop-up").hide();
                 $("#knife").hide();
+
+                let butter = $("<img>");
+                butter.attr("src", "images/cut-butter.png");
+                butter.attr("alt", "Cut Butter");
+                butter.attr("id", "cut-butter-img");
+
+                let butter_label= $("<span>");
+                butter_label.html("Butter")
+                butter_label.addClass("description");
+
+                $("#cut-butter").append(butter);
+                $("#cut-butter").append(butter_label);
+
+
+                let garlic = $("<img>");
+                garlic.attr("src", "images/cut-garlic.png");
+                garlic.attr("alt", "Garlic");
+                garlic.attr("id", "cut-garlic-img");
+
+                let garlic_label= $("<span>");
+                garlic_label.html("Garlic")
+                garlic_label.addClass("description");
+
+                $("#cut-garlic").append(garlic);
+                $("#cut-garlic").append(garlic_label);
+
+
+                $("#cut-butter").draggable({
+                      revert: "invalid",
+                      start: function( event, ui ) {
+                        $("#cut-butter").find(".description").hide();
+                      },
+                      stop: function( event, ui ) {
+                        $("cut-butter").find(".description").show();
+                      }
+                });
+
+                $("#cut-garlic").draggable({
+                      revert: "invalid",
+                      start: function( event, ui ) {
+                        $("#cut-garlic").find(".description").hide();
+                      },
+                      stop: function( event, ui ) {
+                        $("#cut-garlic").find(".description").show();
+                      }
+                });
+
+
                 $("#ingredients-label").html("Butter and garlic is now ready!");
 
                 $("#timer").off('click');
@@ -937,6 +1006,16 @@ $(document).ready(function(){
       <img id="olive-oil-img" src="images/olive-oil.png" alt="Olive Oil"> </img>
       <span class="description">Olive Oil</span>
   </div>
+
+
+  <div class="ingredient" id="cut-butter">
+
+  </div>
+  <div class="ingredient" id="cut-garlic">
+
+  </div>
+
+
 
   <img id="arrow-steak" src="images/arrow.png" alt="Arrow-steak"> </img>
 
