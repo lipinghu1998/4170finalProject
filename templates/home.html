@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">
+<script type="text/javascript" src="{{ url_for('static', filename = 'home.js') }}"></script>
+
+<h1 id="title"> Cook the Gordon Ramsay Steak </h1>
+
+<div id="subtext"> All it takes is 15 minutes and 4 ingredients to make someone love you forever. </div>
+
+
+<img src="/static/images/banner-steak.png" alt="Banner" id="banner"> </img>
+
+<button type="button" id="start" class="btn btn-primary">START LEARNING</button>
+
+
+{% endblock %}
