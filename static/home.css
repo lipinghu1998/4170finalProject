@@ -1,0 +1,43 @@
+
+  #navigation_menu{
+    position: absolute;
+    left: 500px;
+    padding: 10px;
+    font-size: 20px;
+  }
+  .nav-item{
+    margin: 10px;
+  }
+
+  #title{
+    position: absolute;
+    top: 80px;
+    left: 80px;
+  }
+  #subtext{
+    position: absolute;
+    top: 350px;
+    left: 80px;
+    width: 600px;
+    font-size: 20px;
+    font-family: Arial;s
+  }
+
+  #start{
+    position: absolute;
+    top: 450px;
+    left: 78px;
+    font-size: 20px;
+  }
+ 
+
+
+  #banner{
+    position: absolute;
+    top: 90px;
+    left: 800px;
+    height: 600px;
+    width: 500px;
+  }
+
+  
