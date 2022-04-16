@@ -3,23 +3,46 @@ from flask import render_template
 from flask import Response, request, jsonify
 app = Flask(__name__)
 
-
-#Variables to keep track of state & score
+#Variables to track score (Game)
 score=0
-total=1
+total_score=1
 
-#Ingredients for a step
-ingredients_step=[]
-utensils_step=[]
-actions_step=[]
-
-#Data to Client
-ingredients=[]
-utensils=[]
-actions=[]
+#Variables to track steps completed (Learn)
+steps_completed=0
+total_steps=6
 
 #Data in JSON
 data={
+
+"instructions": {
+    "1":{
+          "id": "1",
+          "description": "(1)<b> UNTHAW </b>the frozen steak",
+          "sub": ["<b>Cut</b> your butter and garlic"]
+       },
+      "2":{
+          "id": "2",
+          "description": "(2) Put a pan over <b>Medium-High heat</b>"
+       },
+      "3":{
+          "id": "3",
+          "description": "(3) Drag the <b>salt</b> and <b>pepper</b> onto the steak to season"
+       },
+      "4":{
+          "id": "4",
+          "description": "(4) <b>Rub</b> bottom of steaks with excess salt and pepper that has fallen onto table"
+       },
+      "5":{
+          "id": "5",
+          "description": "(5) Coat the pan in oil once the pan begins to <b>smoke</b>"
+       },
+      "6":{
+          "id": "6",
+          "description": "(6) <b>Sear</b> steak for one minute on each side"
+       }
+
+
+},
 
 "ingredients":{
 
@@ -204,7 +227,7 @@ data={
 
    },
 
- "chef":{
+ "chefs":{
 
     "ramsay":{
        "id": "ramsay",
@@ -215,21 +238,25 @@ data={
 
 }
 
+#Data for a specific step
+ingredients_step=[]
+utensils_step=[]
+actions_step=[]
 
-
-
-
+#Data to Client
+ingredients=[]
+utensils=[]
+actions=[]
 
 
 
 #ROUTES
 @app.route('/')
 def home():
-   return render_template('home.html')
+   return render_template('home.html', steak=data["ingredients"]["steak"], stat={"steps_completed":steps_completed, "total_steps":total_steps})
 
 @app.route('/learn/<step>')
 def learn_step(step=None):
-
 
     #Steps
     if step=="1":
@@ -238,21 +265,18 @@ def learn_step(step=None):
         actions_step=["arrow"]
 
 
-
     ingredients={x:data["ingredients"][x] for x in ingredients_step}
     utensils={x:data["utensils"][x] for x in utensils_step}
     actions={x:data["actions"][x] for x in actions_step}
 
 
-    return render_template('learn_'+str(step)+'.html', ingredients=ingredients, utensils=utensils, actions=actions)
+    return render_template('learn_'+str(step)+'.html', ingredients=ingredients, utensils=utensils, actions=actions, instruction=data["instructions"][step])
 
 
 
 @app.route('/game')
 def game():
-   return render_template('game.html', img={"chef":data["chef"]})
-
-
+   return render_template('game.html', img=data["chefs"])
 
 
 
@@ -276,7 +300,8 @@ def game_step(step=None):
 
 @app.route('/result')
 def result():
-   return render_template('result.html', stat={"score":score, "total":total})
+
+   return render_template('result.html', stat={"score":score, "total_score":total_score}, steak=data["ingredients"]["steak"], cutting_board=data["utensils"]["cutting-board"])
 
 
 
@@ -289,6 +314,29 @@ def increase_score():
 
     if response["check"]=="success":
         score+=1
+
+    return jsonify(score = score)
+
+@app.route('/increase_steps_completed', methods=['GET', 'POST'])
+def increase_steps_completed():
+    global steps_completed
+
+    response=request.get_json()
+
+    if response["check"]=="success":
+        steps_completed+=1
+
+    return jsonify(steps_completed = steps_completed)
+
+
+@app.route('/reset_score', methods=['GET', 'POST'])
+def reset_score():
+    global score
+
+    response=request.get_json()
+
+    if response["check"]=="success":
+        score=0
 
     return jsonify(score = score)
 

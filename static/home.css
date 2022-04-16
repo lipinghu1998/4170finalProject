@@ -8,6 +8,13 @@
   .nav-item{
     margin: 10px;
   }
+  #banner{
+    position: absolute;
+    top: 90px;
+    left: 800px;
+    height: 600px;
+    width: 500px;
+  }
 
   #title{
     position: absolute;
@@ -16,28 +23,38 @@
   }
   #subtext{
     position: absolute;
-    top: 350px;
+    top: 240px;
     left: 80px;
     width: 600px;
     font-size: 20px;
-    font-family: Arial;s
+    font-family: Arial;
   }
+
 
   #start{
     position: absolute;
-    top: 450px;
+    top: 320px;
     left: 78px;
     font-size: 20px;
   }
- 
 
 
-  #banner{
+  #report{
     position: absolute;
-    top: 90px;
-    left: 800px;
-    height: 600px;
-    width: 500px;
+    top: 590px;
+    left: 80px;
+    font-size: 20px;
+    font-family: Arial;
+    border-style: solid;
+    padding: 8px;
   }
+
+   #resume{
+    position: absolute;
+    top: 592px;
+    left: 430px;
+    font-size: 18px;
+  }
+ 
 
   

@@ -1,14 +1,34 @@
-   $(document).ready(function(){
-
-   $("#nav_game").addClass("active");
+$(document).ready(function(){
+  //Navigation Menu activate- Game
+  $("#nav_game").addClass("active");
 
   $("#nav_learn").removeClass("active");
   $("#nav_home").removeClass("active");
 
 
-    $("#start_game").click(function(){
-        window.location.href="/game/1";
+  //Reset score to zero before every game starts
+  $.ajax({
+   type: "POST",
+   url: "/reset_score",
+   dataType : "json",
+   contentType: "application/json; charset=utf-8",
+   data : JSON.stringify({"check":"success"}),
+   success: function(response){
+     $("#start_game").click(function(){
+         window.location.href="/game/1";
 
-      })
+       })
+
+   },
+   error: function(request, status, error){
+       console.log("Error");
+       console.log(request)
+       console.log(status)
+       console.log(error)
+   }
+});
+
+
+
 
 });
