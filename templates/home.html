@@ -2,17 +2,29 @@
 
 {% block content %}
 
+<script>
+let steak = {{steak|tojson}}
+let stat = {{stat|tojson}}
+
+</script>
+
+
 <link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">
 <script type="text/javascript" src="{{ url_for('static', filename = 'home.js') }}"></script>
+
 
 <h1 id="title"> Cook the Gordon Ramsay Steak </h1>
 
 <div id="subtext"> All it takes is 15 minutes and 4 ingredients to make someone love you forever. </div>
 
 
-<img src="/static/images/banner-steak.png" alt="Banner" id="banner"> </img>
+<img src={{steak["banner"]["image"]}} alt={{steak["banner"]["image"]}} id="banner"> </img>
 
 <button type="button" id="start" class="btn btn-primary">START LEARNING</button>
 
+<div id="report">
+ You have learned <b>{{stat["steps_completed"]}}/{{stat["total_steps"]}} steps</b> so far.
+</div>
+<button type="button" id="resume" class="btn btn-secondary">RESUME</button>
 
 {% endblock %}
