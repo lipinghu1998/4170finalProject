@@ -153,18 +153,69 @@ $("#cutting-board").on("drop", function( event, ui ) {
     );
 
 
-
-
-    //Butter & Garlic z-index increased to enable drag over popup
-    $("#uncut-butter").css("z-index", "7");
-    $("#uncut-garlic").css("z-index", "7");
-
     //Butter & Garlic combined into one class- paste
     $("#uncut-butter").addClass("paste");
     $("#uncut-garlic").addClass("paste");
 
 
-    //Butter & Garlic can move over other items on drag
+    //z-index of ingredients increased to enable drag over popup
+    $("#thyme").css("z-index", "7");
+    $("#salt").css("z-index", "7");
+    $("#pepper").css("z-index", "7");
+    $("#olive-oil").css("z-index", "7");
+    $("#uncut-butter").css("z-index", "7");
+    $("#uncut-garlic").css("z-index", "7");
+
+
+    //ingredients can move over other items on drag
+    $("#thyme").mouseenter(
+    function() {
+      $(this).css("z-index", "9");
+    }
+    );
+
+    $("#thyme").mouseleave(
+    function() {
+      $(this).css("z-index", "7");
+    }
+    );
+
+    $("#salt").mouseenter(
+    function() {
+      $(this).css("z-index", "9");
+    }
+    );
+
+    $("#salt").mouseleave(
+    function() {
+      $(this).css("z-index", "7");
+    }
+    );
+
+    $("#pepper").mouseenter(
+    function() {
+      $(this).css("z-index", "9");
+    }
+    );
+
+    $("#pepper").mouseleave(
+    function() {
+      $(this).css("z-index", "7");
+    }
+    );
+
+    $("#olive-oil").mouseenter(
+    function() {
+      $(this).css("z-index", "9");
+    }
+    );
+
+    $("#olive-oil").mouseleave(
+    function() {
+      $(this).css("z-index", "7");
+    }
+    );
+
     $("#uncut-butter").mouseenter(
     function() {
       $(this).css("z-index", "9");
