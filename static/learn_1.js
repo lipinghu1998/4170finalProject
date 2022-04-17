@@ -175,13 +175,14 @@ $("#cutting-board").on("drop", function( event, ui ) {
     $("#uncut-butter").css("opacity", "1");
     $("#uncut-garlic").css("opacity", "1");
 
-    //Butter & Garlic z-index increased to enable drag over popup
-    $("#uncut-butter").css("z-index", "7");
-    $("#uncut-garlic").css("z-index", "7");
-
     //Butter & Garlic combined into one class- paste
     $("#uncut-butter").addClass("paste");
     $("#uncut-garlic").addClass("paste");
+
+
+    //Butter & Garlic z-index increased to enable drag over popup
+    $("#uncut-butter").css("z-index", "7");
+    $("#uncut-garlic").css("z-index", "7");
 
 
     //Butter & Garlic can move over other items on drag
