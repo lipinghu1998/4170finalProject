@@ -1,0 +1,699 @@
+<html>
+    <head>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <style>
+
+    #instruction{
+        position: absolute;
+        top: 110px;
+        left: 50px;
+        font-family: Arial;
+        font-size: 18px;
+    }
+
+    #timer{
+        position: absolute;
+        top: 100px;
+        left: 900px;
+        background-color: darkseagreen;
+        padding: 10px;
+        border: solid;
+        font-size: 20px;
+    }
+
+    #timer-label{
+        position: absolute;
+        top: 75px;
+        left: 900px;
+        color: red;
+        font-size: 15px;
+        font-family: Arial;
+        font-weight: bold;
+    }
+
+    #raw-steak{
+        position: absolute;
+        top: 350px;
+        left: 290px;
+        z-index: 2;
+    }
+
+    #raw-steak-img{
+        height: 190px;
+        width: 230px;
+    }
+
+    #frozen-steak{
+        position: absolute;
+        top: 20px;
+        left: 400px;
+        z-index: 2;
+    }
+
+    #frozen-steak-img{
+        height: 50px;
+        width: 70px;
+    }
+
+    #thyme{
+        position: absolute;
+        top: 85px;
+        left: 395px;
+        z-index: 2;
+    }
+
+    #thyme-img{
+        height: 30px;
+        width: 80px;
+    }
+
+    #uncut-butter{
+        position: absolute;
+        top: 35px;
+        left: 500px;
+        z-index: 2;
+    }
+
+    #uncut-butter-img{
+        height: 60px;
+        width: 70px;
+    }
+
+    #uncut-garlic{
+        position: absolute;
+        top: 130px;
+        left: 410px;
+        z-index: 2;
+    }
+
+    #uncut-garlic-img{
+        height: 40px;
+        width: 50px;
+    }
+
+    #salt{
+        position: absolute;
+        top: 120px;
+        left: 500px;
+        z-index: 2;
+    }
+
+    #salt-img{
+        height: 50px;
+        width: 20px;
+    }
+
+    #pepper{
+        position: absolute;
+        top: 105px;
+        left: 550px;
+        z-index: 2;
+    }
+
+    #pepper-img{
+        height: 55px;
+        width: 35px;
+    }
+
+    #olive-oil{
+        position: absolute;
+        top: 60px;
+        left: 605px;
+        z-index: 2;
+    }
+
+    #olive-oil-img{
+        height: 100px;
+        width: 40px;
+    }
+
+    #knife{
+        position: absolute;
+        top: 340px;
+        left: 50px;
+        height: 100px;
+        width: 100px;
+        z-index: 3;
+    }
+
+    #knife:hover{
+        cursor: pointer;
+    }
+
+    .ingredient:hover{
+        cursor: pointer;
+    }
+
+    .ingredient .description{
+        visibility: hidden;
+        width: 70px;
+        background-color: black;
+        color: white;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        top: -5px;
+        left: 110%;
+    }
+
+    .ingredient .description::after{
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        margin-top: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent black transparent transparent;
+    }
+
+    .ingredient:hover .description{
+        visibility: visible;
+    }
+
+    #arrow-steak{
+        position: absolute;
+        top: 220px;
+        left: 215px;
+        height: 16px;
+        width: 350px;
+        transform: rotate(280deg);
+        z-index: 3;
+    }
+
+    #cutting-board{
+        position: absolute;
+        top: 350px;
+        left: 200px;
+        height: 200px;
+        width: 400px;
+        z-index: 1;
+    }
+
+    #empty-pan{
+        position: absolute;
+        top: 340px;
+        left: 800px;
+        height: 170px;
+        width: 300px;
+        z-index: 1;
+    }
+
+    #temperature{
+        position: absolute;
+        top: 520px;
+        left: 860px;
+    }
+
+    .dot {
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+        border-style: solid;
+        margin: 5px;
+        display: inline-block;
+    }
+
+    #low{
+        background-color: lightgreen;
+    }
+
+    #med{
+        background-color: orange;
+    }
+
+    #high{
+        background-color: red;
+    }
+
+    #temperature-labels{
+        position: absolute;
+        top: 550px;
+        left: 862px;
+    }
+
+    .label{
+        font-weight: bold;
+        font-size: 13px;
+        margin: 8px;
+    }
+
+    .pop-up-style{
+        position: absolute;
+        top: 220px;
+        left: 325px;
+        height: 400px;
+        width: 675px;
+        background-color: ivory;
+        border-style: solid;
+        border-width: 2px;
+        z-index: 5;
+    }
+
+    #cutting-board-small{
+        position: absolute;
+        top: 100px;
+        left: 130px;
+        height: 250px;
+        width: 450px;
+        z-index: 6;
+    }
+
+    .arrow-garlic-style{
+        position: absolute;
+        top: 267px;
+        left: 357px;
+        height: 16px;
+        width: 270px;
+        transform: rotate(245deg);
+        z-index: 8;
+    }
+
+    .arrow-butter-style{
+        position: absolute;
+        top: 220px;
+        left: 440px;
+        height: 14px;
+        width: 370px;
+        transform: rotate(245deg);
+        z-index: 8;
+    }
+
+    #sub-instruction{
+        position: relative;
+        top: 20px;
+        left: 410px;
+        font-family: Arial;
+        font-size: 18px;
+    }
+
+    #sub-alert{
+        position: relative;
+        top: 200px;
+        left: 10px;
+        width: 120px;
+        font-family: Arial;
+        color: red;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    #popup-uncut-garlic{
+        position: absolute;
+        top: 170px;
+        left: 200px;
+        height: 70px;
+        width: 80px;
+        z-index: 7;
+    }
+
+    #popup-uncut-butter{
+        position: absolute;
+        top: 150px;
+        left: 370px;
+        height: 70px;
+        width: 80px;
+        z-index: 7;
+    }
+
+    #popup-cut-garlic{
+        position: absolute;
+        top: 170px;
+        left: 200px;
+        height: 70px;
+        width: 80px;
+        z-index: 7;
+    }
+
+    #popup-cut-butter{
+        position: absolute;
+        top: 150px;
+        left: 370px;
+        height: 70px;
+        width: 80px;
+        z-index: 7;
+    }
+
+    .popup-arrow-garlic-style{
+        position: absolute;
+        top: 400px;
+        left: 410px;
+        height: 16px;
+        width: 150px;
+        transform: rotate(200deg);
+        z-index: 9;
+    }
+
+    .popup-arrow-butter-style{
+        position: absolute;
+        top: 360px;
+        left: 435px;
+        height: 14px;
+        width: 325px;
+        transform: rotate(185deg);
+        z-index: 9;
+    }
+
+    #ingredients-label{
+        position: relative;
+        top: 15px;
+        left: 400px;
+        font-family: Arial;
+        color: red;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    /* --- Added by Hernan --- */
+
+    .arrow-salt-style{
+        position: absolute;
+        top: 410px;
+        left: 250px;
+        height: 16px;
+        width: 150px;
+        transform: rotate(200deg);
+        z-index: 9;
+    }
+
+    .arrow-pepper-style{
+        position: absolute;
+        top: 430px;
+        left: 210px;
+        height: 16px;
+        width: 150px;
+        transform: rotate(200deg);
+        z-index: 9;
+    }
+
+    #fire{
+        position: absolute;
+        top: 425px;
+        left: 870px;
+        z-index: 1;
+    }
+
+    #fire-gif{
+        height: 100px;
+        width: 100px;
+    }
+
+    #med:hover{
+        cursor: pointer;
+    }
+
+    #cut-butter{
+        position: absolute;
+        top: 35px;
+        left: 500px;
+        z-index: 2;
+    }
+    
+    #cut-butter-img{
+        height: 60px;
+        width: 70px;
+    }
+
+    #cut-garlic{
+        position: absolute;
+        top: 130px;
+        left: 410px;
+        z-index: 2;
+    }
+
+    #cut-garlic-img{
+        height: 40px;
+        width: 50px;
+    }
+
+    /* --- End added by Hernan --- */
+    
+    </style>
+
+    <script>
+    $(document).ready(function(){
+
+        //Counter
+        let step=2;
+
+        //Draggable items
+        $("#frozen-steak").draggable({
+            revert: "invalid",
+            start: function( event, ui ) {
+                $("#frozen-steak").find(".description").hide();
+            },
+            stop: function( event, ui ) {
+                $("#frozen-steak").find(".description").show();
+            }
+        });
+
+        $("#thyme").draggable({
+            revert: "invalid",
+            start: function( event, ui ) {
+                $("#thyme").find(".description").hide();
+            },
+            stop: function( event, ui ) {
+                $("#thyme").find(".description").show();
+            }
+        });
+
+        $("#uncut-butter").draggable({
+            revert: "invalid",
+            start: function( event, ui ) {
+                $("#uncut-butter").find(".description").hide();
+            },
+            stop: function( event, ui ) {
+                $("#uncut-butter").find(".description").show();
+            }
+        });
+
+        $("#uncut-garlic").draggable({
+            revert: "invalid",
+            start: function( event, ui ) {
+                $("#uncut-garlic").find(".description").hide();
+            },
+            stop: function( event, ui ) {
+                $("#uncut-garlic").find(".description").show();
+            }
+        });
+
+        $("#salt").draggable({
+            revert: "invalid",
+            start: function( event, ui ) {
+                $("#salt").find(".description").hide();
+            },
+            stop: function( event, ui ) {
+                $("#salt").find(".description").show();
+            }
+        });
+
+        $("#pepper").draggable({
+            revert: "invalid",
+            start: function( event, ui ) {
+                $("#pepper").find(".description").hide();
+            },
+            stop: function( event, ui ) {
+                $("#pepper").find(".description").show();
+            }
+        });
+
+        $("#olive-oil").draggable({
+            revert: "invalid",
+            start: function( event, ui ) {
+                $("#olive-oil").find(".description").hide();
+            },
+            stop: function( event, ui ) {
+                $("#olive-oil").find(".description").show();
+            }
+        });
+
+        $("#knife").draggable({
+            revert: "invalid"
+        });
+
+        //Droppable items
+        $("#cutting-board").droppable({
+            accept: false
+        });
+
+        $("#empty-pan").droppable({
+            accept: false
+        });
+        
+        // Step 2
+        if(step == 2){
+            $("#instruction").html("(2) Put a pan over <b>Medium-High heat</b>");
+            let img = $("<img>");
+            img.attr("src", "images/raw-steak.png");
+            img.attr("alt", "Raw Steak");
+            img.attr("id", "raw-steak-img");
+            $("#raw-steak").append(img);
+            
+            function show_fire(){
+                let gif = $("<img>");
+                gif.attr("src", "images/fire.gif");
+                gif.attr("alt", "Fire");
+                gif.attr("id", "fire-gif");
+                $("#fire").append(gif);
+            }
+
+            $("#med").one("click", function(){
+                show_fire();
+                step = 3;
+                step_3();            
+            });
+        } // End step 2
+
+        // Step 3
+        function step_3(){
+            // Change instructions to step 3
+            $("#instruction").html("(3) Drag the <b>salt</b> and <b>pepper</b> onto<br>the steak to season");
+            
+            let steak_salted = 0;
+            let steak_peppered = 0;
+            let drag_salt = 0;
+            let drag_pepper = 0;        
+            
+            // Set salt and pepper images on cutting board
+            $("#salt").css("top", "350px");
+            $("#salt").css("left", "250px");
+            $("#salt").css("z-index", "9");
+            $("#pepper").css("top", "375px");
+            $("#pepper").css("left", "200px");
+            $("#pepper").css("z-index", "9");
+            
+            // Create arrow from salt to steak
+            let arrow_salt = $("<img>");
+            arrow_salt.attr("src", "images/arrow.png");
+            arrow_salt.attr("alt", "salt arrow");
+            $(arrow_salt).addClass("arrow-salt-style");
+            $("#arrow-salt").append(arrow_salt);
+
+            // Create arrow from pepper to steak
+            let arrow_pepper = $("<img>");
+            arrow_pepper.attr("src", "images/arrow.png");
+            arrow_pepper.attr("alt", "pepper arrow");
+            $(arrow_pepper).addClass("arrow-pepper-style");
+            $("#arrow-pepper").append(arrow_pepper);
+
+            // Make steak droppable for salt and pepper
+            $("#raw-steak-img").droppable({
+                accept: "#salt, #pepper"
+            });
+            
+            // Actions for salt when dragged
+            $("#salt").on("dragstart", function(event, ui){
+                $("#arrow-salt").hide();
+                drag_salt = 1;
+            });
+
+            $("#salt").on("dragstop", function(event, ui){
+                drag_salt = 0;
+            });
+
+            // Actions for pepper when dragged
+            $("#pepper").on("dragstart", function(event, ui){
+                $("#arrow-pepper").hide();
+                drag_pepper = 1;
+            });
+
+            $("#pepper").on("dragstop", function(event, ui){
+                drag_pepper = 0;              
+            });
+
+            $("#raw-steak-img").on("drop", function(event, ui){
+                if(drag_salt == 1){
+                    drag_salt = 0;
+                    $("#salt").css("transform","rotate(135deg)");
+                    setTimeout(function() { 
+                        $("#salt").css("top", "120px");
+                        $("#salt").css("left", "500px");
+                        $("#salt").css("transform","rotate(0deg)");
+                        steak_salted = 1;
+                    }, 1000);
+                }
+                else if(drag_pepper == 1){
+                    drag_pepper = 0;
+                    $("#pepper").css("transform","rotate(135deg)");
+                    setTimeout(function() { 
+                        $("#pepper").css("top", "105px");
+                        $("#pepper").css("left", "550px");
+                        $("#pepper").css("transform","rotate(0deg)");
+                        steak_peppered = 1;
+                    }, 1000);
+                }
+            });
+        } // End step 3
+    }); // End script
+
+    </script>
+    </head>
+
+  <body>
+    <div class="ingredient" id="thyme">
+        <img id="thyme-img" src="images/thyme.png" alt="Thyme"> </img>
+        <span class="description">Thyme</span>
+    </div>
+    <div class="ingredient" id="cut-butter">
+        <img id="cut-butter-img" src="images/cut-butter.png" alt="Cut Butter"> </img>
+        <span class="description">Butter</span>
+    </div>
+    <div class="ingredient" id="cut-garlic">
+        <img id="cut-garlic-img" src="images/cut-garlic.png" alt="Cut Garlic"> </img>
+        <span class="description">Garlic</span>
+    </div>
+    <div class="ingredient" id="salt">
+        <img id="salt-img" src="images/salt.png" alt="Salt"> </img>
+        <span class="description">Salt</span>
+    </div>
+    <div class="ingredient" id="pepper">
+        <img id="pepper-img" src="images/pepper.png" alt="Pepper"> </img>
+        <span class="description">Pepper</span>
+    </div>
+    <div class="ingredient" id="olive-oil">
+        <img id="olive-oil-img" src="images/olive-oil.png" alt="Olive Oil"> </img>
+        <span class="description">Olive Oil</span>
+    </div>
+
+    <!--<img id="arrow-steak" src="images/arrow.png" alt="Arrow-steak"> </img>-->
+
+    <div id="arrow-butter"> </div>
+    <div id="arrow-garlic"> </div>
+
+    <div id="popup-arrow-butter"> </div>
+    <div id="popup-arrow-garlic"> </div>
+
+    <div id="timer">
+        00:00:00
+    </div>
+    <div id="timer-label"></div>
+
+    <div id="instruction"> </div>
+    <img id="knife" src="images/knife.png" alt="Knife"> </img>
+    <div id="raw-steak"> </div>
+    <div id="arrow-salt"> </div>
+    <div id="arrow-pepper"> </div>
+
+    <img src="images/cutting-board.png" alt="Cutting Board" id="cutting-board"> </img>
+    <img src="images/empty-pan.png" alt="Empty Pan" id="empty-pan"> </img>
+
+    <div id="temperature">
+        <span class="dot" id="low"></span>
+        <span class="dot" id="med"></span>
+        <span class="dot" id="high"></span>
+    </div>
+    <div id="fire"></div>
+    <div id="temperature-labels">
+        <span class="label">low</span>
+        <span class="label">med</span>
+        <span class="label">high</span>
+    </div>
+
+    <div id="ingredients-label"></div>    
+  </body>
+</html>
