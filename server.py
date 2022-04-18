@@ -396,6 +396,18 @@ def reset_steps_completed():
     return jsonify(steps_completed = steps_completed)
 
 
+@app.route('/return_steps_completed', methods=['GET', 'POST'])
+def return_steps_completed():
+    global steps_completed
+
+    response=request.get_json()
+
+    return jsonify(steps_completed = steps_completed)
+
+
+
+
+
 
 if __name__ == '__main__':
    app.run(debug = True)
