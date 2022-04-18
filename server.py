@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 #Variables to track score (Game)
 score=0
-total_score=1
+total_score=4
 
 #Variables to track steps completed (Learn)
 steps_completed=0
@@ -26,7 +26,7 @@ data={
        },
       "3":{
           "id": "3",
-          "description": "(3) Drag the <b>salt</b> and <b>pepper</b> onto the steak to season"
+          "description": "(3) Drag the <b>salt</b> and <b>pepper</b> onto <br>the steak to season"
        },
       "4":{
           "id": "4",
