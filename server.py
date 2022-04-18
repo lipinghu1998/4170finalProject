@@ -258,19 +258,29 @@ def home():
 @app.route('/learn/<step>')
 def learn_step(step=None):
 
-    #Steps
-    if step=="1":
-        ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
-        utensils_step=["pan", "knife", "cutting-board"]
-        actions_step=["arrow"]
+   #Steps
+   if step=="1":
+      ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
+      utensils_step=["pan", "knife", "cutting-board"]
+      actions_step=["arrow"]
+
+   elif step=="2":
+      ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
+      utensils_step=["pan", "knife", "cutting-board"]
+      actions_step=["arrow", "fire"]
+   
+   elif step=="3":
+      ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
+      utensils_step=["pan", "knife", "cutting-board"]
+      actions_step=["arrow", "fire", "season"]
 
 
-    ingredients={x:data["ingredients"][x] for x in ingredients_step}
-    utensils={x:data["utensils"][x] for x in utensils_step}
-    actions={x:data["actions"][x] for x in actions_step}
+   ingredients={x:data["ingredients"][x] for x in ingredients_step}
+   utensils={x:data["utensils"][x] for x in utensils_step}
+   actions={x:data["actions"][x] for x in actions_step}
 
 
-    return render_template('learn_'+str(step)+'.html', ingredients=ingredients, utensils=utensils, actions=actions, instruction=data["instructions"][step])
+   return render_template('learn_'+str(step)+'.html', ingredients=ingredients, utensils=utensils, actions=actions, instruction=data["instructions"][step])
 
 
 
@@ -283,20 +293,30 @@ def game():
 @app.route('/game/<step>')
 def game_step(step=None):
 
-    #Steps
-    if step=="1":
-        ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
-        utensils_step=["pan", "knife", "cutting-board"]
-        actions_step=["arrow"]
+   #Steps
+   if step=="1":
+      ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
+      utensils_step=["pan", "knife", "cutting-board"]
+      actions_step=["arrow"]
+
+   elif step=="2":
+      ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
+      utensils_step=["pan", "knife", "cutting-board"]
+      actions_step=["arrow", "fire"]
+   
+   elif step=="3":
+      ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
+      utensils_step=["pan", "knife", "cutting-board"]
+      actions_step=["arrow", "fire", "season"]
 
 
 
-    ingredients={x:data["ingredients"][x] for x in ingredients_step}
-    utensils={x:data["utensils"][x] for x in utensils_step}
-    actions={x:data["actions"][x] for x in actions_step}
+   ingredients={x:data["ingredients"][x] for x in ingredients_step}
+   utensils={x:data["utensils"][x] for x in utensils_step}
+   actions={x:data["actions"][x] for x in actions_step}
 
 
-    return render_template('game_'+str(step)+'.html', ingredients=ingredients, utensils=utensils, actions=actions)
+   return render_template('game_'+str(step)+'.html', ingredients=ingredients, utensils=utensils, actions=actions)
 
 @app.route('/result')
 def result():
@@ -308,37 +328,37 @@ def result():
 # AJAX FUNCTIONS
 @app.route('/increase_score', methods=['GET', 'POST'])
 def increase_score():
-    global score
+   global score
 
-    response=request.get_json()
+   response=request.get_json()
 
-    if response["check"]=="success":
-        score+=1
+   if response["check"]=="success":
+      score+=1
 
-    return jsonify(score = score)
+   return jsonify(score = score)
 
 @app.route('/increase_steps_completed', methods=['GET', 'POST'])
 def increase_steps_completed():
-    global steps_completed
+   global steps_completed
 
-    response=request.get_json()
+   response=request.get_json()
 
-    if response["check"]=="success":
-        steps_completed+=1
+   if response["check"]=="success":
+      steps_completed+=1
 
-    return jsonify(steps_completed = steps_completed)
+   return jsonify(steps_completed = steps_completed)
 
 
 @app.route('/reset_score', methods=['GET', 'POST'])
 def reset_score():
-    global score
+   global score
 
-    response=request.get_json()
+   response=request.get_json()
 
-    if response["check"]=="success":
-        score=0
+   if response["check"]=="success":
+      score=0
 
-    return jsonify(score = score)
+   return jsonify(score = score)
 
 
 
