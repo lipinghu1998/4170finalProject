@@ -3,16 +3,14 @@
 {% block content %}
 
 <script>
-
 let ingredients = {{ingredients|tojson}}
 let utensils = {{utensils|tojson}}
 let actions = {{actions|tojson}}
-
 let instruction = {{instruction|tojson}}
 </script>
 
 
- <link rel="stylesheet" href="{{url_for('static', filename='learn_1.css')}}">
+ <link rel="stylesheet" href="{{url_for('static', filename='step_1.css')}}">
 
  <script type="text/javascript" src="{{ url_for('static', filename = 'learn_1.js') }}"></script>
 
