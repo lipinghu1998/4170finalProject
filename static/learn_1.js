@@ -410,28 +410,35 @@ $("#cutting-board").on("drop", function( event, ui ) {
             //Alert user of success
             $("#ingredients-label").html("Butter and garlic is now ready!");
 
-            //Increase steps_completed on server side
-            $.ajax({
-                 type: "POST",
-                 url: "/increase_steps_completed",
-                 dataType : "json",
-                 contentType: "application/json; charset=utf-8",
-                 data : JSON.stringify({"check":"success"}),
-                 success: function(response){
-                   setTimeout(function() {
-                       window.location.href="/learn/2";
-                   }, 3300);
+
+              $.ajax({
+                   type: "POST",
+                   url: "/increase_steps_completed",
+                   dataType : "json",
+                   contentType: "application/json; charset=utf-8",
+                   data : JSON.stringify({"check":"success"}),
+                   success: function(response){
+                     $("#arrow-next").click(function(){
+                         window.location.href="/learn/2";
+                      })
+
+                      setTimeout(function() {
+                         window.location.href="/learn/2";
+                      }, 3300);
+                   },
+                   error: function(request, status, error){
+                       console.log("Error");
+                       console.log(request)
+                       console.log(status)
+                       console.log(error)
+                   }
+                 });
 
 
 
-                 },
-                 error: function(request, status, error){
-                     console.log("Error");
-                     console.log(request)
-                     console.log(status)
-                     console.log(error)
-                 }
-          });
+
+
+
 
 
 
@@ -566,7 +573,7 @@ $("#cutting-board").on("drop", function( event, ui ) {
                    if(garlic_cut){
                      setTimeout(function() {
                          close_popup();
-                     }, 3300);
+                     }, 2200);
                    }
              });
 
