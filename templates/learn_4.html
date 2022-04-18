@@ -31,14 +31,11 @@
   }
 
   #seasoned-steak{
-    position: absolute;
-    top: 320px;
-    left: 130px;
     z-index: 4;
   }
   #seasoned-steak-img{
-    height: 160px;
-    width: 220px;
+    height: 190px;
+    width: 230px;
   }
 
   #flipped-seasoned-steak-img{
@@ -307,15 +304,15 @@
   }
 
   #flip-box {
-    top: 0px;
-    left: 0px;
+    top: 350px;
+    left: 290px;
 
-		width: 70%;
+		width: 10%;
 		height: 80%;
 		transition: 1s;
 		transform-style: preserve-3d;
-		position: relative;
-    z-index: 3
+		position: absolute;
+    z-index: 3;
 	}
 
 
@@ -476,6 +473,28 @@ $(document).ready(function(){
 
       $('#sub-instruction').remove();
 
+      //Increase steps_completed on server side
+      $.ajax({
+                 type: "POST",
+                 url: "/increase_steps_completed",
+                 dataType : "json",
+                 contentType: "application/json; charset=utf-8",
+                 data : JSON.stringify({"check":"success"}),
+                 success: function(response){
+                   setTimeout(function() {
+                       window.location.href="/learn/5";
+                   }, 3300);
+
+
+
+                 },
+                 error: function(request, status, error){
+                     console.log("Error");
+                     console.log(request)
+                     console.log(status)
+                     console.log(error)
+                 }
+          });
     }
 
   });
@@ -564,7 +583,7 @@ $(document).ready(function(){
 
   <div id="pop-up"> </div>
 
-  <!-- <img id="arrow-next" src={{actions["arrow"]["next"]["image"]}} alt={{actions["arrow"]["next"]["description"]}}> </img> -->
+  <img id="arrow-next" src={{actions["arrow"]["next"]["image"]}} alt={{actions["arrow"]["next"]["description"]}}> </img>
 
 
   </body>
