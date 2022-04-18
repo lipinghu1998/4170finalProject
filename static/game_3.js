@@ -1,10 +1,10 @@
 $(document).ready(function(){
 
     //Navigation Menu activate- Learn
-    $("#nav_learn").addClass("active");
-  
+    $("#nav_game").addClass("active");
+
     $("#nav_home").removeClass("active");
-    $("#nav_game").removeClass("active");
+    $("#nav_learn").removeClass("active");
 
     $("#salt").draggable({
         revert: "invalid",
@@ -40,11 +40,11 @@ $(document).ready(function(){
 
     $//Set current instruction
     $("#instruction").html(instruction["description"]);
-                
+
     let steak_salted = 0;
     let steak_peppered = 0;
     let drag_salt = 0;
-    let drag_pepper = 0;        
+    let drag_pepper = 0;
 
     // Set salt and pepper images on cutting board
     $("#salt").css("top", "350px");
@@ -90,7 +90,7 @@ $(document).ready(function(){
     });
 
     $("#pepper").on("dragstop", function(event, ui){
-        drag_pepper = 0;              
+        drag_pepper = 0;
     });
 
     // Replace steak image
@@ -129,14 +129,14 @@ $(document).ready(function(){
                     console.log(error)
                 }
             });
-        }        
+        }
     }
 
     $("#raw-steak-img").on("drop", function(event, ui){
         if(drag_salt == 1){
             drag_salt = 0;
             $("#salt").css("transform","rotate(135deg)");
-            setTimeout(function() { 
+            setTimeout(function() {
                 $("#salt").css("top", "170px");
                 $("#salt").css("left", "500px");
                 $("#salt").css("transform","rotate(0deg)");
@@ -148,7 +148,7 @@ $(document).ready(function(){
         else if(drag_pepper == 1){
             drag_pepper = 0;
             $("#pepper").css("transform","rotate(135deg)");
-            setTimeout(function() { 
+            setTimeout(function() {
                 $("#pepper").css("top", "155px");
                 $("#pepper").css("left", "550px");
                 $("#pepper").css("transform","rotate(0deg)");

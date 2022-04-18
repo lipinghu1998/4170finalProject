@@ -2,27 +2,19 @@ $(document).ready(function(){
   $("#smoke").hide()
   $("#oiled-pan").hide();
   $("#arrow-next").click(function(){
-      window.location.href="/game/6";
+      window.location.href="/result";
 
     })
 
 
-  console.log("actions['smoke']['image']",actions['smoke']['image']);
-
-  //Arrow shown between (oil & pan) 
-  let arrow_oil = $("<img>");
-  arrow_oil.attr("src", actions["arrow"]["label"]["image"]);
-  arrow_oil.attr("alt", actions["arrow"]["label"]["description"]);
-  $(arrow_oil).addClass("arrow-oil-style");
-  $("#arrow-oil").append(arrow_oil);
 
   //Navigation Menu activate- Learn
-  $("#nav_learn").addClass("active");
+  $("#nav_game").addClass("active");
 
   $("#nav_home").removeClass("active");
-  $("#nav_game").removeClass("active");
+  $("#nav_learn").removeClass("active");
 
-    
+
   //Selected item is above other items while dragging
   $(".ingredient").mouseenter(
       function() {
@@ -137,8 +129,8 @@ setTimeout(function(){
       new_oil.attr("src", ingredients["olive-oil"]["image"]);
       new_oil.attr("alt", ingredients["olive-oil"]["description"]);
       $(new_oil).addClass("new_oil");
-      
-     
+
+
 
       console.log(new_oil)
       $("#olive-oil-2").append(new_oil);
@@ -153,7 +145,7 @@ setTimeout(function(){
    $("#oiled-pan").show();
 
 
-     
+
     $.ajax({
       type: "POST",
       url: "/increase_score",
@@ -162,7 +154,7 @@ setTimeout(function(){
       data : JSON.stringify({"check":"success"}),
       success: function(response){
         setTimeout(function() {
-            window.location.href="/game/6";
+            window.location.href="/result";
         }, 7000);
 
 
@@ -174,9 +166,9 @@ setTimeout(function(){
           console.log(status)
           console.log(error)
       }
-  });  
+  });
 
-    
+
 });
 
 

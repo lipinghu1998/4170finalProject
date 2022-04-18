@@ -29,7 +29,7 @@
   } */
 
   #seasoned-steak{
-    
+
     z-index: 4;
   }
   #seasoned-steak-img{
@@ -324,14 +324,14 @@
 $(document).ready(function(){
 
   //Navigation Menu activate- Learn
-  $("#nav_learn").addClass("active");
+  $("#nav_game").addClass("active");
 
   $("#nav_home").removeClass("active");
-  $("#nav_game").removeClass("active");
+  $("#nav_learn").removeClass("active");
 
   //Move to next step
   $("#arrow-next").click(function(){
-      window.location.href="/result";
+      window.location.href="/game/5";
 
     })
 
@@ -441,7 +441,7 @@ $(document).ready(function(){
       $('#season-texture-img').fadeOut('slow');
 
       // $('#sub-instruction').remove();
-     
+
       //Increase score on server side
       $.ajax({
           type: "POST",
@@ -467,10 +467,10 @@ $(document).ready(function(){
 
     }
 
-     
+
 
   });
-  
+
 
 
 });

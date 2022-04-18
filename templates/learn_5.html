@@ -9,6 +9,7 @@
   let ingredients = {{ingredients|tojson}}
   let utensils = {{utensils|tojson}}
   let actions = {{actions|tojson}}
+  let instruction = {{instruction|tojson}}
 
 
   // console.log("actions: ", actions)
@@ -18,7 +19,7 @@
 
  <link rel="stylesheet" href="{{url_for('static', filename='learn_5.css')}}">
 
- <script type="text/javascript" src="{{ url_for('static', filename = 'game_5.js') }}"></script>
+ <script type="text/javascript" src="{{ url_for('static', filename = 'learn_5.js') }}"></script>
 
 
  <div class="ingredient" id="seasoned-steak">
@@ -50,7 +51,7 @@
      <img id="olive-oil-img" src={{ingredients["olive-oil"]["image"]}} alt={{ingredients["olive-oil"]["description"]}}> </img>
      <span class="description">{{ingredients["olive-oil"]["description"]}}</span>
  </div>
- <div class = "ingredient" id = "olive-oil-2">
+ <div class = "ingredient" id = "olive-oil-2"> 
 
  </div>
 
@@ -60,9 +61,9 @@
 
  <div id="arrow-oil"> </div>
 
- <div id = "pan-2">
+ <div id = "pan-2"> 
   <img src={{utensils["pan"]["oiled"]["image"]}} alt={{utensils["pan"]["oiled"]["description"]}} id="oiled-pan"> </img>
-</div>
+</div> 
 
 
 
@@ -125,7 +126,8 @@
 
  <img id="arrow-next" src={{actions["arrow"]["next"]["image"]}} alt={{actions["arrow"]["next"]["description"]}}> </img>
 
-
+ 
 
 
 {% endblock %}
+
