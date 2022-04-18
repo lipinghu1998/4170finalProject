@@ -1,0 +1,73 @@
+.arrow-salt-style{
+        position: absolute;
+        top: 410px;
+        left: 250px;
+        height: 16px;
+        width: 150px;
+        transform: rotate(200deg);
+        z-index: 9;
+    }
+
+    .arrow-pepper-style{
+        position: absolute;
+        top: 430px;
+        left: 210px;
+        height: 16px;
+        width: 150px;
+        transform: rotate(200deg);
+        z-index: 9;
+    }
+
+    #fire{
+        position: absolute;
+        top: 425px;
+        left: 870px;
+        z-index: 1;
+    }
+
+    #fire-gif{
+        height: 100px;
+        width: 100px;
+    }
+
+    #med:hover{
+        cursor: pointer;
+    }
+
+    #cut-butter{
+        position: absolute;
+        top: 35px;
+        left: 500px;
+        z-index: 2;
+    }
+    
+    #cut-butter-img{
+        height: 60px;
+        width: 70px;
+    }
+
+    #cut-garlic{
+        position: absolute;
+        top: 130px;
+        left: 410px;
+        z-index: 2;
+    }
+
+    #cut-garlic-img{
+        height: 40px;
+        width: 50px;
+    }
+
+    #seasoned-steak-img{
+        height: 190px;
+        width: 230px;
+    }
+
+    #season-texture-img{
+        position: relative;
+        top: 0px;
+        left: -250px;
+        height: 200px;
+        width: 250px;
+        z-index: 5;
+    }
