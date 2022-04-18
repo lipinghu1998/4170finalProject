@@ -24,7 +24,27 @@ $(document).ready(function(){
     }
   
     $("#med").one("click", function(){
-      show_fire();            
+      show_fire();
+      
+      //Increase score on server side
+      $.ajax({
+        type: "POST",
+        url: "/increase_score",
+        dataType : "json",
+        contentType: "application/json; charset=utf-8",
+        data : JSON.stringify({"check":"success"}),
+        success: function(response){
+          setTimeout(function() {
+              window.location.href="/game/3";
+          }, 7000);
+        },
+        error: function(request, status, error){
+            console.log("Error");
+            console.log(request)
+            console.log(status)
+            console.log(error)
+        }
+      });
     });
   
     //Move to next step

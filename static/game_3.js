@@ -109,7 +109,27 @@ $(document).ready(function(){
             season_texture.attr("alt", actions["season"]["description"]);
             season_texture.attr("id", "season-texture-img");
             $("#raw-steak").append(season_texture);
-        }
+
+            //Increase score on server side
+            $.ajax({
+                type: "POST",
+                url: "/increase_score",
+                dataType : "json",
+                contentType: "application/json; charset=utf-8",
+                data : JSON.stringify({"check":"success"}),
+                success: function(response){
+                setTimeout(function() {
+                    window.location.href="/game/4";
+                }, 7000);
+            },
+                error: function(request, status, error){
+                    console.log("Error");
+                    console.log(request)
+                    console.log(status)
+                    console.log(error)
+                }
+            });
+        }        
     }
 
     $("#raw-steak-img").on("drop", function(event, ui){

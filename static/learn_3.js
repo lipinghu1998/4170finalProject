@@ -109,6 +109,29 @@ $(document).ready(function(){
             season_texture.attr("alt", actions["season"]["description"]);
             season_texture.attr("id", "season-texture-img");
             $("#raw-steak").append(season_texture);
+
+            //Increase steps_completed on server side
+            $.ajax({
+                type: "POST",
+                url: "/increase_steps_completed",
+                dataType : "json",
+                contentType: "application/json; charset=utf-8",
+                data : JSON.stringify({"check":"success"}),
+                success: function(response){
+                  setTimeout(function() {
+                      window.location.href="/learn/4";
+                  }, 3300);
+
+
+
+                },
+                error: function(request, status, error){
+                    console.log("Error");
+                    console.log(request)
+                    console.log(status)
+                    console.log(error)
+                }
+            });
         }
     }
 
@@ -141,6 +164,6 @@ $(document).ready(function(){
 
     //Move to next step
     $("#arrow-next").click(function(){
-        window.location.href="/game/4";
+        window.location.href="/learn/4";
     })
 });
