@@ -1,0 +1,309 @@
+#instruction{
+  position: absolute;
+  top: 110px;
+  left: 50px;
+  font-family: Arial;
+  font-size: 18px;
+}
+
+#timer{
+  position: absolute;
+  top: 100px;
+  left: 900px;
+  background-color: darkseagreen;
+  padding: 10px;
+  border: solid;
+  font-size: 20px;
+}
+
+
+#timer-label{
+  position: absolute;
+  top: 75px;
+  left: 900px;
+  color: red;
+  font-size: 15px;
+  font-family: Arial;
+  font-weight: bold;
+}
+
+#raw-steak{
+  position: absolute;
+  top: 390px;
+  left: 290px;
+  z-index: 2;
+}
+
+#raw-steak-img{
+  height: 190px;
+  width: 230px;
+}
+
+#thyme{
+  position: absolute;
+  top: 135px;
+  left: 395px;
+  z-index: 2;
+}
+
+#thyme-img{
+  height: 30px;
+  width: 80px;
+}
+
+#salt{
+  position: absolute;
+  top: 170px;
+  left: 500px;
+  z-index: 2;
+}
+
+#salt-img{
+  height: 50px;
+  width: 20px;
+}
+
+#pepper{
+  position: absolute;
+  top: 155px;
+  left: 550px;
+  z-index: 2;
+}
+
+#pepper-img{
+  height: 55px;
+  width: 35px;
+}
+
+#olive-oil{
+  position: absolute;
+  top: 110px;
+  left: 605px;
+  z-index: 2;
+}
+
+#olive-oil-img{
+  height: 100px;
+  width: 40px;
+}
+
+#knife{
+  position: absolute;
+  top: 370px;
+  left: 50px;
+  height: 100px;
+  width: 100px;
+  z-index: 3;
+}
+
+#knife:hover{
+  cursor: pointer;
+}
+
+.ingredient:hover{
+  cursor: pointer;
+}
+
+.ingredient .description{
+  visibility: hidden;
+  width: 70px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 110%;
+}
+
+.ingredient .description::after{
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+}
+
+.ingredient:hover .description{
+  visibility: visible;
+}
+
+#cutting-board{
+  position: absolute;
+  top: 380px;
+  left: 200px;
+  height: 200px;
+  width: 400px;
+  z-index: 1;
+}
+
+#empty-pan{
+  position: absolute;
+  top: 340px;
+  left: 800px;
+  height: 170px;
+  width: 300px;
+  z-index: 1;
+}
+
+
+#temperature{
+  position: absolute;
+  top: 520px;
+  left: 860px;
+}
+
+.dot {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  border-style: solid;
+  margin: 5px;
+  display: inline-block;
+}
+
+#low{
+  background-color: lightgreen;
+}
+
+#med{
+  background-color: orange;
+}
+
+#high{
+  background-color: red;
+}
+
+#temperature-labels{
+  position: absolute;
+  top: 545px;
+  left: 861px;
+}
+
+.label{
+  font-weight: bold;
+  font-size: 12px;
+  margin: 6px;
+}
+
+.popup-style{
+  position: absolute;
+  top: 270px;
+  left: 310px;
+  height: 400px;
+  width: 675px;
+  background-color: ivory;
+  border-style: solid;
+  border-width: 2px;
+  z-index: 5;
+}
+
+#cutting-board-small{
+  position: absolute;
+  top: 100px;
+  left: 130px;
+  height: 250px;
+  width: 450px;
+  z-index: 6;
+}
+
+#ingredients-label{
+  position: relative;
+  top: 15px;
+  left: 250px;
+  font-family: Arial;
+  color: red;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#arrow-next{
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+  height: 80px;
+  width: 80px;
+}
+
+#arrow-next:hover{
+  cursor: pointer;
+}
+
+.arrow-salt-style{
+  position: absolute;
+  top: 410px;
+  left: 250px;
+  height: 16px;
+  width: 150px;
+  transform: rotate(200deg);
+  z-index: 9;
+}
+
+.arrow-pepper-style{
+  position: absolute;
+  top: 430px;
+  left: 210px;
+  height: 16px;
+  width: 150px;
+  transform: rotate(200deg);
+  z-index: 9;
+}
+
+#fire{
+  position: absolute;
+  top: 425px;
+  left: 870px;
+  z-index: 1;
+}
+
+#fire-gif{
+  height: 100px;
+  width: 100px;
+}
+
+#med:hover{
+  cursor: pointer;
+}
+
+#cut-butter{
+  position: absolute;
+  top: 35px;
+  left: 500px;
+  z-index: 2;
+}
+
+#cut-butter-img{
+  height: 60px;
+  width: 70px;
+}
+
+#cut-garlic{
+  position: absolute;
+  top: 130px;
+  left: 410px;
+  z-index: 2;
+}
+
+#cut-garlic-img{
+  height: 40px;
+  width: 50px;
+}
+
+#seasoned-steak-img{
+  height: 190px;
+  width: 230px;
+}
+
+#season-texture-img{
+  position: relative;
+  top: 0px;
+  left: -250px;
+  height: 200px;
+  width: 250px;
+  z-index: 5;
+}
