@@ -360,8 +360,5 @@ def reset_score():
 
    return jsonify(score = score)
 
-
-
-
 if __name__ == '__main__':
    app.run(debug = True)
