@@ -1,25 +1,34 @@
-//Set current instruction
-$("#instruction").html(instruction["description"]);
+$(document).ready(function(){
+  
+  //Navigation Menu activate- Learn
+  $("#nav_learn").addClass("active");
 
-let img = $("<img>");
-img.attr("src", "images/raw-steak.png");
-img.attr("alt", "Raw Steak");
-img.attr("id", "raw-steak-img");
-$("#raw-steak").append(img);
-        
-function show_fire(){
-  let gif = $("<img>");
-  gif.attr("src", "images/fire.gif");
-  gif.attr("alt", "Fire");
-  gif.attr("id", "fire-gif");
-  $("#fire").append(gif);
-}
+  $("#nav_home").removeClass("active");
+  $("#nav_game").removeClass("active");
 
-$("#med").one("click", function(){
-  show_fire();            
+  //Set current instruction
+  $("#instruction").html(instruction["description"]);
+
+  let raw_steak_img = $("<img>");
+  raw_steak_img.attr("src", ingredients["steak"]["raw"]["image"]);
+  raw_steak_img.attr("alt", ingredients["steak"]["raw"]["description"]);
+  raw_steak_img.attr("id", "raw-steak-img");
+  $("#raw-steak").append(raw_steak_img);
+          
+  function show_fire(){
+    let fire_gif = $("<img>");
+    fire_gif.attr("src", actions["fire"]["image"]);
+    fire_gif.attr("alt", actions["fire"]["description"]);
+    fire_gif.attr("id", "fire-gif");
+    $("#fire").append(fire_gif);
+  }
+
+  $("#med").one("click", function(){
+    show_fire();            
+  });
+
+  //Move to next step
+  $("#arrow-next").click(function(){
+    window.location.href="/learn/3";
+  })
 });
-
-//Move to next step
-$("#arrow-next").click(function(){
-  window.location.href="/learn/3";
-})
