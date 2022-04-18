@@ -11,8 +11,15 @@ $(document).ready(function(){
      data : JSON.stringify({"check":"success"}),
      success: function(response){
 
-       let next_step=parseInt(response["steps_completed"])+1;
-       window.location.href="/learn/".concat(next_step.toString());
+       //If user has completed all steps
+       if( parseInt(stat["steps_completed"])==parseInt(stat["total_steps"]) ){
+         window.location.href="/learn/1";
+       }
+       else{
+         let next_step=parseInt(response["steps_completed"])+1;
+         window.location.href="/learn/".concat(next_step.toString());
+       }
+
 
 
      },
