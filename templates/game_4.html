@@ -29,9 +29,7 @@
   } */
 
   #seasoned-steak{
-    position: absolute;
-    top: 320px;
-    left: 130px;
+    
     z-index: 4;
   }
   #seasoned-steak-img{
@@ -305,14 +303,14 @@
   }
 
   #flip-box {
-    top: 0px;
-    left: 0px;
+    top: 370px;
+    left: 290px;
 
-		width: 70%;
+		width: 10%;
 		height: 80%;
 		transition: 1s;
 		transform-style: preserve-3d;
-		position: relative;
+		position: absolute;
     z-index: 3
 	}
 
@@ -333,7 +331,7 @@ $(document).ready(function(){
 
   //Move to next step
   $("#arrow-next").click(function(){
-      window.location.href="/game/5";
+      window.location.href="/result";
 
     })
 
@@ -443,10 +441,36 @@ $(document).ready(function(){
       $('#season-texture-img').fadeOut('slow');
 
       // $('#sub-instruction').remove();
+     
+      //Increase score on server side
+      $.ajax({
+          type: "POST",
+          url: "/increase_score",
+          dataType : "json",
+          contentType: "application/json; charset=utf-8",
+          data : JSON.stringify({"check":"success"}),
+          success: function(response){
+            setTimeout(function() {
+                window.location.href="/result";
+            }, 7000);
+
+
+
+          },
+          error: function(request, status, error){
+              console.log("Error");
+              console.log(request)
+              console.log(status)
+              console.log(error)
+          }
+    });
 
     }
 
+     
+
   });
+  
 
 
 });
