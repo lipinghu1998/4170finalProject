@@ -272,7 +272,7 @@
 
 #cut-butter{
   position: absolute;
-  top: 35px;
+  top: 85px;
   left: 500px;
   z-index: 2;
 }
@@ -284,7 +284,7 @@
 
 #cut-garlic{
   position: absolute;
-  top: 130px;
+  top: 180px;
   left: 410px;
   z-index: 2;
 }
@@ -301,7 +301,7 @@
 
 #season-texture-img{
   position: relative;
-  top: 0px;
+  top: -10px;
   left: -250px;
   height: 200px;
   width: 250px;
