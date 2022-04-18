@@ -4,11 +4,13 @@
 
 <script>
 
-let ingredients = {{ingredients|tojson}}
-let utensils = {{utensils|tojson}}
-let actions = {{actions|tojson}}
 
-let instruction = {{instruction|tojson}}
+
+  let ingredients = {{ingredients|tojson}}
+  let utensils = {{utensils|tojson}}
+  let actions = {{actions|tojson}}
+
+
 </script>
 
 
@@ -98,6 +100,8 @@ let instruction = {{instruction|tojson}}
   <div id="popup"> </div>
 
   <img id="arrow-next" src={{actions["arrow"]["next"]["image"]}} alt={{actions["arrow"]["next"]["description"]}}> </img>
+
+  <button type="button" id="transition" class="btn btn-primary">learn_5</button>
 
 
 {% endblock %}
