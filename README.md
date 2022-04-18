@@ -1,2 +1,5 @@
-# 4170finalProject
-This is the github repo for our group's final project  
+Group-2
+Hernan Gallego (hg2515)
+Liping Hu (lh3009)        
+Madison Lee (mkl2166)
+Vaibhav Kapur (vk2471)
