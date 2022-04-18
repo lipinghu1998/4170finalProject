@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script>
+
+let ingredients = {{ingredients|tojson}}
+let utensils = {{utensils|tojson}}
+let actions = {{actions|tojson}}
+
+let instruction = {{instruction|tojson}}
+</script>
+
+
+<link rel="stylesheet" href="{{url_for('static', filename='learn_2.css')}}">
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'learn_2.js') }}"></script>
+
+<div class="ingredient" id="thyme">
+    <img id="thyme-img" src="images/thyme.png" alt="Thyme"> </img>
+    <span class="description">Thyme</span>
+</div>
+<div class="ingredient" id="cut-butter">
+    <img id="cut-butter-img" src="images/cut-butter.png" alt="Cut Butter"> </img>
+    <span class="description">Butter</span>
+</div>
+<div class="ingredient" id="cut-garlic">
+    <img id="cut-garlic-img" src="images/cut-garlic.png" alt="Cut Garlic"> </img>
+    <span class="description">Garlic</span>
+</div>
+<div class="ingredient" id="salt">
+    <img id="salt-img" src="images/salt.png" alt="Salt"> </img>
+    <span class="description">Salt</span>
+</div>
+<div class="ingredient" id="pepper">
+    <img id="pepper-img" src="images/pepper.png" alt="Pepper"> </img>
+    <span class="description">Pepper</span>
+</div>
+<div class="ingredient" id="olive-oil">
+    <img id="olive-oil-img" src="images/olive-oil.png" alt="Olive Oil"> </img>
+    <span class="description">Olive Oil</span>
+</div>
+
+<div id="arrow-butter"> </div>
+<div id="arrow-garlic"> </div>
+
+<div id="popup-arrow-butter"> </div>
+<div id="popup-arrow-garlic"> </div>
+
+<div id="timer">
+    00:00:00
+</div>
+<div id="timer-label"></div>
+
+<div id="instruction"> </div>
+<img id="knife" src="images/knife.png" alt="Knife"> </img>
+<div id="raw-steak"> </div>
+<div id="arrow-salt"> </div>
+<div id="arrow-pepper"> </div>
+
+<img src="images/cutting-board.png" alt="Cutting Board" id="cutting-board"> </img>
+<img src="images/empty-pan.png" alt="Empty Pan" id="empty-pan"> </img>
+
+<div id="temperature">
+    <span class="dot" id="low"></span>
+    <span class="dot" id="med"></span>
+    <span class="dot" id="high"></span>
+</div>
+<div id="fire"></div>
+<div id="temperature-labels">
+    <span class="label">low</span>
+    <span class="label">med</span>
+    <span class="label">high</span>
+</div>
+
+<div id="ingredients-label"></div>    
+
+<img id="arrow-next" src={{actions["arrow"]["next"]["image"]}} alt={{actions["arrow"]["next"]["description"]}}> </img>
+
+{% endblock %}
