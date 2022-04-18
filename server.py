@@ -376,6 +376,16 @@ def reset_score():
 
     return jsonify(score = score)
 
+@app.route('/reset_steps_completed', methods=['GET', 'POST'])
+def reset_steps_completed():
+    global steps_completed
+
+    response=request.get_json()
+
+    if response["check"]=="success":
+        steps_completed=0
+
+    return jsonify(steps_completed = steps_completed)
 
 
 

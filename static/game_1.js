@@ -405,7 +405,7 @@ $("#cutting-board").on("drop", function( event, ui ) {
 
                      setTimeout(function() {
                         window.location.href="/game/2";
-                     }, 3300);
+                     }, 2200);
 
 
 
@@ -538,7 +538,7 @@ $("#cutting-board").on("drop", function( event, ui ) {
                    if(garlic_cut){
                      setTimeout(function() {
                          close_popup();
-                     }, 2200);
+                     }, 1500);
                    }
              });
 

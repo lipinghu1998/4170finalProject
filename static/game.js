@@ -14,10 +14,7 @@ $(document).ready(function(){
    contentType: "application/json; charset=utf-8",
    data : JSON.stringify({"check":"success"}),
    success: function(response){
-     $("#start_game").click(function(){
-         window.location.href="/game/1";
-
-       })
+  
 
    },
    error: function(request, status, error){

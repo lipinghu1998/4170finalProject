@@ -7,6 +7,27 @@ $(document).ready(function(){
   $("#nav_game").removeClass("active");
 
 
+
+  //Reset steps completed to zero
+  $.ajax({
+   type: "POST",
+   url: "/reset_steps_completed",
+   dataType : "json",
+   contentType: "application/json; charset=utf-8",
+   data : JSON.stringify({"check":"success"}),
+   success: function(response){
+
+
+   },
+   error: function(request, status, error){
+       console.log("Error");
+       console.log(request)
+       console.log(status)
+       console.log(error)
+   }
+});
+
+
   //Move to next step
   $("#arrow-next").click(function(){
       window.location.href="/learn/2";
@@ -424,7 +445,7 @@ $("#cutting-board").on("drop", function( event, ui ) {
 
                       setTimeout(function() {
                          window.location.href="/learn/2";
-                      }, 3300);
+                      }, 2200);
                    },
                    error: function(request, status, error){
                        console.log("Error");
@@ -573,7 +594,7 @@ $("#cutting-board").on("drop", function( event, ui ) {
                    if(garlic_cut){
                      setTimeout(function() {
                          close_popup();
-                     }, 2200);
+                     }, 1500);
                    }
              });
 
