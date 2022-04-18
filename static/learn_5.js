@@ -3,26 +3,26 @@ $(document).ready(function(){
     $("#oiled-pan").hide();
     $("#arrow-next").click(function(){
         window.location.href="/game";
-  
+
       })
 
 
     console.log("actions['smoke']['image']",actions['smoke']['image']);
 
-    //Arrow shown between (oil & pan) 
+    //Arrow shown between (oil & pan)
     let arrow_oil = $("<img>");
     arrow_oil.attr("src", actions["arrow"]["label"]["image"]);
     arrow_oil.attr("alt", actions["arrow"]["label"]["description"]);
     $(arrow_oil).addClass("arrow-oil-style");
     $("#arrow-oil").append(arrow_oil);
-  
+
     //Navigation Menu activate- Learn
     $("#nav_learn").addClass("active");
-  
+
     $("#nav_home").removeClass("active");
     $("#nav_game").removeClass("active");
-  
-      
+
+
     //Selected item is above other items while dragging
     $(".ingredient").mouseenter(
         function() {
@@ -110,7 +110,7 @@ $(document).ready(function(){
   });
 
 
-  
+
 
   $("#knife").draggable({
         revert: "invalid"
@@ -125,7 +125,7 @@ $(document).ready(function(){
 
     }, 2000);
 
-  
+
     $("#empty-pan").on("drop", function(event, ui) {
         $("#arrow-oil").hide()
         console.log("pan")
@@ -137,8 +137,8 @@ $(document).ready(function(){
         new_oil.attr("src", ingredients["olive-oil"]["image"]);
         new_oil.attr("alt", ingredients["olive-oil"]["description"]);
         $(new_oil).addClass("new_oil");
-        
-       
+
+
 
         console.log(new_oil)
         $("#olive-oil-2").append(new_oil);
@@ -153,7 +153,7 @@ $(document).ready(function(){
      $("#oiled-pan").show();
 
 
-       
+
       $.ajax({
         type: "POST",
         url: "/increase_steps_completed",
@@ -162,7 +162,7 @@ $(document).ready(function(){
         data : JSON.stringify({"check":"success"}),
         success: function(response){
           setTimeout(function() {
-              window.location.href="/learn/6";
+              window.location.href="/game";
           }, 7000);
 
 
@@ -176,11 +176,11 @@ $(document).ready(function(){
         }
     });
 
-     
 
 
 
-      
+
+
  });
 
 
@@ -200,6 +200,6 @@ $(document).ready(function(){
   });
 
 
-  
+
 
 })
