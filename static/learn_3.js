@@ -1,5 +1,11 @@
 $(document).ready(function(){
 
+    //Navigation Menu activate- Learn
+    $("#nav_learn").addClass("active");
+  
+    $("#nav_home").removeClass("active");
+    $("#nav_game").removeClass("active");
+    
     $("#salt").draggable({
         revert: "invalid",
         start: function( event, ui ) {
@@ -19,12 +25,6 @@ $(document).ready(function(){
             $("#pepper").find(".description").show();
             }
     });
-
-    //Navigation Menu activate- Learn
-    $("#nav_learn").addClass("active");
-  
-    $("#nav_home").removeClass("active");
-    $("#nav_game").removeClass("active");
 
     let raw_steak_img = $("<img>");
     raw_steak_img.attr("src", ingredients["steak"]["raw"]["image"]);
@@ -141,6 +141,6 @@ $(document).ready(function(){
 
     //Move to next step
     $("#arrow-next").click(function(){
-        window.location.href="/learn/4";
+        window.location.href="/game/4";
     })
 });
