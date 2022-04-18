@@ -103,24 +103,3 @@ $("#raw-steak-img").on("drop", function(event, ui){
 $("#arrow-next").click(function(){
     window.location.href="/learn/4";
 })
-
-//Increase steps_completed on server side
-$.ajax({
-    type: "POST",
-    url: "/increase_steps_completed",
-    dataType : "json",
-    contentType: "application/json; charset=utf-8",
-    data : JSON.stringify({"check":"success"}),
-    success: function(response){
-      setTimeout(function() {
-          window.location.href="/learn/4";
-      }, 3300);
-    },
-    
-    error: function(request, status, error){
-        console.log("Error");
-        console.log(request)
-        console.log(status)
-        console.log(error)
-    }
-});
