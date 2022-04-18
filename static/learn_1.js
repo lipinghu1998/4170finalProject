@@ -9,7 +9,7 @@ $(document).ready(function(){
 
   //Move to next step
   $("#arrow-next").click(function(){
-      window.location.href="/game";
+      window.location.href="/learn/2";
 
     })
 
@@ -419,7 +419,7 @@ $("#cutting-board").on("drop", function( event, ui ) {
                  data : JSON.stringify({"check":"success"}),
                  success: function(response){
                    setTimeout(function() {
-                       window.location.href="/game";
+                       window.location.href="/learn/2";
                    }, 3300);
 
 
