@@ -9,7 +9,7 @@ $(document).ready(function(){
 
   //Move to next step
   $("#arrow-next").click(function(){
-      window.location.href="/result";
+      window.location.href="/game/2";
 
     })
 
@@ -390,28 +390,37 @@ $("#cutting-board").on("drop", function( event, ui ) {
                   }
             });
 
-            //Increase score on server side
-            $.ajax({
-                 type: "POST",
-                 url: "/increase_score",
-                 dataType : "json",
-                 contentType: "application/json; charset=utf-8",
-                 data : JSON.stringify({"check":"success"}),
-                 success: function(response){
-                   setTimeout(function() {
-                       window.location.href="/result";
-                   }, 1500);
+
+              //Increase score on server side
+              $.ajax({
+                   type: "POST",
+                   url: "/increase_score",
+                   dataType : "json",
+                   contentType: "application/json; charset=utf-8",
+                   data : JSON.stringify({"check":"success"}),
+                   success: function(response){
+                     $("#arrow-next").click(function(){
+                       window.location.href="/game/2";
+                     })
+
+                     setTimeout(function() {
+                        window.location.href="/game/2";
+                     }, 2200);
 
 
 
-                 },
-                 error: function(request, status, error){
-                     console.log("Error");
-                     console.log(request)
-                     console.log(status)
-                     console.log(error)
-                 }
-            });
+                   },
+                   error: function(request, status, error){
+                       console.log("Error");
+                       console.log(request)
+                       console.log(status)
+                       console.log(error)
+                   }
+              });
+
+
+
+
 
 
           }
@@ -529,7 +538,7 @@ $("#cutting-board").on("drop", function( event, ui ) {
                    if(garlic_cut){
                      setTimeout(function() {
                          close_popup();
-                     }, 3300);
+                     }, 1500);
                    }
              });
 
