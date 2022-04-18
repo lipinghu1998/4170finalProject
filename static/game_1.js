@@ -9,7 +9,7 @@ $(document).ready(function(){
 
   //Move to next step
   $("#arrow-next").click(function(){
-      window.location.href="/result";
+      window.location.href="/game/4";
 
     })
 
