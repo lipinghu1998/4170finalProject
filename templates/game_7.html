@@ -10,10 +10,11 @@ let actions = {{actions|tojson}}
 
 </script>
 
+<div id="message"> </div>
 
 <link rel="stylesheet" href="{{url_for('static', filename='step_2_3_7_8.css')}}">
 
-<script type="text/javascript" src="{{ url_for('static', filename = 'game_3.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'learn_7.js') }}"></script>
 
 <div class="ingredient" id="thyme">
     <img id="thyme-img" src={{ingredients["thyme"]["image"]}} alt={{ingredients["thyme"]["description"]}}> </img>
@@ -47,10 +48,16 @@ let actions = {{actions|tojson}}
 
 <div id="instruction"> </div>
 <img id="knife" src={{utensils["knife"]["image"]}} alt={{utensils["knife"]["description"]}}> </img>
-<div id="raw-steak"> </div>
 
 <img src={{utensils["cutting-board"]["image"]}} alt={{utensils["cutting-board"]["description"]}} id="cutting-board"> </img>
 <img src={{utensils["pan"]["empty"]["image"]}} alt={{utensils["pan"]["empty"]["description"]}} id="empty-pan"> </img>
+
+<div class="action" id="smoke">
+  <img id="smoke-img" src={{actions["smoke"]["image"]}} alt={{actions["smoke"]["description"]}}> </img>
+</div>
+
+<div class="ingredients" id="cooked-steak"></div>
+
 <div id="temperature">
     <span class="dot" id="low"></span>
     <span class="dot" id="med"></span>

@@ -11,8 +11,9 @@ let actions = {{actions|tojson}}
 let instruction = {{instruction|tojson}}
 </script>
 
+<div id="message"> </div>
 
-<link rel="stylesheet" href="{{url_for('static', filename='learn_2.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='step_2_3_7_8.css')}}">
 
 <script type="text/javascript" src="{{ url_for('static', filename = 'learn_2.js') }}"></script>
 
@@ -40,12 +41,6 @@ let instruction = {{instruction|tojson}}
     <img id="olive-oil-img" src={{ingredients["olive-oil"]["image"]}} alt={{ingredients["olive-oil"]["description"]}}> </img>
     <span class="description">{{ingredients["olive-oil"]["description"]}}</span>
 </div>
-
-<div id="arrow-butter"> </div>
-<div id="arrow-garlic"> </div>
-
-<div id="popup-arrow-butter"> </div>
-<div id="popup-arrow-garlic"> </div>
 
 <div id="timer">
     00:00:00
