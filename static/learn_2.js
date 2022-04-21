@@ -1,13 +1,21 @@
 $(document).ready(function(){
   
-  //Navigation Menu activate- Learn
+  //Navigation Menu activate - Learn
   $("#nav_learn").addClass("active");
 
   $("#nav_home").removeClass("active");
   $("#nav_game").removeClass("active");
 
-  //Set current instruction
-  $("#instruction").html(instruction["description"]);
+  // Set current instruction
+  $("#instruction").html(instruction["description"]);  
+
+  // Hide next arrow
+  document.getElementById("arrow-next").style.visibility = 'hidden';
+
+  // Create and hide step complete message
+  let message = document.getElementById('message');
+  message.innerHTML += 'Complete! Press the arrow or wait for the page to timeout';
+  message.style.visibility = 'hidden';
 
   let raw_steak_img = $("<img>");
   raw_steak_img.attr("src", ingredients["steak"]["raw"]["image"]);
@@ -19,7 +27,7 @@ $(document).ready(function(){
     let fire_gif = $("<img>");
     fire_gif.attr("src", actions["fire"]["image"]);
     fire_gif.attr("alt", actions["fire"]["description"]);
-    fire_gif.attr("id", "fire-gif");
+    fire_gif.attr("id", "fire-gif-med");
     $("#fire").append(fire_gif);
   }
 
@@ -36,10 +44,7 @@ $(document).ready(function(){
       success: function(response){
         setTimeout(function() {
             window.location.href="/learn/3";
-        }, 3300);
-
-
-
+        }, 10000);
       },
       error: function(request, status, error){
           console.log("Error");
@@ -48,6 +53,12 @@ $(document).ready(function(){
           console.log(error)
       }
     });
+
+    // Show arrow
+    document.getElementById("arrow-next").style.visibility = 'visible';
+
+    // Show message
+    document.getElementById("message").style.visibility = 'visible';
   });
 
   //Move to next step

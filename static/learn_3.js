@@ -1,10 +1,21 @@
 $(document).ready(function(){
 
-    //Navigation Menu activate- Learn
+    //Navigation Menu activate - Learn
     $("#nav_learn").addClass("active");
   
     $("#nav_home").removeClass("active");
     $("#nav_game").removeClass("active");
+
+    // Set current instruction
+    $("#instruction").html(instruction["description"]);  
+
+    // Hide next arrow
+    document.getElementById("arrow-next").style.visibility = 'hidden';
+
+    // Create and hide step complete message
+    let message = document.getElementById('message');
+    message.innerHTML += 'Complete! Press the arrow or wait for the page to timeout';
+    message.style.visibility = 'hidden';
     
     $("#salt").draggable({
         revert: "invalid",
@@ -35,7 +46,7 @@ $(document).ready(function(){
     let fire_gif = $("<img>");
     fire_gif.attr("src", actions["fire"]["image"]);
     fire_gif.attr("alt", actions["fire"]["description"]);
-    fire_gif.attr("id", "fire-gif");
+    fire_gif.attr("id", "fire-gif-med");
     $("#fire").append(fire_gif);
 
     $//Set current instruction
@@ -110,6 +121,12 @@ $(document).ready(function(){
             season_texture.attr("id", "season-texture-img");
             $("#raw-steak").append(season_texture);
 
+            // Show arrow
+            document.getElementById("arrow-next").style.visibility = 'visible';
+
+            // Show message
+            document.getElementById("message").style.visibility = 'visible';
+
             //Increase steps_completed on server side
             $.ajax({
                 type: "POST",
@@ -120,10 +137,7 @@ $(document).ready(function(){
                 success: function(response){
                   setTimeout(function() {
                       window.location.href="/learn/4";
-                  }, 3300);
-
-
-
+                  }, 10000);
                 },
                 error: function(request, status, error){
                     console.log("Error");
@@ -165,5 +179,5 @@ $(document).ready(function(){
     //Move to next step
     $("#arrow-next").click(function(){
         window.location.href="/learn/4";
-    })
+    });
 });

@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    //Navigation Menu activate- Learn
+    //Navigation Menu activate - Game
     $("#nav_game").addClass("active");
 
     $("#nav_home").removeClass("active");
@@ -19,7 +19,7 @@ $(document).ready(function(){
       let fire_gif = $("<img>");
       fire_gif.attr("src", actions["fire"]["image"]);
       fire_gif.attr("alt", actions["fire"]["description"]);
-      fire_gif.attr("id", "fire-gif");
+      fire_gif.attr("id", "fire-gif-med");
       $("#fire").append(fire_gif);
     }
 

@@ -1,10 +1,13 @@
 $(document).ready(function(){
 
-    //Navigation Menu activate- Learn
+    // Navigation Menu activate - Game
     $("#nav_game").addClass("active");
 
     $("#nav_home").removeClass("active");
     $("#nav_learn").removeClass("active");
+
+    $// Set current instruction
+    $("#instruction").html(instruction["description"]);
 
     $("#salt").draggable({
         revert: "invalid",
@@ -35,11 +38,8 @@ $(document).ready(function(){
     let fire_gif = $("<img>");
     fire_gif.attr("src", actions["fire"]["image"]);
     fire_gif.attr("alt", actions["fire"]["description"]);
-    fire_gif.attr("id", "fire-gif");
+    fire_gif.attr("id", "fire-gif-med");
     $("#fire").append(fire_gif);
-
-    $//Set current instruction
-    $("#instruction").html(instruction["description"]);
 
     let steak_salted = 0;
     let steak_peppered = 0;
@@ -110,7 +110,7 @@ $(document).ready(function(){
             season_texture.attr("id", "season-texture-img");
             $("#raw-steak").append(season_texture);
 
-            //Increase score on server side
+            // Increase score on server side
             $.ajax({
                 type: "POST",
                 url: "/increase_score",
@@ -159,7 +159,7 @@ $(document).ready(function(){
         }
     });
 
-    //Move to next step
+    // Move to next step
     $("#arrow-next").click(function(){
         window.location.href="/game/4";
     })
