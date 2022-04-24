@@ -1,4 +1,11 @@
 $(document).ready(function(){
+    // Hide next arrow
+    document.getElementById("arrow-next").style.visibility = 'hidden';
+
+    // Create and hide step complete message
+    let message = document.getElementById('message');
+    message.innerHTML += 'Complete! Press the arrow or wait for the page to timeout';
+    message.style.visibility = 'hidden';
 
 
 
@@ -181,14 +188,12 @@ $("#olive-oil-tilted").click(function(){
     $("#olive-oil").show();
   })
 
-  //Arrow shown between ( seasoned-steak & pan)
-  let arrow_steak = $("<img>");
-  arrow_steak.attr("src", actions["arrow"]["label"]["image"]);
-  arrow_steak.attr("alt", actions["arrow"]["label"]["description"]);
-  $(arrow_steak).addClass("arrow_steak-style");
-  $("#arrowUpdates").append(arrow_steak);
-  console.log("arrowUpdates: ",$("#arrowUpdates") )
 
+    // Show arrow
+    document.getElementById("arrow-next").style.visibility = 'visible';
+
+    // Show message
+    document.getElementById("message").style.visibility = 'visible';
 
 
   setTimeout(function(){
