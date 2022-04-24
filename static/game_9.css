@@ -3,9 +3,24 @@
     position: absolute;
     top: 110px;
     left: 50px;
+    width: 350px;
     font-family: Arial;
     font-size: 18px;
   }
+
+  #ingredients-label{
+  position: relative;
+  top: 10px;
+  left: 200px;
+  font-family: Arial;
+  color: green;
+  font-size: 15px;
+  font-weight: bold;
+
+}
+
+
+
 
   #timer{
     position: absolute;
@@ -18,31 +33,14 @@
     font-size: 20px;
   }
 
-
- 
-
-  #raw-steak{
-    position: absolute;
-    top: 390px;
-    left: 290px;
-    z-index: 2;
-  }
-  #raw-steak-img{
-    height: 190px;
-    width: 230px;
+  #timer:hover{
+    background-color: darkseagreen;
+    cursor: pointer;
   }
 
 
-  #frozen-steak{
-    position: absolute;
-    top: 75px;
-    left: 400px;
-    z-index: 2;
-  }
-  #frozen-steak-img{
-    height: 50px;
-    width: 70px;
-  }
+
+
 
 
   #thyme{
@@ -56,24 +54,24 @@
     width: 80px;
   }
 
-  #uncut-butter{
+  #cut-butter{
     position: absolute;
     top: 85px;
     left: 500px;
     z-index: 2;
   }
-  #uncut-butter-img{
+  #cut-butter-img{
     height: 60px;
     width: 70px;
   }
 
-  #uncut-garlic{
+  #cut-garlic{
     position: absolute;
     top: 180px;
     left: 410px;
     z-index: 2;
   }
-  #uncut-garlic-img{
+  #cut-garlic-img{
     height: 40px;
     width: 50px;
   }
@@ -112,17 +110,6 @@
   }
 
 
-  #knife{
-    position: absolute;
-    top: 370px;
-    left: 50px;
-    height: 100px;
-    width: 100px;
-    z-index: 3;
-  }
-  #knife:hover{
-    cursor: pointer;
-  }
 
 
 
@@ -160,6 +147,8 @@
     visibility: visible;
   }
 
+  
+
 
 
   #cutting-board{
@@ -171,19 +160,57 @@
     z-index: 1;
   }
 
-  #empty-pan{
+  #filled-pan{
     position: absolute;
     top: 340px;
     left: 800px;
     height: 170px;
     width: 300px;
+    opacity: 0.8;
+    z-index: 2;
+    transform: rotate(170deg);
+  }
+  #fire{
+    position: absolute;
+    top: 480px;
+    left: 860px;
+    height: 80px;
+    width: 100px;
     z-index: 1;
+  }
+
+
+
+  #target{
+    position: absolute;
+    top: 432px;
+    left: 862px;
+    height: 64px;
+    width: 108px;
+    display: none;
+    z-index: 3;
+    transform: rotate(152deg);
+  }
+
+
+
+  #spoon{
+    position: absolute;
+    top: 360px;
+    left: 970px;
+    height: 110px;
+    width: 110px;
+    z-index: 4;
+    transform: rotate(250deg);
+  }
+  #spoon:hover{
+    cursor: pointer;
   }
 
 
   #temperature{
     position: absolute;
-    top: 520px;
+    top: 550px;
     left: 860px;
   }
   .dot {
@@ -211,7 +238,7 @@
 
   #temperature-labels{
     position: absolute;
-    top: 545px;
+    top: 575px;
     left: 861px;
 
   }
@@ -221,100 +248,28 @@
     margin: 6px;
   }
 
-  .popup-style{
-    position: absolute;
-    top: 270px;
-    left: 310px;
-    height: 400px;
-    width: 675px;
-    background-color: ivory;
-    border-style: solid;
-    border-width: 2px;
-    z-index: 5;
-  }
-  #cutting-board-small{
-    position: absolute;
-    top: 100px;
-    left: 130px;
-    height: 250px;
-    width: 450px;
-    z-index: 6;
-  }
 
-
-
-
-
-#popup-uncut-garlic{
-  position: absolute;
-  top: 150px;
-  left: 230px;
-  height: 70px;
-  width: 80px;
-  z-index: 7;
-}
-
-
-#popup-uncut-butter{
-  position: absolute;
-  top: 130px;
-  left: 390px;
-  height: 70px;
-  width: 80px;
-  z-index: 7;
-}
-
-#popup-cut-garlic{
-  position: absolute;
-  top: 155px;
-  left: 225px;
-  height: 70px;
-  width: 80px;
-  z-index: 7;
-}
-
-#popup-cut-butter{
-  position: absolute;
-  top: 130px;
-  left: 390px;
-  height: 70px;
-  width: 80px;
-  z-index: 7;
-}
-
-
-
-#ingredients-label{
-  position: relative;
-  top: 7px;
-  left: 230px;
-  font-family: Arial;
-  color: green;
-  font-size: 15px;
-  font-weight: bold;
-
-}
-#cut-butter{
+#option-steak{
   position: absolute;
   top: 100px;
-  left: 480px;
-  z-index: 2;
-}
-#cut-butter-img{
-  height: 60px;
-  width: 70px;
+  right: 70px;
+  height: 145px;
+  width: 200px;
 }
 
-#cut-garlic{
+#tenderness-group{
   position: absolute;
-  top: 180px;
-  left: 410px;
-  z-index: 2;
+  top: 116px;
+  right: 275px;
+  color: gray;
 }
-#cut-garlic-img{
-  height: 40px;
-  width: 50px;
+
+#four{
+  margin-left: 2px;
 }
+
+
+
 
 #arrow-next{
   position: absolute;

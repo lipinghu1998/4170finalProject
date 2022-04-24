@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    //Navigation Menu activate- Learn
+    //Navigation Menu activate - Game
     $("#nav_game").addClass("active");
 
     $("#nav_home").removeClass("active");
@@ -8,6 +8,11 @@ $(document).ready(function(){
 
     //Set current instruction
     $("#instruction").html(instruction["description"]);
+
+    // Create and hide step complete message
+    let message = document.getElementById('message');
+    message.innerHTML += 'Complete! Press the arrow or wait for the page to timeout';
+    message.style.visibility = 'hidden';
 
     let raw_steak_img = $("<img>");
     raw_steak_img.attr("src", ingredients["steak"]["raw"]["image"]);
@@ -19,12 +24,15 @@ $(document).ready(function(){
       let fire_gif = $("<img>");
       fire_gif.attr("src", actions["fire"]["image"]);
       fire_gif.attr("alt", actions["fire"]["description"]);
-      fire_gif.attr("id", "fire-gif");
+      fire_gif.attr("id", "fire-gif-med");
       $("#fire").append(fire_gif);
     }
 
     $("#med").one("click", function(){
       show_fire();
+
+      // Show message
+      document.getElementById("message").style.visibility = 'visible';
 
       //Increase score on server side
       $.ajax({

@@ -28,74 +28,14 @@ $(document).ready(function(){
   );
 
   //Draggable items
-  $("#frozen-steak").draggable({
-        revert: "invalid",
-        start: function( event, ui ) {
-          $("#frozen-steak").find(".description").hide();
-        },
-        stop: function( event, ui ) {
-          $("#frozen-steak").find(".description").show();
-        }
-  });
-
-  $("#thyme").draggable({
-        revert: "invalid",
-        start: function( event, ui ) {
-          $("#thyme").find(".description").hide();
-        },
-        stop: function( event, ui ) {
-          $("#thyme").find(".description").show();
-        }
-  });
-
-  $("#uncut-butter").draggable({
-        revert: "invalid",
-        start: function( event, ui ) {
-          $("#uncut-butter").find(".description").hide();
-        },
-        stop: function( event, ui ) {
-          $("#uncut-butter").find(".description").show();
-        }
-  });
-
-  $("#uncut-garlic").draggable({
-        revert: "invalid",
-        start: function( event, ui ) {
-          $("#uncut-garlic").find(".description").hide();
-        },
-        stop: function( event, ui ) {
-          $("#uncut-garlic").find(".description").show();
-        }
-  });
-
-  $("#salt").draggable({
-        revert: "invalid",
-        start: function( event, ui ) {
-          $("#salt").find(".description").hide();
-        },
-        stop: function( event, ui ) {
-          $("#salt").find(".description").show();
-        }
-  });
-
-  $("#pepper").draggable({
-        revert: "invalid",
-        start: function( event, ui ) {
-          $("#pepper").find(".description").hide();
-        },
-        stop: function( event, ui ) {
-          $("#pepper").find(".description").show();
-        }
-  });
-
-  $("#olive-oil").draggable({
-        revert: "invalid",
-        start: function( event, ui ) {
-          $("#olive-oil").find(".description").hide();
-        },
-        stop: function( event, ui ) {
-          $("#olive-oil").find(".description").show();
-        }
+  $(".ingredient").draggable({
+      revert: "invalid",
+      start: function( event, ui ) {
+        $(".ingredient").find(".description").hide();
+      },
+      stop: function( event, ui ) {
+        $(".ingredient").find(".description").show();
+      }
   });
 
   $("#knife").draggable({
@@ -105,15 +45,13 @@ $(document).ready(function(){
 
   //Droppable items
   $("#cutting-board").droppable({
-    accept: false
+    accept: "#frozen-steak"
   });
+
 
   $("#empty-pan").droppable({
     accept: false
   });
-
-  $("#cutting-board").droppable( "option", "accept", "#frozen-steak");
-
 
 
 
@@ -131,13 +69,25 @@ $("#cutting-board").on("drop", function( event, ui ) {
 
 
   //Timer is set to 30 mins
-  $("#timer").hover(
-    function() {
-      $("#timer").css("cursor","pointer");
-    }
+  $("#timer").html("00:30:00");
+  $("#timer-label").html("Start the timer!");
+
+
+  //Timer-hover
+  $("#timer").mouseenter(
+  function() {
+    $("#timer").css("cursor","pointer");
+    $("#timer").css("background-color","darkseagreen");
+  }
   );
 
-  $("#timer").html("00:30:00");
+  $("#timer").mouseleave(
+  function() {
+    $("#timer").css("cursor","default");
+    $("#timer").css("background-color","lightgray");
+  }
+  );
+
 
 
   //2. When timer is clicked
@@ -146,9 +96,12 @@ $("#cutting-board").on("drop", function( event, ui ) {
     //Disable Timer from being clicked again
     $("#timer").off('click');
 
+    //Timer background-Green (Active)
+    $("#timer").css("background-color","darkseagreen");
     $("#timer").hover(
       function() {
         $("#timer").css("cursor","default");
+        $("#timer").css("background-color","darkseagreen");
       }
     );
 
@@ -265,6 +218,47 @@ $("#cutting-board").on("drop", function( event, ui ) {
     //To check if butter & garlic have been dropped
     let butter_dropped= false;
     let garlic_dropped= false;
+
+    //Popup and Timer check
+    let popup_check=false
+    let timer_check=false
+
+    function final_display(){
+
+      //Increase score on server side
+      $.ajax({
+           type: "POST",
+           url: "/increase_score",
+           dataType : "json",
+           contentType: "application/json; charset=utf-8",
+           data : JSON.stringify({"check":"success"}),
+           success: function(response){
+             $("#ingredients-label").html("Step completed. Click on the arrow on bottom right to move to next step.");
+
+             $("#arrow-next").show();
+
+             setTimeout(function() {
+                window.location.href="/game/2";
+             }, 10000);
+
+
+
+           },
+           error: function(request, status, error){
+               console.log("Error");
+               console.log(request)
+               console.log(status)
+               console.log(error)
+           }
+      });
+
+
+
+
+
+
+    }
+
 
 
     //3. An item dropped on small cutting board
@@ -392,31 +386,11 @@ $("#cutting-board").on("drop", function( event, ui ) {
 
 
               //Increase score on server side
-              $.ajax({
-                   type: "POST",
-                   url: "/increase_score",
-                   dataType : "json",
-                   contentType: "application/json; charset=utf-8",
-                   data : JSON.stringify({"check":"success"}),
-                   success: function(response){
-                     $("#arrow-next").click(function(){
-                       window.location.href="/game/2";
-                     })
+              popup_check=true;
 
-                     setTimeout(function() {
-                        window.location.href="/game/2";
-                     }, 2200);
-
-
-
-                   },
-                   error: function(request, status, error){
-                       console.log("Error");
-                       console.log(request)
-                       console.log(status)
-                       console.log(error)
-                   }
-              });
+              if(timer_check){
+                final_display();
+              }
 
 
 
@@ -481,7 +455,7 @@ $("#cutting-board").on("drop", function( event, ui ) {
                     if(butter_cut){
                       setTimeout(function() {
                           close_popup();
-                      }, 3300);
+                      }, 2200);
 
 
                     }
@@ -538,7 +512,7 @@ $("#cutting-board").on("drop", function( event, ui ) {
                    if(garlic_cut){
                      setTimeout(function() {
                          close_popup();
-                     }, 1500);
+                     }, 2200);
                    }
              });
 
@@ -564,6 +538,17 @@ $("#cutting-board").on("drop", function( event, ui ) {
         //Stop further decrement
         clearInterval(countdown);
 
+
+        //Timer background- lightgray (Inactive)
+        $("#timer").css("background-color","lightgray");
+        $("#timer").hover(
+          function() {
+            $("#timer").css("cursor","default");
+            $("#timer").css("background-color","lightgray");
+          }
+        );
+
+
         //Hide frozen steak on cutting board
         $("#frozen-steak").hide();
 
@@ -574,6 +559,13 @@ $("#cutting-board").on("drop", function( event, ui ) {
         img.attr("id", "raw-steak-img");
 
         $("#raw-steak").append(img);
+
+        timer_check=true;
+
+        if(popup_check){
+          final_display();
+        }
+
 
       }
     }, 1000);

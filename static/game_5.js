@@ -2,7 +2,7 @@ $(document).ready(function(){
   $("#smoke").hide()
   $("#oiled-pan").hide();
   $("#arrow-next").click(function(){
-      window.location.href="/result";
+      window.location.href="/game/7";
 
     })
 
@@ -154,7 +154,7 @@ setTimeout(function(){
       data : JSON.stringify({"check":"success"}),
       success: function(response){
         setTimeout(function() {
-            window.location.href="/result";
+            window.location.href="/game/7";
         }, 7000);
 
 
