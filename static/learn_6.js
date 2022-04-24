@@ -20,6 +20,12 @@ $(document).ready(function(){
       })
 
 
+      setTimeout(function(){
+
+        $("#smoke").show().css("opacity", "0.5");
+    
+    
+        }, 5000);
 
 
 
