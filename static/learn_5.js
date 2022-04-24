@@ -2,7 +2,7 @@ $(document).ready(function(){
     $("#smoke").hide()
     $("#oiled-pan").hide();
     $("#arrow-next").click(function(){
-        window.location.href="/game";
+        window.location.href="/learn/7";
 
       })
 
@@ -162,7 +162,7 @@ $(document).ready(function(){
         data : JSON.stringify({"check":"success"}),
         success: function(response){
           setTimeout(function() {
-              window.location.href="/game";
+              window.location.href="/learn/7";
           }, 7000);
 
 
