@@ -1,6 +1,13 @@
 $(document).ready(function(){
 
  
+    // Hide next arrow
+    document.getElementById("arrow-next").style.visibility = 'hidden';
+
+    // Create and hide step complete message
+    let message = document.getElementById('message');
+    message.innerHTML += 'Complete! Press the arrow or wait for the page to timeout';
+    message.style.visibility = 'hidden';
 
     $("#smoke").hide()
     $("#empty-pan").hide();
@@ -11,6 +18,14 @@ $(document).ready(function(){
 
       })
 
+
+
+      setTimeout(function(){
+
+        $("#smoke").show().css("opacity", "0.5");
+    
+    
+        }, 5000);
 
 
 
@@ -193,6 +208,12 @@ $(document).ready(function(){
                   })
                  }else if(flip_steak == true){
                       $("#alert-near-timer").empty()
+
+                      // Show arrow
+                      document.getElementById("arrow-next").style.visibility = 'visible';
+
+                      // Show message
+                      document.getElementById("message").style.visibility = 'visible';
            
                       $.ajax({
                         type: "POST",
