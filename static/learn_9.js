@@ -88,7 +88,7 @@ $(document).ready(function(){
          $("#target").hide();
          $("#pan-label").hide();
          $("#arrow-next").show();
-         $("#ingredients-label").html("Step completed. Click on the arrow on bottom right to move to next step.");
+         $("#ingredients-label").html("Complete! Press the arrow or wait for the page to timeout");
 
           setTimeout(function() {
              window.location.href="/learn/10";

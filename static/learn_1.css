@@ -361,9 +361,9 @@
 }
 
 #ingredients-label{
-  position: relative;
-  top: 7px;
-  left: 230px;
+  position: absolute;
+  top: 60px;
+  left: 400px;
   font-family: Arial;
   color: red;
   font-size: 15px;

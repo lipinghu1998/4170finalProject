@@ -97,8 +97,7 @@ $(document).ready(function(){
              data : JSON.stringify({"check":"success"}),
              success: function(response){
 
-               $("#ingredients-label").html("Task completed. Click on the arrow on bottom right to move to next step.")
-               $("#arrow-next").show();
+               $("#ingredients-label").html("Complete! Press the arrow or wait for the page to timeout");
 
                setTimeout(function() {
                   window.location.href="/game/1";
