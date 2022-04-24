@@ -233,9 +233,8 @@ $("#cutting-board").on("drop", function( event, ui ) {
            contentType: "application/json; charset=utf-8",
            data : JSON.stringify({"check":"success"}),
            success: function(response){
-             $("#ingredients-label").html("Step completed. Click on the arrow on bottom right to move to next step.");
+             $("#ingredients-label").html("Complete! Press the arrow or wait for the page to timeout");
 
-             $("#arrow-next").show();
 
              setTimeout(function() {
                 window.location.href="/game/2";

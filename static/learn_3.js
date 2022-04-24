@@ -2,12 +2,12 @@ $(document).ready(function(){
 
     //Navigation Menu activate - Learn
     $("#nav_learn").addClass("active");
-  
+
     $("#nav_home").removeClass("active");
     $("#nav_game").removeClass("active");
 
     // Set current instruction
-    $("#instruction").html(instruction["description"]);  
+    $("#instruction").html(instruction["description"]);
 
     // Hide next arrow
     document.getElementById("arrow-next").style.visibility = 'hidden';
@@ -16,7 +16,7 @@ $(document).ready(function(){
     let message = document.getElementById('message');
     message.innerHTML += 'Complete! Press the arrow or wait for the page to timeout';
     message.style.visibility = 'hidden';
-    
+
     $("#salt").draggable({
         revert: "invalid",
         start: function( event, ui ) {
@@ -51,11 +51,11 @@ $(document).ready(function(){
 
     $//Set current instruction
     $("#instruction").html(instruction["description"]);
-                
+
     let steak_salted = 0;
     let steak_peppered = 0;
     let drag_salt = 0;
-    let drag_pepper = 0;        
+    let drag_pepper = 0;
 
     // Set salt and pepper images on cutting board
     $("#salt").css("top", "350px");
@@ -101,7 +101,7 @@ $(document).ready(function(){
     });
 
     $("#pepper").on("dragstop", function(event, ui){
-        drag_pepper = 0;              
+        drag_pepper = 0;
     });
 
     // Replace steak image
@@ -136,7 +136,7 @@ $(document).ready(function(){
                 data : JSON.stringify({"check":"success"}),
                 success: function(response){
                   setTimeout(function() {
-                      window.location.href="/learn/5";
+                      window.location.href="/learn/4";
                   }, 10000);
                 },
                 error: function(request, status, error){
@@ -153,7 +153,7 @@ $(document).ready(function(){
         if(drag_salt == 1){
             drag_salt = 0;
             $("#salt").css("transform","rotate(135deg)");
-            setTimeout(function() { 
+            setTimeout(function() {
                 $("#salt").css("top", "170px");
                 $("#salt").css("left", "500px");
                 $("#salt").css("transform","rotate(0deg)");
@@ -165,7 +165,7 @@ $(document).ready(function(){
         else if(drag_pepper == 1){
             drag_pepper = 0;
             $("#pepper").css("transform","rotate(135deg)");
-            setTimeout(function() { 
+            setTimeout(function() {
                 $("#pepper").css("top", "155px");
                 $("#pepper").css("left", "550px");
                 $("#pepper").css("transform","rotate(0deg)");
@@ -178,6 +178,6 @@ $(document).ready(function(){
 
     //Move to next step
     $("#arrow-next").click(function(){
-        window.location.href="/learn/5";
+        window.location.href="/learn/4";
     });
 });

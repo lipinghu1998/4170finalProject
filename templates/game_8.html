@@ -10,25 +10,12 @@ let actions = {{actions|tojson}}
 
 </script>
 
+<div id="message"> </div>
 
 <link rel="stylesheet" href="{{url_for('static', filename='step_2_3_7_8.css')}}">
 
-<script type="text/javascript" src="{{ url_for('static', filename = 'game_2.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'game_8.js') }}"></script>
 
-<div id="message"> </div>
-
-<div class="ingredient" id="thyme">
-    <img id="thyme-img" src={{ingredients["thyme"]["image"]}} alt={{ingredients["thyme"]["description"]}}> </img>
-    <span class="description">{{ingredients["thyme"]["description"]}}</span>
-</div>
-<div class="ingredient" id="cut-butter">
-    <img id="cut-butter-img" src={{ingredients["butter"]["cut"]["image"]}} alt={{ingredients["butter"]["cut"]["description"]}}> </img>
-    <span class="description">{{ingredients["butter"]["cut"]["description"]}}</span>
-</div>
-<div class="ingredient" id="cut-garlic">
-    <img id="cut-garlic-img" src={{ingredients["garlic"]["cut"]["image"]}} alt={{ingredients["garlic"]["cut"]["description"]}}> </img>
-    <span class="description">{{ingredients["garlic"]["cut"]["description"]}}</span>
-</div>
 <div class="ingredient" id="salt">
     <img id="salt-img" src={{ingredients["salt"]["image"]}} alt={{ingredients["salt"]["description"]}}> </img>
     <span class="description">{{ingredients["salt"]["description"]}}</span>
@@ -49,10 +36,28 @@ let actions = {{actions|tojson}}
 
 <div id="instruction"> </div>
 <img id="knife" src={{utensils["knife"]["image"]}} alt={{utensils["knife"]["description"]}}> </img>
-<div id="raw-steak"> </div>
 
 <img src={{utensils["cutting-board"]["image"]}} alt={{utensils["cutting-board"]["description"]}} id="cutting-board"> </img>
 <img src={{utensils["pan"]["empty"]["image"]}} alt={{utensils["pan"]["empty"]["description"]}} id="empty-pan"> </img>
+
+<div class="action" id="smoke">
+  <img id="smoke-img" src={{actions["smoke"]["image"]}} alt={{actions["smoke"]["description"]}}> </img>
+</div>
+
+<div class="ingredients" id="cooked-steak"></div>
+<div class="ingredient" id="thyme-on-pan">
+    <img id="thyme-img" src={{ingredients["thyme"]["image"]}} alt={{ingredients["thyme"]["description"]}}> </img>
+    <span class="description">{{ingredients["thyme"]["description"]}}</span>
+</div>
+<div class="ingredient" id="butter-on-pan">
+    <img id="cut-butter-img" src={{ingredients["butter"]["cut"]["image"]}} alt={{ingredients["butter"]["cut"]["description"]}}> </img>
+    <span class="description">{{ingredients["butter"]["cut"]["description"]}}</span>
+</div>
+<div class="ingredient" id="garlic-on-pan">
+    <img id="cut-garlic-img" src={{ingredients["garlic"]["cut"]["image"]}} alt={{ingredients["garlic"]["cut"]["description"]}}> </img>
+    <span class="description">{{ingredients["garlic"]["cut"]["description"]}}</span>
+</div>
+
 <div id="temperature">
     <span class="dot" id="low"></span>
     <span class="dot" id="med"></span>
@@ -60,6 +65,7 @@ let actions = {{actions|tojson}}
 </div>
 
 <div id="fire"></div>
+<div id="fire-low"></div>
 
 <div id="temperature-labels">
     <span class="label">low</span>

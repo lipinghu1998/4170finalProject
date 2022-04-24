@@ -75,6 +75,15 @@
     left: 500px;
     z-index: 2;
   }
+
+  #message {
+    position: absolute;
+    top: 60px;
+    left: 400px;
+    font-weight: bold;
+    color: green;
+  }
+
   #uncut-butter-img{
     height: 60px;
     width: 70px;
@@ -187,8 +196,6 @@
     visibility: visible;
   }
 
-
-
   #cutting-board{
     position: absolute;
     top: 350px;
@@ -233,9 +240,6 @@
   #high{
     background-color: red;
   }
-
-
-
   #temperature-labels{
     position: absolute;
     top: 550px;
@@ -330,14 +334,12 @@ $(document).ready(function(){
   $("#nav_home").removeClass("active");
   $("#nav_game").removeClass("active");
 
-  //counter
-  // let step=4;
-
   //Move to next step
+
+  $("#arrow-next").hide();
   $("#arrow-next").click(function(){
       window.location.href="/learn/5";
-    })
-
+  })
 
   //Selected item is above other items while dragging
   $(".ingredient").mouseenter(
@@ -467,36 +469,35 @@ $(document).ready(function(){
       }, 1000);
 
     } else if (clickState == 4) {   // shake the steak + make seasoning-texture disappear
+      $("#arrow-next").show();
 
       $('#seasoned-steak').addClass('shake');
       $('#season-texture-img').fadeOut('slow');
 
       $('#sub-instruction').remove();
 
+      $('<p>Complete! Press the arrow or wait for the page to timeout</p>').appendTo('#message');
+
       //Increase steps_completed on server side
       $.ajax({
-                 type: "POST",
-                 url: "/increase_steps_completed",
-                 dataType : "json",
-                 contentType: "application/json; charset=utf-8",
-                 data : JSON.stringify({"check":"success"}),
-                 success: function(response){
-                   setTimeout(function() {
-                       window.location.href="/learn/5";
-                   }, 3300);
-
-
-
-                 },
-                 error: function(request, status, error){
-                     console.log("Error");
-                     console.log(request)
-                     console.log(status)
-                     console.log(error)
-                 }
-          });
-    }
-
+        type: "POST",
+        url: "/increase_steps_completed",
+        dataType : "json",
+        contentType: "application/json; charset=utf-8",
+        data : JSON.stringify({"check":"success"}),
+        success: function(response){
+          setTimeout(function() {
+            window.location.href="/learn/5";
+          }, 3300);
+        },
+        error: function(request, status, error){
+          console.log("Error");
+          console.log(request)
+          console.log(status)
+          console.log(error)
+       }
+     });
+   }
   });
 
 
@@ -510,6 +511,7 @@ $(document).ready(function(){
   <body>
 
 
+
   <div id="flip-box">
     <!-- <div class="ingredient" id="seasoned-steak">
         <img id="seasoned-steak-img" src="images/seasoned-steak.png" alt="Seasoned Steak"> </img>
@@ -521,6 +523,7 @@ $(document).ready(function(){
    </div>
   </div>
 
+  <div id="message"></div>
 
 
   <!-- <div class="ingredient" id="seasoned-steak">

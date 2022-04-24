@@ -9,7 +9,7 @@ $(document).ready(function(){
 
   //Move to next step
   $("#arrow-next").click(function(){
-      window.location.href="/game/10";
+      window.location.href="/result";
   })
 
 
@@ -85,11 +85,10 @@ $(document).ready(function(){
             success: function(response){
               $("#spoon").hide();
               $("#target").hide();
-              $("#arrow-next").show();
-              $("#ingredients-label").html("Step completed. Click on the arrow on bottom right to move to next step.");
+              $("#ingredients-label").html("Complete! Press the arrow or wait for the page to timeout");
 
                setTimeout(function() {
-                  window.location.href="/game/10";
+                  window.location.href="/result";
                }, 10000);
 
 
