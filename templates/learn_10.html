@@ -112,7 +112,9 @@
     left: 800px;
     height: 170px;
     width: 300px;
-    z-index: 1;
+    transform: rotate(170deg);
+    z-index: 2;
+
   }
   #knife{
     position: absolute;
@@ -406,7 +408,7 @@
     $("#instruction").html(instruction["description"]);
 
     // Tip 1: turn fire off by clicking pan
-    let one = $('<p id="sub-instruction" style="color:red; position:fixed; left:820px; font-size: 14px; top:330px;">Click the pan to turn the fire off</p>').appendTo('#text');
+    let one = $('<p id="sub-instruction" style="color:red; position:fixed; left:820px; font-size: 14px; top:300px;">Click the pan to turn the fire off</p>').appendTo('#text');
 
     function hide_fire(){
       $("#fire").hide();
@@ -432,7 +434,7 @@
 
 
       $("#timer").html("00:05:00");
-      $("#timer-label").html("Start the timer!");
+      //$("#timer-label").html("Start the timer!");
 
       function timer(minutes, seconds){
        //Every 1 second equates to 10 second decrement
@@ -511,7 +513,7 @@
         hide_fire();
 
         $('#sub-instruction').remove();
-        let one = $('<p id="sub-instruction" style="color:red; position:fixed; left:820px; font-size: 14px; top:330px;">Click again to remove the steak from pan</p>').appendTo('#text');
+        let one = $('<p id="sub-instruction" style="color:red; position:fixed; left:820px; font-size: 14px; top:300px;">Click again to remove steak</p>').appendTo('#text');
       } else if (clickState == 2) {
         console.log(clickState)
 
