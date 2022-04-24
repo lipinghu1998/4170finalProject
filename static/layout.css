@@ -1,0 +1,11 @@
+
+  #navigation_menu{
+    position: absolute;
+    left: 500px;
+    padding: 10px;
+    font-size: 20px;
+  }
+  .nav-item{
+    margin: 10px;
+  }
+

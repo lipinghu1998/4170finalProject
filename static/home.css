@@ -1,0 +1,60 @@
+
+  #navigation_menu{
+    position: absolute;
+    left: 500px;
+    padding: 10px;
+    font-size: 20px;
+  }
+  .nav-item{
+    margin: 10px;
+  }
+  #banner{
+    position: absolute;
+    top: 90px;
+    left: 800px;
+    height: 600px;
+    width: 500px;
+  }
+
+  #title{
+    position: absolute;
+    top: 80px;
+    left: 80px;
+  }
+  #subtext{
+    position: absolute;
+    top: 240px;
+    left: 80px;
+    width: 600px;
+    font-size: 20px;
+    font-family: Arial;
+  }
+
+
+  #start{
+    position: absolute;
+    top: 320px;
+    left: 78px;
+    font-size: 20px;
+  }
+
+
+  #report{
+    position: absolute;
+    top: 590px;
+    left: 80px;
+    font-size: 20px;
+    font-family: Arial;
+    border-style: solid;
+    padding: 8px;
+  }
+
+   #resume{
+    position: absolute;
+    top: 592px;
+    left: 430px;
+    font-size: 18px;
+  }
+ 
+
+  

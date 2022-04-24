@@ -1,0 +1,286 @@
+
+  #instruction{
+    position: absolute;
+    top: 110px;
+    left: 50px;
+    width: 350px;
+    font-family: Arial;
+    font-size: 18px;
+  }
+
+  #ingredients-label{
+  position: relative;
+  top: 10px;
+  left: 200px;
+  font-family: Arial;
+  color: green;
+  font-size: 15px;
+  font-weight: bold;
+
+}
+
+
+
+
+  #timer{
+    position: absolute;
+    top: 100px;
+    left: 900px;
+    width: 105px;
+    background-color: lightgray;
+    padding: 10px;
+    border: solid;
+    font-size: 20px;
+  }
+
+  #timer:hover{
+    background-color: darkseagreen;
+    cursor: pointer;
+  }
+
+
+
+
+
+
+  #thyme{
+    position: absolute;
+    top: 135px;
+    left: 395px;
+    z-index: 2;
+  }
+  #thyme-img{
+    height: 30px;
+    width: 80px;
+  }
+
+  #cut-butter{
+    position: absolute;
+    top: 85px;
+    left: 500px;
+    z-index: 2;
+  }
+  #cut-butter-img{
+    height: 60px;
+    width: 70px;
+  }
+
+  #cut-garlic{
+    position: absolute;
+    top: 180px;
+    left: 410px;
+    z-index: 2;
+  }
+  #cut-garlic-img{
+    height: 40px;
+    width: 50px;
+  }
+
+  #salt{
+    position: absolute;
+    top: 170px;
+    left: 500px;
+    z-index: 2;
+  }
+  #salt-img{
+    height: 50px;
+    width: 20px;
+  }
+
+  #pepper{
+    position: absolute;
+    top: 155px;
+    left: 550px;
+    z-index: 2;
+  }
+  #pepper-img{
+    height: 55px;
+    width: 35px;
+  }
+
+  #olive-oil{
+    position: absolute;
+    top: 110px;
+    left: 605px;
+    z-index: 2;
+  }
+  #olive-oil-img{
+    height: 100px;
+    width: 40px;
+  }
+
+
+
+
+
+  .ingredient:hover{
+    cursor: pointer;
+  }
+
+
+  .ingredient .description{
+    visibility: hidden;
+    width: 70px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 110%;
+  }
+
+  .ingredient .description::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+  }
+
+  .ingredient:hover .description{
+    visibility: visible;
+  }
+
+  
+
+
+
+  #cutting-board{
+    position: absolute;
+    top: 380px;
+    left: 200px;
+    height: 200px;
+    width: 400px;
+    z-index: 1;
+  }
+
+  #filled-pan{
+    position: absolute;
+    top: 340px;
+    left: 800px;
+    height: 170px;
+    width: 300px;
+    opacity: 0.8;
+    z-index: 2;
+    transform: rotate(170deg);
+  }
+  #fire{
+    position: absolute;
+    top: 480px;
+    left: 860px;
+    height: 80px;
+    width: 100px;
+    z-index: 1;
+  }
+
+
+
+  #target{
+    position: absolute;
+    top: 432px;
+    left: 862px;
+    height: 64px;
+    width: 108px;
+    display: none;
+    z-index: 3;
+    transform: rotate(152deg);
+  }
+
+
+
+  #spoon{
+    position: absolute;
+    top: 360px;
+    left: 970px;
+    height: 110px;
+    width: 110px;
+    z-index: 4;
+    transform: rotate(250deg);
+  }
+  #spoon:hover{
+    cursor: pointer;
+  }
+
+
+  #temperature{
+    position: absolute;
+    top: 550px;
+    left: 860px;
+  }
+  .dot {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border-style: solid;
+    margin: 5px;
+    display: inline-block;
+  }
+
+  #low{
+    background-color: lightgreen;
+  }
+
+  #med{
+    background-color: orange;
+  }
+
+  #high{
+    background-color: red;
+  }
+
+
+
+  #temperature-labels{
+    position: absolute;
+    top: 575px;
+    left: 861px;
+
+  }
+  .label{
+    font-weight: bold;
+    font-size: 12px;
+    margin: 6px;
+  }
+
+
+#option-steak{
+  position: absolute;
+  top: 100px;
+  right: 70px;
+  height: 145px;
+  width: 200px;
+}
+
+#tenderness-group{
+  position: absolute;
+  top: 116px;
+  right: 275px;
+  color: gray;
+}
+
+#four{
+  margin-left: 2px;
+}
+
+
+
+
+#arrow-next{
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+  display: none;
+  height:  80px;
+  width:  80px;
+}
+#arrow-next:hover{
+    cursor: pointer;
+  }
+
+
