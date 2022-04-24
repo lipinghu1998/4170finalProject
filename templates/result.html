@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script>
+let stat = {{stat|tojson}}
+let steak = {{steak|tojson}}
+let cutting_board = {{cutting_board|tojson}}
+</script>
+
+
+<link rel="stylesheet" href="{{url_for('static', filename='result.css')}}">
+<script type="text/javascript" src="{{ url_for('static', filename = 'result.js') }}"></script>
+
+
+<div id="congrats"> <div id="great">GREAT JOB</div> You cooked the perfect Gordon Ramsay medium rare steak!</div>
+
+<img id="steak" src={{steak["finished"]["image"]}} alt={{steak["finished"]["description"]}}> </img>
+<img id="board" src={{cutting_board["image"]}} alt={{cutting_board["description"]}}> </img>
+
+<div id="stat"> <b>Score:</b> {{stat["score"]}}/{{stat["total_score"]}}  </div>
+
+<button type="button" id="learn_again" class="btn btn-primary">&#128260; Click to learn again!</button>
+<button type="button" id="game_again" class="btn btn-primary">&#128260; Click to play the game again!</button>
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script>
+let ingredients = {{ingredients|tojson}}
+let utensils = {{utensils|tojson}}
+let actions = {{actions|tojson}}
+let instruction = {{instruction|tojson}}
+</script>
+
+
+ <link rel="stylesheet" href="{{url_for('static', filename='learn_1.css')}}">
+
+ <script type="text/javascript" src="{{ url_for('static', filename = 'learn_1.js') }}"></script>
+
+ <div class="ingredient" id="frozen-steak">
+     <img id="frozen-steak-img" src={{ingredients["steak"]["frozen"]["image"]}} alt={{ingredients["steak"]["frozen"]["description"]}}> </img>
+     <span class="description">{{ingredients["steak"]["frozen"]["description"]}}</span>
+ </div>
+
+
+  <div class="ingredient" id="thyme">
+      <img id="thyme-img" src={{ingredients["thyme"]["image"]}} alt={{ingredients["thyme"]["description"]}}> </img>
+      <span class="description">{{ingredients["thyme"]["description"]}}</span>
+  </div>
+  <div class="ingredient" id="uncut-butter">
+      <img id="uncut-butter-img" src={{ingredients["butter"]["uncut"]["image"]}} alt={{ingredients["butter"]["uncut"]["description"]}}> </img>
+      <span class="description">{{ingredients["butter"]["uncut"]["description"]}}</span>
+  </div>
+  <div class="ingredient" id="uncut-garlic">
+      <img id="uncut-garlic-img" src={{ingredients["garlic"]["uncut"]["image"]}} alt={{ingredients["garlic"]["uncut"]["description"]}}> </img>
+      <span class="description">{{ingredients["garlic"]["uncut"]["description"]}}</span>
+  </div>
+  <div class="ingredient" id="salt">
+      <img id="salt-img" src={{ingredients["salt"]["image"]}} alt={{ingredients["salt"]["description"]}}> </img>
+      <span class="description">{{ingredients["salt"]["description"]}}</span>
+  </div>
+  <div class="ingredient" id="pepper">
+      <img id="pepper-img" src={{ingredients["pepper"]["image"]}} alt={{ingredients["pepper"]["description"]}}> </img>
+      <span class="description">{{ingredients["pepper"]["description"]}}</span>
+  </div>
+  <div class="ingredient" id="olive-oil">
+      <img id="olive-oil-img" src={{ingredients["olive-oil"]["image"]}} alt={{ingredients["olive-oil"]["description"]}}> </img>
+      <span class="description">{{ingredients["olive-oil"]["description"]}}</span>
+  </div>
+
+
+  <div class="ingredient" id="cut-butter">
+
+  </div>
+  <div class="ingredient" id="cut-garlic">
+
+  </div>
+
+
+
+  <img id="arrow-steak" src={{actions["arrow"]["label"]["image"]}} alt={{actions["arrow"]["label"]["description"]}}> </img>
+
+
+  <div id="arrow-butter"> </div>
+  <div id="arrow-garlic"> </div>
+
+  <div id="popup-arrow-butter"> </div>
+  <div id="popup-arrow-garlic"> </div>
+
+  <div id="timer">
+    00:00:00
+  </div>
+  <div id="timer-label"></div>
+
+
+
+  <div id="instruction"> </div>
+
+  <img id="knife" src={{utensils["knife"]["image"]}} alt={{utensils["knife"]["description"]}}> </img>
+
+  <div id="raw-steak"></div>
+
+  <img src={{utensils["cutting-board"]["image"]}} alt={{utensils["cutting-board"]["description"]}} id="cutting-board"> </img>
+  <img src={{utensils["pan"]["empty"]["image"]}} alt={{utensils["pan"]["empty"]["description"]}} id="empty-pan"> </img>
+
+  <div id="temperature">
+  <span class="dot" id="low"></span>
+  <span class="dot" id="med"></span>
+  <span class="dot" id="high"></span>
+  </div>
+  <div id="temperature-labels">
+  <span class="label">low</span>
+  <span class="label">med</span>
+  <span class="label">high</span>
+  </div>
+
+  <div id="ingredients-label"></div>
+
+  <div id="popup"> </div>
+
+  <img id="arrow-next" src={{actions["arrow"]["next"]["image"]}} alt={{actions["arrow"]["next"]["description"]}}> </img>
+
+
+{% endblock %}
