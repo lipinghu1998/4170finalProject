@@ -16,7 +16,7 @@
 
 </script>
 
- <link rel="stylesheet" href="{{url_for('static', filename='learn_5.css')}}">
+ <link rel="stylesheet" href="{{url_for('static', filename='step_5.css')}}">
 
  <script type="text/javascript" src="{{ url_for('static', filename = 'game_5.js') }}"></script>
 
@@ -24,6 +24,11 @@
  <div class="ingredient" id="seasoned-steak">
   <img id="seasoned-steak-img" src={{ingredients["steak"]["seasoned"]["image"]}} alt={{ingredients["steak"]["seasoned"]["description"]}}> </img>
   <span class="description">{{ingredients["steak"]["seasoned"]["description"]}}</span>
+ </div>
+
+ <div class="ingredient" id="cooked-steak">
+  <img id="cooked-steak-img" src={{ingredients["steak"]["cooked"]["image"]}} alt={{ingredients["steak"]["cooked"]["description"]}}> </img>
+  <span class="description">{{ingredients["steak"]["cooked"]["description"]}}</span>
  </div>
 
  <div class="ingredient" id="thyme">
@@ -50,7 +55,7 @@
      <img id="olive-oil-img" src={{ingredients["olive-oil"]["image"]}} alt={{ingredients["olive-oil"]["description"]}}> </img>
      <span class="description">{{ingredients["olive-oil"]["description"]}}</span>
  </div>
- <div class = "ingredient" id = "olive-oil-2">
+ <div class = "ingredient" id = "olive-oil-tilted"> 
 
  </div>
 
@@ -58,11 +63,11 @@
   <img src={{utensils["pan"]["empty"]["image"]}} alt={{utensils["pan"]["empty"]["description"]}} id="empty-pan"> </img>
  </div>
 
- <div id="arrow-oil"> </div>
+ <div id="arrowUpdates"> </div>
 
- <div id = "pan-2">
+ <div id = "pan-2"> 
   <img src={{utensils["pan"]["oiled"]["image"]}} alt={{utensils["pan"]["oiled"]["description"]}} id="oiled-pan"> </img>
-</div>
+</div> 
 
 
 
@@ -95,7 +100,7 @@
    00:00:00
  </div>
  <div id="timer-label"></div>
-
+ <div id="message"></div>
 
 
  <div id="instruction"> </div>
@@ -103,6 +108,7 @@
  <img id="knife" src={{utensils["knife"]["image"]}} alt={{utensils["knife"]["description"]}}> </img>
 
  <div id="raw-steak"></div>
+
 
  <img src={{utensils["cutting-board"]["image"]}} alt={{utensils["cutting-board"]["description"]}} id="cutting-board"> </img>
 
@@ -126,6 +132,12 @@
  <img id="arrow-next" src={{actions["arrow"]["next"]["image"]}} alt={{actions["arrow"]["next"]["description"]}}> </img>
 
 
+ <div class = alert id = "alert-near-pan">  </div>
+ <div class = alert id = "alert-near-timer">  </div>
+
+ 
 
 
 {% endblock %}
+
+
