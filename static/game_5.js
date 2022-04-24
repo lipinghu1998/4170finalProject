@@ -1,21 +1,29 @@
 $(document).ready(function(){
+
+
+
   $("#smoke").hide()
   $("#oiled-pan").hide();
+  $("#cooked-steak").hide()
   $("#arrow-next").click(function(){
-      window.location.href="/game/7";
+      window.location.href="/game/6";
 
     })
 
 
 
   //Navigation Menu activate- Learn
+  $("#nav_learn").addClass("active");
+
+  $("#nav_home").removeClass("active");
+  $("#nav_game").removeClass("active");
+
   $("#nav_game").addClass("active");
 
   $("#nav_home").removeClass("active");
   $("#nav_learn").removeClass("active");
 
 
-  //Selected item is above other items while dragging
   $(".ingredient").mouseenter(
       function() {
       $(this).css("z-index", "4");
@@ -102,80 +110,19 @@ $("#olive-oil").draggable({
 });
 
 
-
+$("#seasoned-steak").draggable({
+  revert: "invalid",
+  start: function( event, ui ) {
+    $("#seasoned-steak").find(".description").hide();
+  },
+  stop: function( event, ui ) {
+    $("#seasoned-steak").find(".description").show();
+  }
+}); 
 
 $("#knife").draggable({
       revert: "invalid"
 });
-
-setTimeout(function(){
-  // $("#transition").html("hello")
-  // var smoke_img = '<img id="smoke-img" src=actions["smoke"]["image"] alt=actions["smoke"]["description"]> </img>';
-  // $("#smoke").append(smoke_img )
-  $("#smoke").show().css("opacity", "0.5");
-
-
-  }, 2000);
-
-
-  $("#empty-pan").on("drop", function(event, ui) {
-      $("#arrow-oil").hide()
-      console.log("pan")
-      // $("#empty-pan").hide();
-      // $("#oiled-pan").show();
-
-      $("#olive-oil").hide();
-      let new_oil = $("<img>");
-      new_oil.attr("src", ingredients["olive-oil"]["image"]);
-      new_oil.attr("alt", ingredients["olive-oil"]["description"]);
-      $(new_oil).addClass("new_oil");
-
-
-
-      console.log(new_oil)
-      $("#olive-oil-2").append(new_oil);
-
-
-  });
-
-   //Action when knife is clicked
-   $("#olive-oil-2").click(function(){
-   $("#olive-oil-2").css("transform","rotate(60deg)");
-   $("#empty-pan").hide();
-   $("#oiled-pan").show();
-
-
-
-    $.ajax({
-      type: "POST",
-      url: "/increase_score",
-      dataType : "json",
-      contentType: "application/json; charset=utf-8",
-      data : JSON.stringify({"check":"success"}),
-      success: function(response){
-        setTimeout(function() {
-            window.location.href="/game/7";
-        }, 7000);
-
-
-
-      },
-      error: function(request, status, error){
-          console.log("Error");
-          console.log(request)
-          console.log(status)
-          console.log(error)
-      }
-  });
-
-
-});
-
-
-  $("#olive-oil").click( function(event, ui) {
-      console.log("oil")
-
-  });
 
 
 //Droppable items
@@ -187,7 +134,91 @@ $("#empty-pan").droppable({
   accept: "#olive-oil"
 });
 
+$("#oiled-pan").droppable({
+  accept: "#seasoned-steak"
+});
 
+
+setTimeout(function(){
+  // $("#transition").html("hello")
+  // var smoke_img = '<img id="smoke-img" src=actions["smoke"]["image"] alt=actions["smoke"]["description"]> </img>';
+  // $("#smoke").append(smoke_img )
+  $("#smoke").show().css("opacity", "0.5");
+
+
+  }, 5000);
+
+
+$("#empty-pan").on("drop", function(event, ui) {
+    // $("#alert-near-pan").append("<div class = row> click the olive oil when pan is hot enough!</div>")
+    $("#arrowUpdates").empty()
+    console.log("pan")
+
+    $("#olive-oil").hide();
+    let new_oil = $("<img>");
+    new_oil.attr("src", ingredients["olive-oil"]["image"]);
+    new_oil.attr("alt", ingredients["olive-oil"]["description"]);
+    $(new_oil).addClass("new_oil");
+
+
+
+    console.log(new_oil)
+    $("#olive-oil-tilted").append(new_oil);
+
+
+});
+
+  //Action when new oil is clicked
+$("#olive-oil-tilted").click(function(){
+  $("#alert-near-pan").empty();
+  // $("#alert-near-pan").append("<div class = row> now drag when the pan smokes again </div>")
+  $("#smoke").hide()
+  $("#olive-oil-tilted").css("transform","rotate(40deg)");
+  $("#empty-pan").hide();
+  $("#oiled-pan").show();
+  $("#olive-oil-tilted").mouseleave(function(){
+    $("#olive-oil-tilted").hide();
+    $("#olive-oil").show();
+  })
+
+  //Arrow shown between ( seasoned-steak & pan)
+  let arrow_steak = $("<img>");
+  arrow_steak.attr("src", actions["arrow"]["label"]["image"]);
+  arrow_steak.attr("alt", actions["arrow"]["label"]["description"]);
+  $(arrow_steak).addClass("arrow_steak-style");
+  $("#arrowUpdates").append(arrow_steak);
+  console.log("arrowUpdates: ",$("#arrowUpdates") )
+
+
+
+  setTimeout(function(){
+    $("#smoke").show();
+    console.log("smoking!!!")
+    
+  },3000)
+    $.ajax({
+      type: "POST",
+      url: "/increase_steps_completed",
+      dataType : "json",
+      contentType: "application/json; charset=utf-8",
+      data : JSON.stringify({"check":"success"}),
+      success: function(response){
+        setTimeout(function() {
+            window.location.href="/game/6";
+        }, 10000);
+
+
+
+      },
+      error: function(request, status, error){
+          console.log("Error");
+          console.log(request)
+          console.log(status)
+          console.log(error)
+      }
+    });
+    
+});
 
 
 })

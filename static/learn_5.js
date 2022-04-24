@@ -1,8 +1,25 @@
 $(document).ready(function(){
+
+
+    //Navigation Menu activate- Learn
+    $("#nav_learn").addClass("active");
+
+    $("#nav_home").removeClass("active");
+    $("#nav_game").removeClass("active");
+    
+    // Hide next arrow
+    document.getElementById("arrow-next").style.visibility = 'hidden';
+
+    // Create and hide step complete message
+    let message = document.getElementById('message');
+    message.innerHTML += 'Complete! Press the arrow or wait for the page to timeout';
+    message.style.visibility = 'hidden';
+
     $("#smoke").hide()
     $("#oiled-pan").hide();
+    $("#cooked-steak").hide()
     $("#arrow-next").click(function(){
-        window.location.href="/learn/7";
+        window.location.href="/learn/6";
 
       })
 
@@ -14,7 +31,7 @@ $(document).ready(function(){
     arrow_oil.attr("src", actions["arrow"]["label"]["image"]);
     arrow_oil.attr("alt", actions["arrow"]["label"]["description"]);
     $(arrow_oil).addClass("arrow-oil-style");
-    $("#arrow-oil").append(arrow_oil);
+    $("#arrowUpdates").append(arrow_oil);
 
     //Navigation Menu activate- Learn
     $("#nav_learn").addClass("active");
@@ -110,11 +127,34 @@ $(document).ready(function(){
   });
 
 
-
+  $("#seasoned-steak").draggable({
+    revert: "invalid",
+    start: function( event, ui ) {
+      $("#seasoned-steak").find(".description").hide();
+    },
+    stop: function( event, ui ) {
+      $("#seasoned-steak").find(".description").show();
+    }
+}); 
 
   $("#knife").draggable({
         revert: "invalid"
   });
+
+
+  //Droppable items
+  $("#cutting-board").droppable({
+    accept: false
+  });
+
+  $("#empty-pan").droppable({
+    accept: "#olive-oil"
+  });
+
+  $("#oiled-pan").droppable({
+    accept: "#seasoned-steak"
+  });
+
 
   setTimeout(function(){
     // $("#transition").html("hello")
@@ -123,37 +163,65 @@ $(document).ready(function(){
     $("#smoke").show().css("opacity", "0.5");
 
 
-    }, 2000);
+    }, 5000);
 
 
-    $("#empty-pan").on("drop", function(event, ui) {
-        $("#arrow-oil").hide()
-        console.log("pan")
-        // $("#empty-pan").hide();
-        // $("#oiled-pan").show();
+  $("#empty-pan").on("drop", function(event, ui) {
+      $("#alert-near-pan").append("<div class = row> click the olive oil when pan is hot enough!</div>")
+      $("#arrowUpdates").empty()
+      console.log("pan")
 
-        $("#olive-oil").hide();
-        let new_oil = $("<img>");
-        new_oil.attr("src", ingredients["olive-oil"]["image"]);
-        new_oil.attr("alt", ingredients["olive-oil"]["description"]);
-        $(new_oil).addClass("new_oil");
-
-
-
-        console.log(new_oil)
-        $("#olive-oil-2").append(new_oil);
-
-
-    });
-
-     //Action when knife is clicked
-     $("#olive-oil-2").click(function(){
-     $("#olive-oil-2").css("transform","rotate(60deg)");
-     $("#empty-pan").hide();
-     $("#oiled-pan").show();
+      $("#olive-oil").hide();
+      let new_oil = $("<img>");
+      new_oil.attr("src", ingredients["olive-oil"]["image"]);
+      new_oil.attr("alt", ingredients["olive-oil"]["description"]);
+      $(new_oil).addClass("new_oil");
 
 
 
+      console.log(new_oil)
+      $("#olive-oil-tilted").append(new_oil);
+
+
+  });
+
+    //Action when new oil is clicked
+  $("#olive-oil-tilted").click(function(){
+    $("#alert-near-pan").empty();
+    $("#alert-near-pan").append("<div class = row> now drag when the pan smokes again </div>")
+    $("#smoke").hide()
+    $("#olive-oil-tilted").css("transform","rotate(40deg)");
+    $("#empty-pan").hide();
+    $("#oiled-pan").show();
+    $("#olive-oil-tilted").mouseleave(function(){
+      $("#olive-oil-tilted").hide();
+      $("#olive-oil").show();
+    })
+    // $("#oiled-pan").on("drop",function(event,ui){
+    //   console.log("droped")
+    //   $("#seasoned-steak").addClass("smaller-steak")
+
+    // })
+
+    //Arrow shown between ( seasoned-steak & pan)
+    let arrow_steak = $("<img>");
+    arrow_steak.attr("src", actions["arrow"]["label"]["image"]);
+    arrow_steak.attr("alt", actions["arrow"]["label"]["description"]);
+    $(arrow_steak).addClass("arrow_steak-style");
+    $("#arrowUpdates").append(arrow_steak);
+    console.log("arrowUpdates: ",$("#arrowUpdates") )
+
+    // Show arrow
+    document.getElementById("arrow-next").style.visibility = 'visible';
+
+    // Show message
+    document.getElementById("message").style.visibility = 'visible';
+
+    setTimeout(function(){
+      $("#smoke").show();
+      console.log("smoking!!!")
+      
+    },3000)
       $.ajax({
         type: "POST",
         url: "/increase_steps_completed",
@@ -162,8 +230,8 @@ $(document).ready(function(){
         data : JSON.stringify({"check":"success"}),
         success: function(response){
           setTimeout(function() {
-              window.location.href="/learn/7";
-          }, 7000);
+              window.location.href="/learn/6";
+          }, 100000000000000);
 
 
 
@@ -182,23 +250,6 @@ $(document).ready(function(){
 
 
  });
-
-
-    $("#olive-oil").click( function(event, ui) {
-        console.log("oil")
-
-    });
-
-
-  //Droppable items
-  $("#cutting-board").droppable({
-    accept: false
-  });
-
-  $("#empty-pan").droppable({
-    accept: "#olive-oil"
-  });
-
 
 
 
