@@ -21,7 +21,7 @@
 
   #timer-label{
     position: absolute;
-    top: 75px;
+    top: 70px;
     left: 900px;
     color: red;
     font-size: 15px;
@@ -362,7 +362,7 @@
 
 #ingredients-label{
   position: absolute;
-  top: 60px;
+  top: 70px;
   left: 400px;
   font-family: Arial;
   color: red;
