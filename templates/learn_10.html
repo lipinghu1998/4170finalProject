@@ -1,0 +1,592 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<head>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<script>
+  let ingredients = {{ingredients|tojson}}
+  let utensils = {{utensils|tojson}}
+  let actions = {{actions|tojson}}
+  let instruction = {{instruction|tojson}}
+</script>
+
+<style>
+  #instruction{
+    position: absolute;
+    top: 110px;
+    left: 50px;
+    font-family: Arial;
+    font-size: 18px;
+  }
+  #timer{
+    position: absolute;
+    top: 100px;
+    left: 900px;
+    background-color: darkseagreen;
+    padding: 10px;
+    border: solid;
+    font-size: 20px;
+  }
+  #timer-label{
+      position: absolute;
+      top: 75px;
+      left: 900px;
+      color: red;
+      font-size: 15px;
+      font-family: Arial;
+      font-weight: bold;
+  }
+  #finished-steak{
+    position: absolute;
+    top: 360px;
+    left: 290px;
+    z-index: 2;
+  }
+  #finished-steak-img{
+    height: 220px;
+
+  }
+  #fire{
+    position: absolute;
+    top: 460px;
+    left: 860px;
+  }
+  #fire-img{
+    height: 80px;
+    width: 100px;
+  }
+  #thyme{
+    position: absolute;
+    top: 135px;
+    left: 395px;
+    z-index: 2;
+  }
+  #thyme-img{
+    height: 30px;
+    width: 80px;
+  }
+  #salt{
+    position: absolute;
+    top: 170px;
+    left: 500px;
+    z-index: 2;
+  }
+  #salt-img{
+    height: 50px;
+    width: 20px;
+  }
+  #pepper{
+    position: absolute;
+    top: 155px;
+    left: 550px;
+    z-index: 2;
+  }
+  #pepper-img{
+    height: 55px;
+    width: 35px;
+  }
+  #olive-oil{
+    position: absolute;
+    top: 110px;
+    left: 605px;
+    z-index: 3;
+  }
+  #olive-oil-img{
+    height: 100px;
+    width: 40px;
+  }
+  #pan{
+    position: absolute;
+    top: 340px;
+    left: 800px;
+    height: 170px;
+    width: 300px;
+    z-index: 1;
+  }
+  #knife{
+    position: absolute;
+    top: 370px;
+    left: 50px;
+    height: 100px;
+    width: 100px;
+    z-index: 3;
+  }
+  #knife:hover{
+    cursor: pointer;
+  }
+  .ingredient:hover{
+    cursor: pointer;
+  }
+  .ingredient .description{
+    visibility: hidden;
+    width: 70px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 110%;
+  }
+  .ingredient .description::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+  }
+  .ingredient:hover .description{
+    visibility: visible;
+  }
+  #cutting-board{
+    position: absolute;
+    top: 380px;
+    left: 200px;
+    height: 200px;
+    width: 400px;
+    z-index: 1;
+  }
+  #pan{
+    position: absolute;
+    left: 780px;
+    z-index: 1;
+  }
+  #filled-pan {
+    height: 210px;
+  }
+  #empty-pan {
+    height: 200px;
+    transform: rotate(190deg);
+    top:5px;
+  }
+  #temperature{
+    position: absolute;
+    top: 520px;
+    left: 860px;
+  }
+  .dot {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border-style: solid;
+    margin: 5px;
+    display: inline-block;
+  }
+  #low{
+    background-color: lightgreen;
+  }
+  #med{
+    background-color: orange;
+    z-index: 10
+  }
+  #high{
+    background-color: red;
+  }
+  #temperature-labels{
+    position: absolute;
+    top: 545px;
+    left: 861px;
+  }
+  .label{
+    font-weight: bold;
+    font-size: 12px;
+    margin: 6px;
+  }
+  .pop-up-style{
+    position: absolute;
+    top: 220px;
+    left: 325px;
+    height: 400px;
+    width: 225px;
+    background-color: ivory;
+    border-style: solid;
+    border-width: 2px;
+    z-index: 5;
+
+  }
+  .ingredient .description{
+    visibility: hidden;
+    width: 70px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 110%;
+  }
+  .ingredient .description::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+  }
+  .ingredient:hover .description{
+    visibility: visible;
+  }
+  #cutting-board-small{
+    position: absolute;
+    top: 100px;
+    left: 130px;
+    height: 250px;
+    width: 450px;
+    z-index: 6;
+  }
+  .arrow-garlic-style{
+    position: absolute;
+    top: 315px;
+    left: 370px;
+    height: 16px;
+    width: 270px;
+    transform: rotate(240deg);
+    z-index: 8;
+  }
+  .arrow-butter-style{
+    position: absolute;
+    top: 270px;
+    left: 450px;
+    height: 14px;
+    width: 380px;
+    transform: rotate(240deg);
+    z-index: 8;
+  }
+  #sub-instruction{
+    position: relative;
+    top: 20px;
+    left: 410px;
+    font-family: Arial;
+    font-size: 18px;
+  }
+  #sub-alert{
+    position: relative;
+    top: 155px;
+    left: 10px;
+    width: 120px;
+    font-family: Arial;
+    color: red;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  #popup-uncut-garlic{
+    position: absolute;
+    top: 150px;
+    left: 230px;
+    height: 70px;
+    width: 80px;
+    z-index: 7;
+  }
+  #popup-uncut-butter{
+    position: absolute;
+    top: 130px;
+    left: 390px;
+    height: 70px;
+    width: 80px;
+    z-index: 7;
+  }
+  #popup-cut-garlic{
+    position: absolute;
+    top: 155px;
+    left: 225px;
+    height: 70px;
+    width: 80px;
+    z-index: 7;
+  }
+  #popup-cut-butter{
+    position: absolute;
+    top: 130px;
+    left: 390px;
+    height: 70px;
+    width: 80px;
+    z-index: 7;
+  }
+  .popup-arrow-garlic-style{
+    position: absolute;
+    top: 418px;
+    left:  402px;
+    height: 16px;
+    width: 172px;
+    transform: rotate(198deg);
+    z-index: 9;
+  }
+  .popup-arrow-butter-style{
+    position: absolute;
+    top: 392px;
+    left: 416px;
+    height: 16px;
+    width: 345px;
+    transform: rotate(185deg);
+    z-index: 9;
+  }
+  #ingredients-label{
+    position: relative;
+    top: 15px;
+    left: 250px;
+    font-family: Arial;
+    color: red;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  #cut-butter{
+    position: absolute;
+    top: 100px;
+    left: 480px;
+    z-index: 2;
+  }
+  #cut-butter-img{
+    height: 60px;
+    width: 70px;
+  }
+
+  #cut-garlic{
+    position: absolute;
+    top: 180px;
+    left: 410px;
+    z-index: 2;
+  }
+  #cut-garlic-img{
+    height: 40px;
+    width: 50px;
+  }
+  #arrow-next{
+    position: absolute;
+    bottom: 40px;
+    right: 20px;
+    height:  80px;
+    width:  80px;
+  }
+  #arrow-next:hover{
+      cursor: pointer;
+  }
+  #med:hover{
+    cursor: pointer;
+  }
+</style>
+
+<!-- -------------------------------------------- -->
+
+<script>
+  $(document).ready(function(){
+    let clickState = 0;
+    // $("#empty-pan").remove();
+    $("#finished-steak").hide();
+
+    //Navigation Menu activate- Learn
+    $("#nav_learn").addClass("active");
+    $("#nav_home").removeClass("active");
+    $("#nav_game").removeClass("active");
+
+    $("#arrow-next").click(function(){
+      window.location.href="/learn/11";
+    })
+
+    // Set current instruction
+    $("#instruction").html(instruction["description"]);
+
+    // Tip 1: turn fire off by clicking pan
+    let one = $('<p id="sub-instruction" style="color:red; position:fixed; left:820px; font-size: 14px; top:330px;">Click the pan to turn the fire off</p>').appendTo('#text');
+
+    function hide_fire(){
+      $("#fire").hide();
+    }
+
+    function hide_pan_steak(){
+      $("#filled-pan").hide();
+
+      let empty_pan = $("<img>");
+      empty_pan.attr("src", utensils["pan"]["empty"]["image"]);
+      empty_pan.attr("alt", utensils["pan"]["empty"]["description"]);
+      empty_pan.attr("id", utensils["pan"]["empty"]["id"]);
+      $("#pan").append(empty_pan);
+
+      $("#finished-steak").show();
+
+      // timer is set to 5 mins
+      $("#timer").hover(
+        function() {
+          $("#timer").css("cursor","pointer");
+        }
+      );
+
+      $("#timer").html("00:05:00");
+      $("#timer-label").html("Start the timer!");
+
+      // WHEN TIMER CLICKED -
+      $("#timer").click(function(){
+        // disable timer from being clicked again
+        $("#timer").off('click');
+        $("#timer").hover(function() {$("#timer").css("cursor","default");});
+
+        //timer for 5min = 5s
+        let minutes = 5;
+
+        // Each second equates to 2 mins
+        var countdown = setInterval(function(){
+          minutes-=1
+          $("#timer").html("00:".concat(minutes.toString().padStart(2, '0')).concat(":00"));
+
+          // When timer is over
+          if(minutes==0){
+            // Stop further decrement
+            clearInterval(countdown);
+
+            $("#timer-label").html("The steak is done resting!");
+          }
+        }, 1000);
+
+        $.ajax({
+          type: "POST",
+          url: "/increase_steps_completed",
+          dataType : "json",
+          contentType: "application/json; charset=utf-8",
+          data : JSON.stringify({"check":"success"}),
+          success: function(response){
+            $("#timer-warning").html("Warning: step will time out in 10 seconds");
+            $("#timer-warning").css("position", "fixed");
+            $("#timer-warning").css("color", "red");
+            $("#timer-warning").css("top", "700px")
+            $("#timer-warning").css("left", "980px")
+
+            $("#arrow-next").click(function(){
+              window.location.href="/learn/11";
+            })
+            setTimeout(function() {
+              window.location.href="/learn/11";
+            }, 10000);
+          },
+          error: function(request, status, error){
+            console.log("Error");
+            console.log(request)
+            console.log(status)
+            console.log(error)
+          }
+        });
+      });
+
+    }
+
+    console.log(clickState)
+
+    $("#pan").click(function() {
+      clickState ++;
+
+      if (clickState == 1) {
+        console.log(clickState)
+
+        hide_fire();
+
+        $('#sub-instruction').remove();
+        let one = $('<p id="sub-instruction" style="color:red; position:fixed; left:820px; font-size: 14px; top:330px;">Click again to remove the steak from pan</p>').appendTo('#text');
+      } else if (clickState == 2) {
+        console.log(clickState)
+
+        hide_pan_steak()
+
+        $('#sub-instruction').remove();
+      }
+
+    })
+})
+
+</script>
+
+<!-- -------------------------------------------- -->
+
+</head>
+
+
+ <div class="ingredient" id="thyme">
+     <img id="thyme-img" src={{ingredients["thyme"]["image"]}} alt={{ingredients["thyme"]["description"]}}> </img>
+     <span class="description">{{ingredients["thyme"]["description"]}}</span>
+ </div>
+ <div class="ingredient" id="cut-butter">
+     <img id="cut-butter-img" src={{ingredients["butter"]["cut"]["image"]}} alt={{ingredients["butter"]["cut"]["description"]}}> </img>
+     <span class="description">{{ingredients["butter"]["cut"]["description"]}}</span>
+ </div>
+ <div class="ingredient" id="cut-garlic">
+     <img id="cut-garlic-img" src={{ingredients["garlic"]["cut"]["image"]}} alt={{ingredients["garlic"]["cut"]["description"]}}> </img>
+     <span class="description">{{ingredients["garlic"]["cut"]["description"]}}</span>
+ </div>
+ <div class="ingredient" id="salt">
+     <img id="salt-img" src={{ingredients["salt"]["image"]}} alt={{ingredients["salt"]["description"]}}> </img>
+     <span class="description">{{ingredients["salt"]["description"]}}</span>
+ </div>
+ <div class="ingredient" id="pepper">
+     <img id="pepper-img" src={{ingredients["pepper"]["image"]}} alt={{ingredients["pepper"]["description"]}}> </img>
+     <span class="description">{{ingredients["pepper"]["description"]}}</span>
+ </div>
+ <div class="ingredient" id="olive-oil">
+     <img id="olive-oil-img" src={{ingredients["olive-oil"]["image"]}} alt={{ingredients["olive-oil"]["description"]}}> </img>
+     <span class="description">{{ingredients["olive-oil"]["description"]}}</span>
+ </div>
+
+ <div id="text"></div>
+
+ <div id = pan>
+  <img src={{utensils["pan"]["filled"]["image"]}} alt={{utensils["pan"]["filled"]["description"]}} id="filled-pan"> </img>
+ </div>
+
+ <div id="arrow-cursor"></div>
+
+ <div class="ingredient" id="cut-butter">
+ </div>
+ <div class="ingredient" id="cut-garlic">
+ </div>
+
+ <div id="timer">
+   00:00:00
+ </div>
+
+ <div id="timer-label"></div>
+
+ <div id="instruction"> </div>
+
+ <img id="knife" src={{utensils["knife"]["image"]}} alt={{utensils["knife"]["description"]}}> </img>
+
+ <div class="ingredient" id="finished-steak">
+  <img id="finished-steak-img" src={{ingredients["steak"]["finished"]["image"]}} alt={{ingredients["steak"]["finished"]["description"]}}> </img>
+  <span class="description">{{ingredients["steak"]["finished"]["description"]}}</span>
+ </div>
+
+ <img src={{utensils["cutting-board"]["image"]}} alt={{utensils["cutting-board"]["description"]}} id="cutting-board"> </img>
+
+
+ <div id="temperature">
+     <span class="dot" id="low"></span>
+     <span class="dot" id="med"></span>
+     <span class="dot" id="high"></span>
+ </div>
+
+ <div class="action" id="fire">
+  <img id="fire-img" src={{actions["fire"]["image"]}} alt={{actions["fire"]["description"]}}></img>
+</div>
+
+ <div id="temperature-labels">
+     <span class="label">low</span>
+     <span class="label">med</span>
+     <span class="label">high</span>
+ </div>
+
+ <div id="ingredients-label"></div>
+
+ <div id="popup"> </div>
+
+ <div id="timer-warning"></div>
+
+ <img id="arrow-next" src={{actions["arrow"]["next"]["image"]}} alt={{actions["arrow"]["next"]["description"]}}> </img>
+
+{% endblock %}

@@ -2,9 +2,8 @@ $(document).ready(function(){
     $("#smoke").hide()
     $("#oiled-pan").hide();
     $("#arrow-next").click(function(){
-        window.location.href="/game";
-
-      })
+        window.location.href="/learn/10";
+    })
 
 
     console.log("actions['smoke']['image']",actions['smoke']['image']);
@@ -161,12 +160,9 @@ $(document).ready(function(){
         contentType: "application/json; charset=utf-8",
         data : JSON.stringify({"check":"success"}),
         success: function(response){
-          setTimeout(function() {
-              window.location.href="/game";
-          }, 7000);
-
-
-
+          // setTimeout(function() {
+          //     window.location.href="/game";
+          // }, 7000);
         },
         error: function(request, status, error){
             console.log("Error");

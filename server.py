@@ -39,9 +39,15 @@ data={
       "6":{
           "id": "6",
           "description": "(6) <b>Sear</b> steak for one minute on each side"
+       },
+       "10":{
+           "id": "10",
+           "description": "(10) <b>Remove</b> from heat and let <b>rest</b>"
+       },
+       "11":{
+           "id": "11",
+           "description": "(11) <b>Enjoy</b> the Gordon Ramsay Steak"
        }
-
-
 },
 
 "ingredients":{
@@ -291,6 +297,14 @@ def learn_step(step=None):
        ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
        utensils_step=["pan", "knife", "cutting-board"]
        actions_step=["fire","smoke","arrow"]
+    elif step == "10":
+       ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
+       utensils_step=["pan", "knife", "cutting-board"]
+       actions_step=["fire","arrow"]
+    elif step == "11":
+       ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
+       utensils_step=["pan", "knife", "cutting-board"]
+       actions_step=["fire","arrow"]
 
 
     ingredients={x:data["ingredients"][x] for x in ingredients_step}
@@ -332,6 +346,14 @@ def game_step(step=None):
        ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
        utensils_step=["pan", "knife", "cutting-board"]
        actions_step=["fire","smoke","arrow"]
+    elif step == "10":
+       ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
+       utensils_step=["pan", "knife", "cutting-board"]
+       actions_step=["fire","arrow"]
+    elif step == "11":
+       ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
+       utensils_step=["pan", "knife", "cutting-board"]
+       actions_step=["fire","arrow"]
 
 
 
