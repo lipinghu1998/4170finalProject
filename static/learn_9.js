@@ -72,9 +72,19 @@ $(document).ready(function(){
        $(this).parent().siblings().css("color","gray");
      })
 
+
+     
+
+     //Check Variables
+     let timer_check=false
+     let pour_check=false
+     let final_check=false
+
+
      //Final Display
      function final_display()
      {
+      final_check=true;
 
       //Increase steps completed on server side
       $.ajax({
@@ -102,19 +112,12 @@ $(document).ready(function(){
        }
      });
 
+    }
 
 
-
-     }
-
-     //Check Variables
-     let timer_check=false
-     let pour_check=false
-
-
-
-
+     //Timer logic
      function timer(minutes, seconds){
+
 
        //Every 1 second equates to 10 second decrement
        let countdown = setInterval(function(){
@@ -125,16 +128,19 @@ $(document).ready(function(){
          if(seconds==0){
 
            if(minutes==0){
+
+
              //Stop further decrement
              clearInterval(countdown);
              $("#timer").css("background-color","lightgray");
 
-             timer_check=true
+             timer_check=true;
 
              if(pour_check){
-               final_display();
+               if(final_check==false){
+                  final_display();
+               }
              }
-
 
            }
            else{
@@ -143,19 +149,16 @@ $(document).ready(function(){
              timer(minutes, seconds)
            }
 
-           //Actions after timer
+           
 
          }
        }, 1000);
-
 
      }
 
 
 
-
-
-
+     //Timer Click
      $("#timer").click(function(){
 
        //Disable Timer from being clicked again
@@ -195,6 +198,7 @@ $(document).ready(function(){
        // Drop oiled spoon on steak
        $("#target").on("drop", function( event, ui ) {
 
+
           setTimeout(function() {
             $("#spoon").attr("src", utensils["spoon"]["empty"]["image"]);
             $("#spoon").css("transform", "rotate(250deg)");
@@ -212,11 +216,15 @@ $(document).ready(function(){
           pour_check=true
 
           if(timer_check){
+            if(final_check==false){
             final_display();
+            }
           }
 
 
          });
+
+
 
 
          //Minutes selected via tenderness
