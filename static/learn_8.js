@@ -1,8 +1,9 @@
 $(document).ready(function(){
-    //Navigation Menu activate - Learn
-    $("#nav_game").addClass("active");
-  
+    //Navigation Menu activate- Learn
+    $("#nav_learn").addClass("active");
+
     $("#nav_home").removeClass("active");
+    $("#nav_game").removeClass("active");
 
     // Set current instruction
     $("#instruction").html(instruction["description"]);

@@ -172,7 +172,7 @@ $(document).ready(function(){
                 steak_peppered = 1;
                 replaceSteak();
             }, 1000);
-            replaceSteak;
+            replaceSteak();
         }
     });
 

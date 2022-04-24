@@ -99,9 +99,9 @@ $(document).ready(function(){
     drag_thyme = 1;
   });
 
-  // $("#thyme").on("dragstop", function(event, ui){
-  //    drag_thyme = 0;
-  // });
+  $("#thyme").on("dragstop", function(event, ui){
+    drag_thyme = 0;
+  });
 
   // Actions for garlic when dragged
   $("#cut-garlic").on("dragstart", function(event, ui){
@@ -109,9 +109,9 @@ $(document).ready(function(){
     drag_garlic = 1;
   });
 
-  // $("#cut-garlic").on("dragstop", function(event, ui){
-  //   drag_garlic = 0;
-  // });
+  $("#cut-garlic").on("dragstop", function(event, ui){
+    drag_garlic = 0;
+  });
 
   // Actions for butter when dragged
   $("#cut-butter").on("dragstart", function(event, ui){
@@ -119,14 +119,14 @@ $(document).ready(function(){
     drag_butter = 1;
   });
 
-  // $("#cut-butter").on("dragstop", function(event, ui){
-  //   drag_butter = 0;
-  // });
+  $("#cut-butter").on("dragstop", function(event, ui){
+    drag_butter = 0;
+  });
 
   // Used to show next arrow when all 
   // three ingredients have been dropped
   function show_arrow(){
-    if(dropped_thyme == 1 && dropped_gralic == 1 && dropped_butter == 1){
+    if(dropped_thyme && dropped_gralic && dropped_butter){
       // Show arrow
       document.getElementById("arrow-next").style.visibility = 'visible';
       
@@ -154,17 +154,17 @@ $(document).ready(function(){
 
   $("#empty-pan").on("drop", function(event, ui){
     if(drag_thyme == 1){
-      //drag_thyme = 0;
+      drag_thyme = 0;
       dropped_thyme = 1;
       show_arrow();
     }
     else if(drag_garlic == 1){
-      //drag_garlic = 0;
+      drag_garlic = 0;
       dropped_garlic = 1;
       show_arrow();
     }
     else if(drag_butter == 1){
-      //drag_butter = 0;
+      drag_butter = 0;
       dropped_butter = 1;
       show_arrow();
     }
