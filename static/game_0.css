@@ -1,0 +1,293 @@
+
+  #instruction{
+    position: absolute;
+    top: 100px;
+    left: 40px;
+    font-family: Arial;
+    font-size: 19px;
+    width: 300px;
+  }
+
+
+
+  #frozen-steak{
+    position: absolute;
+    top: 500px;
+    left: 100px;
+    z-index: 2;
+  }
+  #frozen-steak-img{
+    height: 100px;
+    width: 140px;
+  }
+
+
+  #thyme{
+    position: absolute;
+    top: 300px;
+    left: 1100px;
+    z-index: 2;
+  }
+  #thyme-img{
+    height: 45px;
+    width: 120px;
+  }
+
+  #uncut-butter{
+    position: absolute;
+    top: 110px;
+    left: 920px;
+    z-index: 2;
+  }
+  #uncut-butter-img{
+    height: 78px;
+    width: 91px;
+  }
+
+  #uncut-garlic{
+    position: absolute;
+    top: 600px;
+    left: 300px;
+    z-index: 2;
+  }
+  #uncut-garlic-img{
+    height: 50px;
+    width: 65px;
+  }
+
+  #salt{
+    position: absolute;
+    top: 350px;
+    left: 1300px;
+    z-index: 2;
+  }
+  #salt-img{
+    height: 65px;
+    width: 26px;
+  }
+
+  #pepper{
+    position: absolute;
+    top: 200px;
+    left: 300px;
+    z-index: 2;
+  }
+  #pepper-img{
+    height: 60px;
+    width: 38px;
+  }
+
+  #olive-oil{
+    position: absolute;
+    top: 110px;
+    left: 1200px;
+    z-index: 2;
+  }
+  #olive-oil-img{
+    height: 130px;
+    width: 52px;
+  }
+
+  #broccoli{
+    position: absolute;
+    top: 330px;
+    left: 200px;
+    z-index: 2;
+  }
+  #broccoli-img{
+    height: 70px;
+    width: 90px;
+  }
+
+  #chicken{
+    position: absolute;
+    top: 130px;
+    left: 650px;
+    z-index: 2;
+  }
+  #chicken-img{
+    height: 100px;
+    width: 100px;
+  }
+
+  #chili{
+    position: absolute;
+    top: 550px;
+    left: 1050px;
+    z-index: 2;
+  }
+  #chili-img{
+    height: 50px;
+    width: 50px;
+  }
+
+  #chili-powder{
+    position: absolute;
+    top: 150px;
+    left: 450px;
+    z-index: 2;
+  }
+  #chili-powder-img{
+    height: 65px;
+    width: 65px;
+  }
+
+  #garlic-powder{
+    position: absolute;
+    top: 230px;
+    left: 60px;
+    z-index: 2;
+  }
+  #garlic-powder-img{
+    height: 65px;
+    width: 65px;
+  }
+
+  #onion{
+    position: absolute;
+    top: 400px;
+    left: 1100px;
+    z-index: 2;
+  }
+  #onion-img{
+    height: 70px;
+    width: 90px;
+  }
+
+
+
+
+
+  .ingredient:hover{
+    cursor: pointer;
+  }
+
+  .ingredient .description{
+    visibility: hidden;
+    width: 70px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 110%;
+  }
+
+  .ingredient .description::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+  }
+
+  .ingredient:hover .description{
+    visibility: visible;
+  }
+
+
+  .incorrect:hover{
+    cursor: pointer;
+  }
+
+  .incorrect .description{
+    visibility: hidden;
+    width: 70px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 110%;
+  }
+
+  .incorrect .description::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+  }
+
+  .incorrect:hover .description{
+    visibility: visible;
+  }
+
+
+
+
+
+
+  #arrow-steak{
+    position: absolute;
+    top: 268px;
+    left: 238px;
+    height: 15px;
+    width: 335px;
+    transform: rotate(277deg);
+    z-index: 3;
+  }
+
+
+
+  #cutting-board{
+    position: absolute;
+    top: 300px;
+    left: 400px;
+    height: 275px;
+    width: 550px;
+    z-index: 1;
+  }
+
+
+
+
+#ingredients-label{
+  position: relative;
+  top: 16px;
+  left: 250px;
+  font-family: Arial;
+  color: green;
+  font-size: 15px;
+  font-weight: bold;
+
+}
+
+
+#cross{
+  position: absolute;
+  top: 220px;
+  left: 550px;
+  height: 430px;
+  width: 250px;
+  display: none;
+  z-index: 5;
+}
+
+
+
+#arrow-next{
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+  display: none;
+  height:  80px;
+  width:  80px;
+}
+#arrow-next:hover{
+    cursor: pointer;
+  }
+
+

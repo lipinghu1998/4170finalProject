@@ -15,7 +15,7 @@ $(document).ready(function(){
    data : JSON.stringify({"check":"success"}),
    success: function(response){
      $("#start_game").click(function(){
-         window.location.href="/game/1";
+         window.location.href="/game/0";
 
        })
 

@@ -15,31 +15,39 @@ total_steps=5
 data={
 
 "instructions": {
+    "0":{
+          "id": "0",
+          "description": "Drag the correct material to the cutting board"
+     },
     "1":{
           "id": "1",
           "description": "(1)<b> UNTHAW </b>the frozen steak",
           "sub": ["<b>Cut</b> your butter and garlic"]
        },
-      "2":{
+    "2":{
           "id": "2",
           "description": "(2) Put a pan over <b>Medium-High heat</b>"
        },
-      "3":{
+    "3":{
           "id": "3",
           "description": "(3) Drag the <b>salt</b> and <b>pepper</b> onto <br>the steak to season"
        },
-      "4":{
+    "4":{
           "id": "4",
           "description": "(4) <b>Rub</b> bottom of steaks with excess salt and pepper that has fallen onto table"
        },
-      "5":{
+    "5":{
           "id": "5",
           "description": "(5) Coat the pan in oil once the pan begins to <b>smoke</b>"
        },
-      "6":{
+    "6":{
           "id": "6",
           "description": "(6) <b>Sear</b> steak for one minute on each side"
-       }
+       },
+    "9":{
+           "id": "9",
+           "description": "(9) <b>Baste</b> the steaks by <b>continuously scooping</b> melted butter on top of the steaks"
+           }
 
 
 },
@@ -60,7 +68,8 @@ data={
       }
 
    },
-   "butter":{
+
+  "butter":{
       "cut" : {
          "id": "cut-butter",
          "description": "Butter",
@@ -74,6 +83,7 @@ data={
       }
 
    },
+
   "steak":{
       "frozen" : {
          "id": "frozen-steak",
@@ -122,38 +132,86 @@ data={
          "image": "/static/images/flipped-seasoned-steak.png"
 
       },
+      "option":{
+         "id": "option-steak",
+         "description": "Steak",
+         "image": "/static/images/option-steak.png"
+
+      }
 
    },
 
-   "thyme":{
+  "thyme":{
       "id": "thyme",
       "description": "Thyme",
       "image": "/static/images/thyme.png"
 
    },
 
-   "salt":{
+  "salt":{
       "id": "salt",
       "description": "Salt",
       "image": "/static/images/salt.png"
 
    },
 
-   "pepper":{
+  "pepper":{
       "id": "pepper",
       "description": "Pepper",
       "image": "/static/images/pepper.png"
 
    },
-   "olive-oil":{
+
+  "olive-oil":{
       "id": "olive-oil",
       "description": "Olive Oil",
       "image": "/static/images/olive-oil.png"
 
    }
 
-
 },
+
+"incorrect":{
+
+  "broccoli":{
+    "id": "broccoli",
+    "description": "Brocolli",
+    "image": "/static/images/incorrect-broccoli.png"
+   },
+
+  "chicken":{
+    "id": "chicken",
+    "description": "Chicken",
+    "image": "/static/images/incorrect-chicken.png"
+      },
+
+  "chili":{
+    "id": "chili",
+    "description": "Chili",
+    "image": "/static/images/incorrect-chili.png"
+   },
+
+  "chili-powder":{
+    "id": "chili-powder",
+    "description": "Chili Powder",
+    "image": "/static/images/incorrect-chili-powder.png"
+   },
+
+  "garlic-powder":{
+    "id": "garlic-powder",
+    "description": "Garlic Powder",
+    "image": "/static/images/incorrect-garlic-powder.png"
+   },
+
+  "onion":{
+    "id": "onion",
+    "description": "Onion",
+    "image": "/static/images/incorrect-onion.png"
+      }
+
+
+  },
+
 
 "utensils":{
 
@@ -207,23 +265,22 @@ data={
 
 "actions":{
 
-   "fire":{
+  "fire":{
       "id": "fire",
       "description": "Fire",
       "image": "/static/images/fire.gif"
   },
-   "smoke":{
+  "smoke":{
       "id": "smoke",
       "description": "Smoke",
       "image": "/static/images/smoke.gif"
   },
-   "season":{
+  "season":{
       "id": "season-texture",
       "description": "Season Texture",
       "image": "/static/images/season-texture.png"
   },
-
-     "arrow":{
+  "arrow":{
 
            "label" : {
               "id": "arrow-label",
@@ -235,13 +292,19 @@ data={
               "description": "Arrow Next",
               "image": "/static/images/arrow-next.png"
            }
-        }
+        },
+  "cross":{
+    "id": "cross",
+    "description": "Cross",
+    "image": "/static/images/cross.png"
+}
+
 
    },
 
  "chefs":{
 
-    "ramsay":{
+ "ramsay":{
        "id": "ramsay",
        "description": "Gordon Ramsay",
        "image": "/static/images/ramsay.png"
@@ -259,7 +322,6 @@ actions_step=[]
 ingredients=[]
 utensils=[]
 actions=[]
-
 
 
 #ROUTES
@@ -288,10 +350,13 @@ def learn_step(step=None):
         utensils_step=["pan", "knife", "cutting-board"]
         actions_step=["arrow", "season"]
     elif step == "5":
-       ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
-       utensils_step=["pan", "knife", "cutting-board"]
-       actions_step=["fire","smoke","arrow"]
-
+        ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
+        utensils_step=["pan", "knife", "cutting-board"]
+        actions_step=["fire","smoke","arrow"]
+    elif step == "9":
+        ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
+        utensils_step=["pan", "knife", "cutting-board","spoon"]
+        actions_step=["arrow","fire"]
 
     ingredients={x:data["ingredients"][x] for x in ingredients_step}
     utensils={x:data["utensils"][x] for x in utensils_step}
@@ -312,7 +377,11 @@ def game():
 def game_step(step=None):
 
     #Steps
-    if step=="1":
+    if step=="0":
+        ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
+        utensils_step=["cutting-board"]
+        actions_step=["arrow", "cross"]
+    elif step=="1":
         ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
         utensils_step=["pan", "knife", "cutting-board"]
         actions_step=["arrow"]
@@ -329,18 +398,23 @@ def game_step(step=None):
         utensils_step=["pan", "knife", "cutting-board"]
         actions_step=["arrow", "season"]
     elif step == "5":
-       ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
-       utensils_step=["pan", "knife", "cutting-board"]
-       actions_step=["fire","smoke","arrow"]
-
+        ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
+        utensils_step=["pan", "knife", "cutting-board"]
+        actions_step=["fire","smoke","arrow"]
+    elif step == "9":
+        ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
+        utensils_step=["pan", "knife", "cutting-board","spoon"]
+        actions_step=["arrow","fire"]
 
 
     ingredients={x:data["ingredients"][x] for x in ingredients_step}
     utensils={x:data["utensils"][x] for x in utensils_step}
     actions={x:data["actions"][x] for x in actions_step}
 
-
-    return render_template('game_'+str(step)+'.html', ingredients=ingredients, utensils=utensils, actions=actions)
+    if step=="0":
+        return render_template('game_'+str(step)+'.html', ingredients=ingredients, utensils=utensils, actions=actions, incorrect=data["incorrect"],instruction=data["instructions"][step])
+    else:
+        return render_template('game_'+str(step)+'.html', ingredients=ingredients, utensils=utensils, actions=actions)
 
 @app.route('/result')
 def result():
