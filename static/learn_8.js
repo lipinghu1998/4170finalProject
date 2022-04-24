@@ -51,7 +51,7 @@ $(document).ready(function(){
         data : JSON.stringify({"check":"success"}),
         success: function(response){
           setTimeout(function() {
-              window.location.href="/game/4";
+              window.location.href="/game/1";
           }, 10000);
         },
         error: function(request, status, error){
@@ -70,7 +70,7 @@ $(document).ready(function(){
   
       // Move to next step
       $("#arrow-next").click(function(){
-        window.location.href="/game/4";
+        window.location.href="/game/1";
       })
     });
 });

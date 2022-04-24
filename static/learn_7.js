@@ -19,9 +19,9 @@ $(document).ready(function(){
   let drag_thyme = 0;
   let drag_garlic = 0;
   let drag_butter = 0;
-  let dropped_thyme = 0;
-  let dropped_garlic = 0;
-  let dropped_butter = 0;
+  let thyme_dropped = 0;
+  let garlic_dropped = 0;
+  let butter_dropped = 0;
 
   $("#thyme").draggable({
     revert: "invalid",
@@ -126,9 +126,12 @@ $(document).ready(function(){
   // Used to show next arrow when all 
   // three ingredients have been dropped
   function show_arrow(){
-    if(dropped_thyme && dropped_gralic && dropped_butter){
+    if(thyme_dropped && garlic_dropped && butter_dropped){
       // Show arrow
       document.getElementById("arrow-next").style.visibility = 'visible';
+
+      // Show message
+      document.getElementById("message").style.visibility = 'visible';
       
       // Increase steps_completed on server side
       $.ajax({
@@ -139,7 +142,7 @@ $(document).ready(function(){
         data : JSON.stringify({"check":"success"}),
         success: function(response){
           setTimeout(function() {
-              window.location.href="/game/4";
+              window.location.href="/learn/8";
           }, 10000);
         },
         error: function(request, status, error){
@@ -155,17 +158,17 @@ $(document).ready(function(){
   $("#empty-pan").on("drop", function(event, ui){
     if(drag_thyme == 1){
       drag_thyme = 0;
-      dropped_thyme = 1;
+      thyme_dropped = 1;
       show_arrow();
     }
     else if(drag_garlic == 1){
       drag_garlic = 0;
-      dropped_garlic = 1;
+      garlic_dropped = 1;
       show_arrow();
     }
     else if(drag_butter == 1){
       drag_butter = 0;
-      dropped_butter = 1;
+      butter_dropped = 1;
       show_arrow();
     }
   });
