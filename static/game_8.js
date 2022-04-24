@@ -58,10 +58,10 @@ $(document).ready(function(){
       
       // Show message
       document.getElementById("message").style.visibility = 'visible';
-  
-      // Move to next step
-      $("#arrow-next").click(function(){
-        window.location.href="/game/9";
-      })
     });
+    
+    // Move to next step
+    $("#arrow-next").click(function(){
+        window.location.href="/game/9";
+    })
 });
