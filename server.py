@@ -5,11 +5,11 @@ app = Flask(__name__)
 
 #Variables to track score (Game)
 score=0
-total_score=5
+total_score=10
 
 #Variables to track steps completed (Learn)
 steps_completed=0
-total_steps=5
+total_steps=11
 
 #Data in JSON
 data={
