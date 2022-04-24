@@ -369,6 +369,10 @@ def learn_step(step=None):
         ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
         utensils_step=["pan", "knife", "cutting-board"]
         actions_step=["fire","smoke","arrow"]
+    elif step == "6":
+        ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
+        utensils_step=["pan", "knife", "cutting-board"]
+        actions_step=["fire","smoke","arrow"]        
     elif step == "7":
         ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
         utensils_step=["pan", "knife", "cutting-board"]
@@ -433,6 +437,10 @@ def game_step(step=None):
         ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
         utensils_step=["pan", "knife", "cutting-board"]
         actions_step=["fire","smoke","arrow"]
+    elif step == "6":
+        ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
+        utensils_step=["pan", "knife", "cutting-board"]
+        actions_step=["fire","smoke","arrow"]          
     elif step == "7":
         ingredients_step=["garlic", "butter", "steak", "thyme", "salt", "pepper", "olive-oil"]
         utensils_step=["pan", "knife", "cutting-board"]
