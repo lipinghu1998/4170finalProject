@@ -17,7 +17,7 @@ $(document).ready(function(){
     $("#instruction").html(instruction["description"]);
 
     // Tip 1: turn fire off by clicking pan
-    let one = $('<p id="sub-instruction" style="color:red; position:fixed; left:820px; font-size: 14px; top:300px;">Click the pan to turn the fire off</p>').appendTo('#text');
+    let one = $('<p id="sub-instruction" style="color:red; position:fixed; left:820px; font-size: 14px; top:250px;">Click the pan to turn the fire off</p>').appendTo('#text');
 
     function hide_fire(){
       $("#fire").hide();
@@ -121,7 +121,7 @@ $(document).ready(function(){
             hide_fire();
 
             $('#sub-instruction').remove();
-            let one = $('<p id="sub-instruction" style="color:red; position:fixed; left:820px; font-size: 14px; top:300px;">Click again to remove steak</p>').appendTo('#text');
+            let one = $('<p id="sub-instruction" style="color:red; position:fixed; left:820px; font-size: 14px; top:250px;">Click again to remove steak</p>').appendTo('#text');
         }
         else if (clickState == 2) {
             console.log(clickState)
