@@ -188,7 +188,6 @@ $(document).ready(function(){
     //Action when new oil is clicked
   $("#olive-oil-tilted").click(function(){
     $("#alert-near-pan").empty();
-    $("#alert-near-pan").append("<div class = row> now drag when the pan smokes again </div>")
     $("#smoke").hide()
     $("#olive-oil-tilted").css("transform","rotate(40deg)");
     $("#empty-pan").hide();
@@ -203,13 +202,6 @@ $(document).ready(function(){
 
     // })
 
-    //Arrow shown between ( seasoned-steak & pan)
-    let arrow_steak = $("<img>");
-    arrow_steak.attr("src", actions["arrow"]["label"]["image"]);
-    arrow_steak.attr("alt", actions["arrow"]["label"]["description"]);
-    $(arrow_steak).addClass("arrow_steak-style");
-    $("#arrowUpdates").append(arrow_steak);
-    console.log("arrowUpdates: ",$("#arrowUpdates") )
 
     // Show arrow
     document.getElementById("arrow-next").style.visibility = 'visible';
@@ -231,7 +223,7 @@ $(document).ready(function(){
         success: function(response){
           setTimeout(function() {
               window.location.href="/learn/6";
-          }, 100000000000000);
+          }, 10000);
 
 
 
