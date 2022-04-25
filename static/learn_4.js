@@ -1,4 +1,9 @@
 $(document).ready(function(){
+    let fire_gif = $("<img>");
+    fire_gif.attr("src", actions["fire"]["image"]);
+    fire_gif.attr("alt", actions["fire"]["description"]);
+    fire_gif.attr("id", "fire-gif-med");
+    $("#fire").append(fire_gif);
 
     //Navigation Menu activate- Learn
     $("#nav_learn").addClass("active");
@@ -114,7 +119,7 @@ $(document).ready(function(){
                 var two = $('<p id="sub-instruction" style="color:red; position:fixed; left:120px; top:310px;">Now click the steak to try it yourself</p>').appendTo('#text');
             }, 3000);
 
-        } 
+        }
         else if (clickState == 2) {   // shake the steak
 
             $('#seasoned-steak-img').addClass('shake');

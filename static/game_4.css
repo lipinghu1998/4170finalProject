@@ -7,6 +7,14 @@
     width: 300px;
 }
 
+#message {
+    position: absolute;
+    top: 60px;
+    left: 400px;
+    font-weight: bold;
+    color: green;
+}
+
 #seasoned-steak{
     z-index: 4;
 }
@@ -33,6 +41,30 @@
 #season-texture-img{
     height: 180px;
     width: 350px;
+}
+
+#fire{
+  position: absolute;
+  top: 425px;
+  left: 870px;
+  z-index: 1;
+}
+
+#fire-low{
+  position: absolute;
+  top: 475px;
+  left: 890px;
+  z-index: 1;
+}
+
+#fire-gif-low{
+  height: 50px;
+  width: 50px;
+}
+
+#fire-gif-med{
+  height: 100px;
+  width: 100px;
 }
 
 #thyme{

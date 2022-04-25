@@ -7,7 +7,7 @@
   let ingredients = {{ingredients|tojson}}
   let utensils = {{utensils|tojson}}
   let actions = {{actions|tojson}}
-  
+
 </script>
 
 <link rel="stylesheet" href="{{url_for('static', filename='game_4.css')}}">
@@ -24,6 +24,8 @@
       <span class="description">{{ingredients["steak"]["seasoned"]["description"]}}</span>
   </div>
 </div>
+
+<div id="message"></div>
 
 <!-- <div class="ingredient" id="seasoned-steak">
     <img id="seasoned-steak-img" src="images/seasoned-steak.png" alt="Seasoned Steak"> </img>
@@ -71,6 +73,8 @@
 
 <img src={{utensils["cutting-board"]["image"]}} alt={{utensils["cutting-board"]["description"]}} id="cutting-board"> </img>
 <img src={{utensils["pan"]["empty"]["image"]}} alt={{utensils["pan"]["empty"]["description"]}} id="empty-pan"> </img>
+
+<div id="fire"></div>
 
 <div id="temperature">
 <span class="dot" id="low"></span>
