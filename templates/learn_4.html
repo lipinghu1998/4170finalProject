@@ -7,8 +7,8 @@
 let ingredients = {{ingredients|tojson}}
 let utensils = {{utensils|tojson}}
 let actions = {{actions|tojson}}
-
 let instruction = {{instruction|tojson}}
+
 </script>
 
 <link rel="stylesheet" href="{{url_for('static', filename='learn_4.css')}}">
@@ -76,7 +76,10 @@ let instruction = {{instruction|tojson}}
 <img src={{utensils["cutting-board"]["image"]}} alt={{utensils["cutting-board"]["description"]}} id="cutting-board"> </img>
 <img src={{utensils["pan"]["empty"]["image"]}} alt={{utensils["pan"]["empty"]["description"]}} id="empty-pan"> </img>
 
-<div id="fire"></div>
+
+<div id="fire">
+  <img src={{actions["fire"]["image"]}} alt={{actions["fire"]["description"]}} id="fire-gif-med"></img>
+</div>
 
 <div id="temperature">
 <span class="dot" id="low"></span>
