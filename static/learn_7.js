@@ -95,7 +95,7 @@ $(document).ready(function(){
 
   // Actions for thyme when dragged
   $("#thyme").on("dragstart", function(event, ui){
-    $("#arrow-thyme").hide();
+    //$("#arrow-thyme").hide();
     drag_thyme = 1;
   });
 
@@ -105,7 +105,7 @@ $(document).ready(function(){
 
   // Actions for garlic when dragged
   $("#cut-garlic").on("dragstart", function(event, ui){
-    $("#arrow-garlic").hide();
+    //$("#arrow-garlic").hide();
     drag_garlic = 1;
   });
 
@@ -115,7 +115,7 @@ $(document).ready(function(){
 
   // Actions for butter when dragged
   $("#cut-butter").on("dragstart", function(event, ui){
-    $("#arrow-butter").hide();
+    //$("#arrow-butter").hide();
     drag_butter = 1;
   });
 
@@ -159,16 +159,19 @@ $(document).ready(function(){
     if(drag_thyme == 1){
       drag_thyme = 0;
       thyme_dropped = 1;
+      $("#arrow-thyme").hide();
       show_arrow();
     }
     else if(drag_garlic == 1){
       drag_garlic = 0;
       garlic_dropped = 1;
+      $("#arrow-garlic").hide();
       show_arrow();
     }
     else if(drag_butter == 1){
       drag_butter = 0;
       butter_dropped = 1;
+      $("#arrow-butter").hide();
       show_arrow();
     }
   });
