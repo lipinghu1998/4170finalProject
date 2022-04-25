@@ -71,7 +71,6 @@ $(document).ready(function(){
   
     // Actions for thyme when dragged
     $("#thyme").on("dragstart", function(event, ui){
-      $("#arrow-thyme").hide();
       drag_thyme = 1;
     });
   
@@ -81,7 +80,6 @@ $(document).ready(function(){
   
     // Actions for garlic when dragged
     $("#cut-garlic").on("dragstart", function(event, ui){
-      $("#arrow-garlic").hide();
       drag_garlic = 1;
     });
   
@@ -91,7 +89,6 @@ $(document).ready(function(){
   
     // Actions for butter when dragged
     $("#cut-butter").on("dragstart", function(event, ui){
-      $("#arrow-butter").hide();
       drag_butter = 1;
     });
   
