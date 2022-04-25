@@ -73,7 +73,7 @@ $(document).ready(function(){
      })
 
 
-     
+
 
      //Check Variables
      let timer_check=false
@@ -149,14 +149,14 @@ $(document).ready(function(){
              timer(minutes, seconds)
            }
 
-           
+
 
          }
        }, 1000);
 
      }
 
-
+     let drop_check=false
 
      //Timer Click
      $("#timer").click(function(){
@@ -190,7 +190,11 @@ $(document).ready(function(){
 
          $("#target").show();
 
-         $("#pan-label").html("Drag and drop spoon on the steak");
+         if(drop_check==false){
+           $("#pan-label").html("Drag and drop spoon on the steak");
+           drop_check=true
+         }
+
 
        })
 
@@ -209,7 +213,7 @@ $(document).ready(function(){
 
             $("#target").hide();
 
-            $("#pan-label").html("Click on spoon to scoop melted butter");
+            $("#pan-label").html("Repeatedly pour the melted butter till timeout");
 
           }, 2000);
 
