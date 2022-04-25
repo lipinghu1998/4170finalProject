@@ -39,7 +39,7 @@ $(document).ready(function(){
       // Increase steps_completed on server side
       $.ajax({
         type: "POST",
-        url: "/increase_steps_completed",
+        url: "/increase_score",
         dataType : "json",
         contentType: "application/json; charset=utf-8",
         data : JSON.stringify({"check":"success"}),
