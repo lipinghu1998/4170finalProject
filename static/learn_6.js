@@ -150,6 +150,9 @@ $(document).ready(function(){
     accept: "#seasoned-steak"
   });
 
+  $("#instruction").html(instruction["description"]);
+
+
 
     //Arrow shown between ( seasoned-steak & pan)
     let arrow_steak = $("<img>");
