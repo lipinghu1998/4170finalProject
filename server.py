@@ -7,6 +7,9 @@ app = Flask(__name__)
 score=0
 total_score=10
 
+#Variable to track hints (Game)
+hints=3
+
 #Variables to track steps completed (Learn)
 steps_completed=0
 total_steps=11
@@ -468,9 +471,9 @@ def game_step(step=None):
     actions={x:data["actions"][x] for x in actions_step}
 
     if step=="0":
-        return render_template('game_'+str(step)+'.html', ingredients=ingredients, utensils=utensils, actions=actions, incorrect=data["incorrect"],instruction=data["instructions"][step])
+        return render_template('game_'+str(step)+'.html', ingredients=ingredients, utensils=utensils, actions=actions, instruction=data["instructions"][step], stat={"hints":hints}, incorrect=data["incorrect"])
     else:
-        return render_template('game_'+str(step)+'.html', ingredients=ingredients, utensils=utensils, actions=actions)
+        return render_template('game_'+str(step)+'.html', ingredients=ingredients, utensils=utensils, actions=actions, instruction=data["instructions"][step], stat={"hints":hints})
 
 @app.route('/result')
 def result():
@@ -491,6 +494,20 @@ def increase_score():
 
     return jsonify(score = score)
 
+
+@app.route('/decrease_hints', methods=['GET', 'POST'])
+def decrease_hints():
+    global hints
+
+    response=request.get_json()
+
+    if response["check"]=="success":
+        hints-=1
+
+    return jsonify(hints = hints)
+
+
+
 @app.route('/increase_steps_completed', methods=['GET', 'POST'])
 def increase_steps_completed():
     global steps_completed
@@ -501,6 +518,9 @@ def increase_steps_completed():
         steps_completed+=1
 
     return jsonify(steps_completed = steps_completed)
+
+
+
 
 
 @app.route('/reset_score', methods=['GET', 'POST'])
@@ -514,6 +534,19 @@ def reset_score():
 
     return jsonify(score = score)
 
+
+@app.route('/reset_hints', methods=['GET', 'POST'])
+def reset_hints():
+    global hints
+
+    response=request.get_json()
+
+    if response["check"]=="success":
+        hints=3
+
+    return jsonify(hints = hints)
+
+
 @app.route('/reset_steps_completed', methods=['GET', 'POST'])
 def reset_steps_completed():
     global steps_completed
@@ -524,6 +557,9 @@ def reset_steps_completed():
         steps_completed=0
 
     return jsonify(steps_completed = steps_completed)
+
+
+
 
 
 @app.route('/return_steps_completed', methods=['GET', 'POST'])

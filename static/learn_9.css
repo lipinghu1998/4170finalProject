@@ -157,9 +157,6 @@
     visibility: visible;
   }
 
-  
-
-
 
   #cutting-board{
     position: absolute;
@@ -183,14 +180,12 @@
 
   #fire{
     position: absolute;
-    top: 500px;
+    top: 495px;
     left: 890px;
     height: 50px;
     width: 50px;
     z-index: 1;
   }
-
-
 
 
   #pan-label{
@@ -237,7 +232,7 @@
 
   #temperature{
     position: absolute;
-    top: 550px;
+    top: 540px;
     left: 860px;
   }
   .dot {
@@ -262,10 +257,9 @@
   }
 
 
-
   #temperature-labels{
     position: absolute;
-    top: 575px;
+    top: 565px;
     left: 861px;
 
   }

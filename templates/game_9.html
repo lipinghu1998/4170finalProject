@@ -6,6 +6,8 @@
 let ingredients = {{ingredients|tojson}}
 let utensils = {{utensils|tojson}}
 let actions = {{actions|tojson}}
+let instruction= {{instruction|tojson}}
+let stat= {{stat|tojson}}
 </script>
 
 
@@ -48,8 +50,10 @@ let actions = {{actions|tojson}}
   </div>
 
 
+  <div id="instruction"></div>
+  <div id="hints"> Take Hint ({{stat["hints"]}})</div>
 
-  <div id="instruction"> </div>
+
   <div id="ingredients-label"></div>
 
   <img src={{utensils["cutting-board"]["image"]}} alt={{utensils["cutting-board"]["description"]}} id="cutting-board"> </img>

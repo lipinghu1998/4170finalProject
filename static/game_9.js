@@ -13,8 +13,39 @@ $(document).ready(function(){
   })
 
 
-  //Set current instruction
-  $("#instruction").html(instruction["description"]);
+  //Hints
+  if(stat["hints"]>0){
+    $("#hints").show();
+  }
+
+  //Move to next step
+  $("#hints").click(function(){
+    if(stat["hints"]>0){
+
+      //Decrease hints on server side
+      $.ajax({
+           type: "POST",
+           url: "/decrease_hints",
+           dataType : "json",
+           contentType: "application/json; charset=utf-8",
+           data : JSON.stringify({"check":"success"}),
+           success: function(response){
+             $("#hints").hide();
+             $("#instruction").html(instruction["description"]);
+
+           },
+           error: function(request, status, error){
+               console.log("Error");
+               console.log(request)
+               console.log(status)
+               console.log(error)
+           }
+      });
+
+    }
+
+
+  })
 
 
   //Set timer label
@@ -83,7 +114,7 @@ $(document).ready(function(){
      {
 
       final_check=true;
-          
+
       //Increase score on server side
        $.ajax({
             type: "POST",
@@ -133,7 +164,7 @@ $(document).ready(function(){
 
              timer_check=true
 
-             
+
              if(pour_check){
               if(final_check==false){
                   final_display();
@@ -148,7 +179,7 @@ $(document).ready(function(){
              timer(minutes, seconds)
            }
 
-           
+
 
          }
        }, 1000);
