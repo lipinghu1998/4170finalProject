@@ -7,6 +7,8 @@
 let ingredients = {{ingredients|tojson}}
 let utensils = {{utensils|tojson}}
 let actions = {{actions|tojson}}
+let instruction= {{instruction|tojson}}
+let stat= {{stat|tojson}}
 
 </script>
 
@@ -47,6 +49,7 @@ let actions = {{actions|tojson}}
 <div id="timer-label"></div>
 
 <div id="instruction"> </div>
+<div id="hints"> Take Hint ({{stat["hints"]}})</div>
 <img id="knife" src={{utensils["knife"]["image"]}} alt={{utensils["knife"]["description"]}}> </img>
 
 <img src={{utensils["cutting-board"]["image"]}} alt={{utensils["cutting-board"]["description"]}} id="cutting-board"> </img>
