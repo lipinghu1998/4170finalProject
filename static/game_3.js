@@ -8,6 +8,7 @@ $(document).ready(function(){
 
     $// Set current instruction
     $("#instruction").html(instruction["description"]);
+    $("#instruction").hide();
 
     // Create and hide step complete message
     let message = document.getElementById('message');
@@ -170,5 +171,35 @@ $(document).ready(function(){
     // Move to next step
     $("#arrow-next").click(function(){
         window.location.href="/game/4";
+    })
+
+    //Hints
+    if(stat["hints"]>0){
+        $("#hints").show();
+    }
+
+    //Move to next step
+    $("#hints").click(function(){
+        $("#instruction").show();
+        if(stat["hints"]>0){
+        //Decrease hints on server side
+        $.ajax({
+            type: "POST",
+            url: "/decrease_hints",
+            dataType : "json",
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify({"check":"success"}),
+            success: function(response){
+            $("#hints").hide();
+            $("#instruction").html(instruction["description"].concat(" and ").concat(instruction["sub"][0]));
+            },
+            error: function(request, status, error){
+            console.log("Error");
+            console.log(request)
+            console.log(status)
+            console.log(error)
+            }
+        });
+        }
     })
 });
