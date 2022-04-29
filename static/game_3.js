@@ -6,10 +6,6 @@ $(document).ready(function(){
     $("#nav_home").removeClass("active");
     $("#nav_learn").removeClass("active");
 
-    $// Set current instruction
-    $("#instruction").html(instruction["description"]);
-    $("#instruction").hide();
-
     // Create and hide step complete message
     let message = document.getElementById('message');
     message.innerHTML += 'Complete! Press the arrow or wait for the page to timeout';
@@ -180,7 +176,6 @@ $(document).ready(function(){
 
     //Move to next step
     $("#hints").click(function(){
-        $("#instruction").show();
         if(stat["hints"]>0){
         //Decrease hints on server side
         $.ajax({
@@ -191,7 +186,7 @@ $(document).ready(function(){
             data : JSON.stringify({"check":"success"}),
             success: function(response){
             $("#hints").hide();
-            $("#instruction").html(instruction["description"].concat(" and ").concat(instruction["sub"][0]));
+            $("#instruction").html(instruction["description"]);
             },
             error: function(request, status, error){
             console.log("Error");
