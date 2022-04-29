@@ -46,14 +46,12 @@
 }
 
 #fire{
-    position: absolute;
-    top: 460px;
-    left: 860px;
-}
-
-#fire-img{
-    height: 80px;
-    width: 100px;
+  position: absolute;
+  top: 495px;
+  left: 890px;
+  height: 50px;
+  width: 50px;
+  z-index: 1;
 }
 
 #thyme{
