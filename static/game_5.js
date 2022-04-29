@@ -1,13 +1,44 @@
 $(document).ready(function(){
-    // Hide next arrow
-    document.getElementById("arrow-next").style.visibility = 'hidden';
+
 
     // Create and hide step complete message
     let message = document.getElementById('message');
     message.innerHTML += 'Complete! Press the arrow or wait for the page to timeout';
     message.style.visibility = 'hidden';
 
+    //Hints
+    if(stat["hints"]>0){
+      $("#hints").show();
+    }
 
+    //Move to next step
+    $("#hints").click(function(){
+      if(stat["hints"]>0){
+
+        //Decrease hints on server side
+        $.ajax({
+            type: "POST",
+            url: "/decrease_hints",
+            dataType : "json",
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify({"check":"success"}),
+            success: function(response){
+              $("#hints").hide();
+              $("#instruction").html(instruction["description"]);
+
+            },
+            error: function(request, status, error){
+                console.log("Error");
+                console.log(request)
+                console.log(status)
+                console.log(error)
+            }
+        });
+
+      }
+
+
+    })
 
   $("#smoke").hide()
   $("#oiled-pan").hide();
@@ -16,6 +47,7 @@ $(document).ready(function(){
       window.location.href="/game/6";
 
     })
+
 
 
 
@@ -42,8 +74,8 @@ $(document).ready(function(){
       }
       );
 
-//Set current instruction
-$("#instruction").html(instruction["description"]);
+// //Set current instruction
+// $("#instruction").html(instruction["description"]);
 
     //Draggable items
 $("#frozen-steak").draggable({
@@ -189,8 +221,7 @@ $("#olive-oil-tilted").click(function(){
   })
 
 
-    // Show arrow
-    document.getElementById("arrow-next").style.visibility = 'visible';
+   
 
     // Show message
     document.getElementById("message").style.visibility = 'visible';
