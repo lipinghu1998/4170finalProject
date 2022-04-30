@@ -49,10 +49,13 @@
   position: absolute;
   top: 495px;
   left: 890px;
-  height: 50px;
-  width: 50px;
   z-index: 1;
 }
+#fire-img{
+  height: 50px;
+  width: 50px;
+}
+
 
 #thyme{
     position: absolute;
@@ -185,7 +188,7 @@
 
 #temperature{
     position: absolute;
-    top: 520px;
+    top: 540px;
     left: 860px;
   }
 
@@ -213,7 +216,7 @@
 
 #temperature-labels{
     position: absolute;
-    top: 545px;
+    top: 565px;
     left: 861px;
 }
 
@@ -299,6 +302,7 @@
     left: 410px;
     font-family: Arial;
     font-size: 18px;
+    font-weight: bold;
 }
 
 #sub-alert{

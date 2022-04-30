@@ -119,7 +119,7 @@ $("#cutting-board").on("drop", function( event, ui ) {
   $("#timer").mouseleave(
   function() {
     $("#timer").css("cursor","default");
-    $("#timer").css("background-color","lightgray");
+    $("#timer").css("background-color","ghostwhite");
   }
   );
 
@@ -574,11 +574,11 @@ $("#cutting-board").on("drop", function( event, ui ) {
 
 
         //Timer background- lightgray (Inactive)
-        $("#timer").css("background-color","lightgray");
+        $("#timer").css("background-color","ghostwhite");
         $("#timer").hover(
           function() {
             $("#timer").css("cursor","default");
-            $("#timer").css("background-color","lightgray");
+            $("#timer").css("background-color","ghostwhite");
           }
         );
 
