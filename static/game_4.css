@@ -54,6 +54,9 @@ body{
 #seasoned-steak{
     z-index: 4;
 }
+#seasoned-steak:hover{
+    cursor: pointer;
+}
 
 #seasoned-steak-img{
     height: 160px;

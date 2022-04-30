@@ -10,7 +10,7 @@ $(document).ready(function(){
 
     $("#smoke").hide()
     $("#alert-near-pan").empty();
-    $("#alert-near-pan").append("<div class = row> now drag when the pan smokes again </div>")
+    $("#alert-near-pan").append("<div class = row> Now drag when the pan smokes again </div>")
     $("#empty-pan").hide();
     $("#oiled-pan").show();
     $("#cooked-steak").hide()
@@ -178,6 +178,19 @@ $(document).ready(function(){
     
     $("#alert-near-timer").append("<div class = row> Start the timer for searing! </div>")
 
+      $("#timer").mouseenter(
+      function() {
+        $("#timer").css("cursor","pointer");
+        $("#timer").css("background-color","darkseagreen");
+        }
+      );
+
+      $("#timer").mouseleave(
+      function() {
+        $("#timer").css("cursor","default");
+        $("#timer").css("background-color","ghostwhite");
+      }
+      );
 
   })
 
@@ -206,13 +219,76 @@ $(document).ready(function(){
                   // clearInterval(countdown);
                   $("#timer").html("00:01:00");
                   $("#alert-near-timer").empty()
-                  $("#alert-near-timer").append("<div> click the steak to turn it ! </div>")
+                  $("#alert-near-timer").append("<div> Click the steak to turn it ! </div>");
+
+
+                  $("#timer").off();
+                  $("#timer").css("background-color","ghostwhite");
+                  $("#timer").hover(
+                    function() {
+                      $("#timer").css("cursor","default");
+                      $("#timer").css("background-color","ghostwhite");
+                    }
+                  );
+
+
+
+
+
                   $("#seasoned-steak").click(function(){
                       flip_steak = true
                       $("#seasoned-steak").hide()
                       $("#cooked-steak").show()
                       $("#alert-near-timer").empty()
-                      $("#alert-near-timer").append("<div> Now  click the timer again then the searing is done! </div>")
+                      $("#alert-near-timer").append("<div> Now  click the timer again then the searing is done! </div>");
+
+                      $("#timer").click(function(){
+   
+
+                      //Timer background green
+                      $("#timer").css("background-color","darkseagreen");
+                      $("#timer").hover(
+                        function() {
+                          $("#timer").css("cursor","default");
+                          $("#timer").css("background-color","darkseagreen");
+                        }
+                      );
+                      //Timer Label
+                      $("#alert-near-timer").empty()
+                      $("#alert-near-timer").append("<div> The timer is on! </div>")
+
+
+
+                      //Minutes selected 
+                      let minutes = 1;
+                      minutes-=1
+                      
+                      //Timer
+                      timer(minutes, 60); 
+
+
+
+
+                  })
+
+
+
+                      $("#timer").css("background-color","ghostwhite");
+
+                      $("#timer").mouseenter(
+                      function() {
+                        $("#timer").css("cursor","pointer");
+                        $("#timer").css("background-color","darkseagreen");
+                        }
+                      );
+
+                      $("#timer").mouseleave(
+                      function() {
+                        $("#timer").css("cursor","default");
+                        $("#timer").css("background-color","ghostwhite");
+                      }
+                      );
+
                   })
                  }else if(flip_steak == true){
                       $("#alert-near-timer").empty()
@@ -222,6 +298,16 @@ $(document).ready(function(){
 
                       // Show message
                       document.getElementById("message").style.visibility = 'visible';
+
+                      $("#timer").off();
+                      $("#timer").css("background-color","ghostwhite");
+                      $("#timer").hover(
+                        function() {
+                          $("#timer").css("cursor","default");
+                          $("#timer").css("background-color","ghostwhite");
+                        }
+                      );
+
 
                       $.ajax({
                         type: "POST",
@@ -265,18 +351,25 @@ $(document).ready(function(){
           // //Disable Timer from being clicked again
           // $("#timer").off('click');
           // if(flip_steak == false){   
-              $("#timer").hover(
-              function() {
-                $("#timer").css("cursor","default");
-              }
-            );
+            //   $("#timer").hover(
+            //   function() {
+            //     $("#timer").css("cursor","default");
+            //   }
+            // );
 
           //Timer background green
           $("#timer").css("background-color","darkseagreen");
-
+          $("#timer").hover(
+            function() {
+              $("#timer").css("cursor","default");
+              $("#timer").css("background-color","darkseagreen");
+            }
+          );
           //Timer Label
           $("#alert-near-timer").empty()
           $("#alert-near-timer").append("<div> The timer is on! </div>")
+
+
 
 
             //Minutes selected 

@@ -17,7 +17,7 @@ $(document).ready(function(){
     $("#instruction").html(instruction["description"]);
 
     // Tip 1: turn fire off by clicking pan
-    let one = $('<p id="sub-instruction" style="color:red; position:fixed; left:820px; font-size: 14px; top:250px;">Click the pan to turn the fire off</p>').appendTo('#text');
+    let one = $('<p id="sub-instruction" style="color:red; position:fixed; left:820px; font-size: 15px; top:250px;">Click the pan to turn the fire off</p>').appendTo('#text');
 
     function hide_fire(){
       $("#fire").hide();
@@ -35,15 +35,10 @@ $(document).ready(function(){
         $("#finished-steak").show();
 
         // timer is set to 5 mins
-        $("#timer").hover(
-            function() {
-            $("#timer").css("cursor","pointer");
-            }
-        );
-
+        $("#timer").css("background-color","darkseagreen");
 
         $("#timer").html("00:05:00");
-        //$("#timer-label").html("Start the timer!");
+        $("#timer-label").html("The timer is on!");
 
         function timer(minutes, seconds){
             //Every 1 second equates to 10 second decrement
@@ -86,12 +81,7 @@ $(document).ready(function(){
             $("#timer").off('click');
             $("#timer").hover(function() {$("#timer").css("cursor","default");});
 
-            $("#timer").hover(
-              function() {
-                $("#timer").css("cursor","default");
-                $("#timer").css("background-color","darkseagreen");
-              }
-            );
+ 
 
             $.ajax({
                 type: "POST",
@@ -128,7 +118,7 @@ $(document).ready(function(){
             hide_fire();
 
             $('#sub-instruction').remove();
-            let one = $('<p id="sub-instruction" style="color:red; position:fixed; left:820px; font-size: 14px; top:250px;">Click again to remove steak</p>').appendTo('#text');
+            let one = $('<p id="sub-instruction" style="color:red; position:fixed; left:820px; font-size: 15px; top:250px;">Click again to remove steak</p>').appendTo('#text');
         }
         else if (clickState == 2) {
             console.log(clickState)

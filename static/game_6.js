@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
- 
-
 
 
     //Hints
@@ -180,30 +178,38 @@ $(document).ready(function(){
   $("#empty-pan").droppable({
     accept: "#olive-oil"
   });
-  
+
   $("#oiled-pan").droppable({
     accept: "#seasoned-steak"
   });
 
 
 
-
-
+  
   $("#oiled-pan").on("drop",function(event, ui){
-    $("#arrowUpdates").empty();
-    
+
     $("#seasoned-steak").css("top", "360px");
     $("#seasoned-steak").css("left", "860px");
     $("#seasoned-steak-img").css("height", "110px");
     $("#seasoned-steak-img").css("width", "170px");
 
-    // $("#seasoned-steak").addClass("smaller-steak")
-    // $("#seasoned-steak-img").addClass("smaller-steak-img")
-    console.log("dropped")
-    $("#alert-near-pan").empty()
+    
     $("#timer").html("00:01:00");
-    // $("#alert-near-timer").append("<div class = row> Start the timer for searing! </div>")
+    
 
+      $("#timer").mouseenter(
+      function() {
+        $("#timer").css("cursor","pointer");
+        $("#timer").css("background-color","darkseagreen");
+        }
+      );
+
+      $("#timer").mouseleave(
+      function() {
+        $("#timer").css("cursor","default");
+        $("#timer").css("background-color","ghostwhite");
+      }
+      );
 
   })
 
@@ -231,24 +237,87 @@ $(document).ready(function(){
                   
                   // clearInterval(countdown);
                   $("#timer").html("00:01:00");
-                  $("#alert-near-timer").empty()
-                  // $("#alert-near-timer").append("<div> click the steak to turn it ! </div>")
+
+                  $("#timer").off();
+                  $("#timer").css("background-color","ghostwhite");
+                  $("#timer").hover(
+                    function() {
+                      $("#timer").css("cursor","default");
+                      $("#timer").css("background-color","ghostwhite");
+                    }
+                  );
+
+
+
+
+
                   $("#seasoned-steak").click(function(){
                       flip_steak = true
                       $("#seasoned-steak").hide()
                       $("#cooked-steak").show()
-                      $("#alert-near-timer").empty()
-                      // $("#alert-near-timer").append("<div> Now  click the timer again then the searing is done! </div>")
+
+                      $("#timer").click(function(){
+   
+
+                      //Timer background green
+                      $("#timer").css("background-color","darkseagreen");
+                      $("#timer").hover(
+                        function() {
+                          $("#timer").css("cursor","default");
+                          $("#timer").css("background-color","darkseagreen");
+                        }
+                      );
+
+
+                      //Minutes selected 
+                      let minutes = 1;
+                      minutes-=1
+                      
+                      //Timer
+                      timer(minutes, 60); 
+
+
+
+
+                  })
+
+
+
+                      $("#timer").css("background-color","ghostwhite");
+
+                      $("#timer").mouseenter(
+                      function() {
+                        $("#timer").css("cursor","pointer");
+                        $("#timer").css("background-color","darkseagreen");
+                        }
+                      );
+
+                      $("#timer").mouseleave(
+                      function() {
+                        $("#timer").css("cursor","default");
+                        $("#timer").css("background-color","ghostwhite");
+                      }
+                      );
+
                   })
                  }else if(flip_steak == true){
-                      $("#alert-near-timer").empty()
-
-                      // Show arrow
+            
+                        // Show arrow
                       document.getElementById("arrow-next").style.visibility = 'visible';
 
                       // Show message
                       document.getElementById("message").style.visibility = 'visible';
-           
+
+                      $("#timer").off();
+                      $("#timer").css("background-color","ghostwhite");
+                      $("#timer").hover(
+                        function() {
+                          $("#timer").css("cursor","default");
+                          $("#timer").css("background-color","ghostwhite");
+                        }
+                      );
+
+
                       $.ajax({
                         type: "POST",
                         url: "/increase_score",
@@ -288,21 +357,16 @@ $(document).ready(function(){
          }
         
         $("#timer").click(function(){
-          // //Disable Timer from being clicked again
-          // $("#timer").off('click');
-          // if(flip_steak == false){          
-              $("#timer").hover(
-              function() {
-                $("#timer").css("cursor","default");
-              }
-            );
 
           //Timer background green
           $("#timer").css("background-color","darkseagreen");
+          $("#timer").hover(
+            function() {
+              $("#timer").css("cursor","default");
+              $("#timer").css("background-color","darkseagreen");
+            }
+          );
 
-          //Timer Label
-          $("#alert-near-timer").empty()
-          // $("#alert-near-timer").append("<div> The timer is on! </div>")
 
 
             //Minutes selected 
@@ -329,5 +393,4 @@ $(document).ready(function(){
 
 
 })
-
 

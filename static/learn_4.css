@@ -58,6 +58,11 @@ body{
     z-index: 4;
 }
 
+#seasoned-steak:hover{
+    cursor: pointer;
+}
+
+
 #seasoned-steak-img{
     height: 190px;
     width: 230px;

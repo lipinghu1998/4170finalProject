@@ -28,6 +28,7 @@ body{
     font-size: 20px;
 }
 
+
 #timer-label{
     position: absolute;
     top: 75px;
@@ -38,10 +39,7 @@ body{
     font-weight: bold;
 }
 
-/* #timer:hover{
-  background-color: darkseagreen;
-  cursor: pointer;
-} */
+
 
 #finished-steak{
     position: absolute;
@@ -185,9 +183,14 @@ body{
     z-index: 1;
 }
 
-#filled-pan {
+#filled-pan{
     height: 210px;
 }
+
+#filled-pan:hover{
+    cursor: pointer;
+}
+
 
 #empty-pan {
     height: 200px;

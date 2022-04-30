@@ -76,23 +76,23 @@ $(document).ready(function(){
         }
   });
 
-  $("#uncut-butter").draggable({
+  $("#cut-butter").draggable({
         revert: "invalid",
         start: function( event, ui ) {
-          $("#uncut-butter").find(".description").hide();
+          $("#cut-butter").find(".description").hide();
         },
         stop: function( event, ui ) {
-          $("#uncut-butter").find(".description").show();
+          $("#cut-butter").find(".description").show();
         }
   });
 
-  $("#uncut-garlic").draggable({
+  $("#cut-garlic").draggable({
         revert: "invalid",
         start: function( event, ui ) {
-          $("#uncut-garlic").find(".description").hide();
+          $("#cut-garlic").find(".description").hide();
         },
         stop: function( event, ui ) {
-          $("#uncut-garlic").find(".description").show();
+          $("#cut-garlic").find(".description").show();
         }
   });
 
@@ -167,7 +167,7 @@ $(document).ready(function(){
 
 
   $("#empty-pan").on("drop", function(event, ui) {
-      $("#alert-near-pan").append("<div class = row> click the olive oil when pan is hot enough!</div>")
+      $("#alert-near-pan").append("<div class = row> Click the olive oil when pan is hot enough</div>")
       $("#arrowUpdates").empty()
       console.log("pan")
 

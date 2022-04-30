@@ -9,7 +9,7 @@
   left: 370px;
   padding: 20px;
   font-size: 24px;
-  color: #999999;
+  color: gray;
   border-color: black;
   background-color: ghostwhite;
   text-align: center;
@@ -44,8 +44,8 @@
 
  #stat{
     position: absolute;
-    top: 230px;
-    right: 100px;
+    top: 340px;
+    right: 90px;
     font-size: 23px;
     background-color: ghostwhite;
     border-style: solid;
@@ -54,7 +54,7 @@
 
   #learn_again{
     position: absolute;
-    top: 400px;
+    top: 550px;
     right: 90px;
     background-color: #FFB085;
     padding: 6px;
@@ -71,7 +71,7 @@
 
    #game_again{
     position: absolute;
-    top: 460px;
+    top: 600px;
     right: 90px;
     background-color: #FFB085;
     padding: 6px;

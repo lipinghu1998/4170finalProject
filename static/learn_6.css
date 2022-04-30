@@ -1,13 +1,14 @@
-#instruction{
+  body{
+    background-color: #FEF1E6;
+  }
+
+  #instruction{
     position: absolute;
     top: 110px;
     left: 50px;
     font-family: Arial;
     font-size: 18px;
-  }
-
-  body{
-    background-color: #FEF1E6;
+    width: 300px;
   }
   
   #timer{
@@ -529,8 +530,8 @@
     position: absolute;
     color: red;
     font-weight: bold;
-    top: 260px;
-    left: 850px;
+    top: 235px;
+    left: 815px;
     z-index:3;
   }
   #alert-near-timer{
@@ -538,6 +539,6 @@
     color: red;
     font-weight: bold;
     top: 60px;
-    left: 900px;
+    left: 880px;
     z-index:3;
   }

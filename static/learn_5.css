@@ -1,13 +1,16 @@
+body{
+  background-color: #FEF1E6;
+}
+
 #instruction{
   position: absolute;
   top: 110px;
   left: 50px;
   font-family: Arial;
   font-size: 18px;
+  width: 300px;
 }
-body{
-  background-color: #FEF1E6;
-}
+
 
 #timer{
   position: absolute;
@@ -362,121 +365,6 @@ body{
   margin: 6px;
 }
 
-.popup-style{
-  position: absolute;
-  top: 270px;
-  left: 310px;
-  height: 400px;
-  width: 675px;
-  background-color: ivory;
-  border-style: solid;
-  border-width: 2px;
-  z-index: 5;
-}
-
-#cutting-board-small{
-  position: absolute;
-  top: 100px;
-  left: 130px;
-  height: 250px;
-  width: 450px;
-  z-index: 6;
-}
-
-.arrow-garlic-style{
-  position: absolute;
-  top: 315px;
-  left: 370px;
-  height: 16px;
-  width: 270px;
-  transform: rotate(240deg);
-  z-index: 8;
-}
-
-.arrow-butter-style{
-  position: absolute;
-  top: 270px;
-  left: 450px;
-  height: 14px;
-  width: 380px;
-  transform: rotate(240deg);
-  z-index: 8;
-}
-
-#sub-instruction{
-  position: relative;
-  top: 20px;
-  left: 410px;
-  font-family: Arial;
-  font-size: 18px;
-}
-
-#sub-alert{
-  position: relative;
-  top: 155px;
-  left: 10px;
-  width: 120px;
-  font-family: Arial;
-  color: red;
-  font-size: 15px;
-  font-weight: bold;
-}
-
-#popup-uncut-garlic{
-  position: absolute;
-  top: 150px;
-  left: 230px;
-  height: 70px;
-  width: 80px;
-  z-index: 7;
-}
-
-#popup-uncut-butter{
-  position: absolute;
-  top: 130px;
-  left: 390px;
-  height: 70px;
-  width: 80px;
-  z-index: 7;
-}
-
-#popup-cut-garlic{
-  position: absolute;
-  top: 155px;
-  left: 225px;
-  height: 70px;
-  width: 80px;
-  z-index: 7;
-}
-
-#popup-cut-butter{
-  position: absolute;
-  top: 130px;
-  left: 390px;
-  height: 70px;
-  width: 80px;
-  z-index: 7;
-}
-
-.popup-arrow-garlic-style{
-  position: absolute;
-  top: 418px;
-  left:  402px;
-  height: 16px;
-  width: 172px;
-  transform: rotate(198deg);
-  z-index: 9;
-}
-
-.popup-arrow-butter-style{
-  position: absolute;
-  top: 392px;
-  left: 416px;
-  height: 16px;
-  width: 345px;
-  transform: rotate(185deg);
-  z-index: 9;
-}
 
 #ingredients-label{
   position: relative;
@@ -529,7 +417,7 @@ body{
   color: red;
   font-weight: bold;
   top: 260px;
-  left: 850px;
+  left: 800px;
   z-index:3;
 }
 #alert-near-timer{
