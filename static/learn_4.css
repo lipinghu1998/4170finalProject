@@ -7,6 +7,10 @@
     width: 300px;
 }
 
+body{
+  background-color: #FEF1E6;
+}
+
 #fire{
   position: absolute;
   top: 425px;

@@ -6,6 +6,9 @@
     font-size: 18px;
     width: 300px;
 }
+body{
+  background-color: #FEF1E6;
+}
 
 #hints{
   position: absolute;
