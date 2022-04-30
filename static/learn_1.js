@@ -111,7 +111,7 @@ $("#cutting-board").on("drop", function( event, ui ) {
   $("#timer").mouseleave(
   function() {
     $("#timer").css("cursor","default");
-    $("#timer").css("background-color","lightgray");
+    $("#timer").css("background-color","ghostwhite");
   }
   );
 
@@ -597,11 +597,11 @@ $("#cutting-board").on("drop", function( event, ui ) {
         $("#temperature-labels").css("opacity", "1");
 
         //Timer background- lightgray (Inactive)
-        $("#timer").css("background-color","lightgray");
+        $("#timer").css("background-color","ghostwhite");
         $("#timer").hover(
           function() {
             $("#timer").css("cursor","default");
-            $("#timer").css("background-color","lightgray");
+            $("#timer").css("background-color","ghostwhite");
           }
         );
 

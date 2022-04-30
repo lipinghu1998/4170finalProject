@@ -1,3 +1,6 @@
+ body{
+    background-color: #FEF1E6;
+  }
 
   #container{
     position: absolute;
@@ -5,15 +8,18 @@
     left: 100px;
     width: 1200px;
     height: 550px;
+    background-color: ghostwhite;
     border-style: solid;
   }
 
   #ramsay{
     position: absolute;
-    top: 2px;
-    left: 20px;
+    top: 25px;
+    left: 25px;
     width: 300px;
     height: 500px;
+    border-style: solid;
+    border-radius: 3px;
    
   }
   #upper_title{
@@ -30,6 +36,7 @@
     top: 70px;
     left: 500px;
     font-family: Arial;
+    color: #999999;
     font-size: 20px;
 
   }
@@ -38,11 +45,19 @@
     top: 300px;
     left: 500px;
     font-family: Arial;
-    font-size: 22px;
+    font-size: 21px;
   }
   #start_game{
     position: absolute;
-    top: 450px;
+    top: 475px;
     left: 600px;
+    font-size: 17px;
+    background-color: #FFB085;
+    padding: 7px;
+    border-radius: 3px;
+    border: solid;
   }
+  #start_game:hover{
+      cursor: pointer;
+     } 
   

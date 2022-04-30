@@ -1,3 +1,6 @@
+ body{
+    background-color: #FEF1E6;
+  }
 
   #instruction{
     position: absolute;
@@ -12,7 +15,7 @@
     top: 100px;
     left: 900px;
     width: 105px;
-    background-color: lightgray;
+    background-color: ghostwhite;
     padding: 10px;
     border: solid;
     font-size: 20px;
@@ -245,7 +248,7 @@
     left: 310px;
     height: 400px;
     width: 675px;
-    background-color: ivory;
+    background-color: ghostwhite;
     border-style: solid;
     border-width: 2px;
     z-index: 5;

@@ -100,7 +100,7 @@ $(document).ready(function(){
        $(this).parent().css("font-weight","bold");
        $(this).parent().css("color","black");
        $(this).parent().siblings().css("font-weight","normal");
-       $(this).parent().siblings().css("color","gray");
+       $(this).parent().siblings().css("color","#999999");
      })
 
     //Check Variables
@@ -160,7 +160,7 @@ $(document).ready(function(){
            if(minutes==0){
              //Stop further decrement
              clearInterval(countdown);
-             $("#timer").css("background-color","lightgray");
+             $("#timer").css("background-color","ghostwhite");
 
              timer_check=true
 

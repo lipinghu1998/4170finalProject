@@ -82,7 +82,7 @@ $(document).ready(function(){
     $("#instruction").html(instruction["description"]);
     // $("#instruction").html("(4)<b> RUB STEAK </b>with excess salt and <br>pepper that fell onto the cutting board");
 
-    var one = $('<p id="sub-instruction" style="color:red; position:fixed; left:120px; top:310px;">Click the steak to learn how to properly season</p>').appendTo('#text');
+    var one = $('<p id="sub-instruction" style="color:red; font-weight:bold; position:fixed; left:120px; top:310px;">Click the steak to learn how to properly season</p>').appendTo('#text');
 
     // once seasoned-steak clicked
     $("#seasoned-steak").click(function() {
@@ -116,7 +116,7 @@ $(document).ready(function(){
 
                 gif.fadeOut('fast');
                 pop.fadeOut('fast');
-                var two = $('<p id="sub-instruction" style="color:red; position:fixed; left:120px; top:310px;">Now click the steak to try it yourself</p>').appendTo('#text');
+                var two = $('<p id="sub-instruction" style="color:red; font-weight:bold; position:fixed; left:120px; top:310px;">Now click the steak to try it yourself</p>').appendTo('#text');
             }, 3000);
 
         }
@@ -127,7 +127,7 @@ $(document).ready(function(){
             $('#sub-instruction').remove();
 
             setTimeout(function() {
-                var two = $('<p id="sub-instruction" style="color:red; position:fixed; left:120px; top:310px;">Click the steak again to flip</p>').appendTo('#text');
+                var two = $('<p id="sub-instruction" style="color:red; font-weight:bold; position:fixed; left:120px; top:310px;">Click the steak again to flip</p>').appendTo('#text');
             }, 2000);
 
         }
@@ -142,7 +142,7 @@ $(document).ready(function(){
             $('#sub-instruction').remove();
 
             setTimeout(function() {
-                var two = $('<p id="sub-instruction" style="color:red; position:fixed; left:120px; top:310px;">Now click the steak again to season this side with the leftovers</p>').appendTo('#text');
+                var two = $('<p id="sub-instruction" style="color:red; font-weight:bold; position:fixed; left:120px; top:310px;">Now click the steak again to season this side with the leftovers</p>').appendTo('#text');
             }, 1000);
 
         }

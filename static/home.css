@@ -1,3 +1,7 @@
+  body{
+    background-color: #FEF1E6;
+  }
+  
 
   #navigation_menu{
     position: absolute;
@@ -35,8 +39,15 @@
     position: absolute;
     top: 320px;
     left: 78px;
-    font-size: 20px;
-  }
+    padding: 7px;
+    border-radius: 3px;
+    font-size: 19px;
+    background-color: #FFB085;
+    border-style: solid;
+    }
+    #start:hover{
+      cursor: pointer;
+     } 
 
 
   #report{
@@ -47,15 +58,25 @@
     font-family: Arial;
     border-style: solid;
     padding: 8px;
+    background-color: ghostwhite;
   }
 
    #resume{
     position: absolute;
     top: 592px;
     left: 430px;
+    padding: 7px;
+    border-radius: 3px;
     font-size: 18px;
+    background-color: #FFB085;
+    border-style: solid;
     display: hidden;
+
   }
+    #resume:hover{
+      cursor: pointer;
+     } 
+
  
 
   

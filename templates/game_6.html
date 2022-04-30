@@ -9,6 +9,8 @@
   let ingredients = {{ingredients|tojson}}
   let utensils = {{utensils|tojson}}
   let actions = {{actions|tojson}}
+  let stat= {{stat|tojson}}
+  let instruction= {{instruction|tojson}}
 
 
   // console.log("actions: ", actions)
@@ -16,7 +18,7 @@
 
 </script>
 
- <link rel="stylesheet" href="{{url_for('static', filename='step_6.css')}}">
+ <link rel="stylesheet" href="{{url_for('static', filename='game_6.css')}}">
 
  <script type="text/javascript" src="{{ url_for('static', filename = 'game_6.js') }}"></script>
 
@@ -89,6 +91,7 @@
 
  <!-- <img id="arrow-steak" src={{actions["fire"]["image"]}} > </img> -->
 
+ <div id="hints"> Take Hint ({{stat["hints"]}})</div>
 
  <div id="arrow-butter"> </div>
  <div id="arrow-garlic"> </div>

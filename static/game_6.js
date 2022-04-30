@@ -1,8 +1,42 @@
 $(document).ready(function(){
 
  
-    // Hide next arrow
-    document.getElementById("arrow-next").style.visibility = 'hidden';
+
+
+
+    //Hints
+    if(stat["hints"]>0){
+      $("#hints").show();
+    }
+
+    //Move to next step
+    $("#hints").click(function(){
+      if(stat["hints"]>0){
+
+        //Decrease hints on server side
+        $.ajax({
+            type: "POST",
+            url: "/decrease_hints",
+            dataType : "json",
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify({"check":"success"}),
+            success: function(response){
+              $("#hints").hide();
+              $("#instruction").html(instruction["description"]);
+
+            },
+            error: function(request, status, error){
+                console.log("Error");
+                console.log(request)
+                console.log(status)
+                console.log(error)
+            }
+        });
+
+      }
+
+
+    })
 
     // Create and hide step complete message
     let message = document.getElementById('message');
