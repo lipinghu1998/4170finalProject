@@ -136,7 +136,7 @@
     visibility: hidden;
     width: 70px;
     background-color: black;
-    color: white;
+    color: #F8F8F8;
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
@@ -232,7 +232,7 @@
     left: 325px;
     height: 400px;
     width: 225px;
-    background-color: ivory;
+    background-color: #F8F8F8;
     border-style: solid;
     border-width: 2px;
     z-index: 5;
@@ -242,7 +242,7 @@
     visibility: hidden;
     width: 70px;
     background-color: black;
-    color: white;
+    color: #F8F8F8;
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
