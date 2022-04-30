@@ -9,16 +9,19 @@
   left: 370px;
   padding: 20px;
   font-size: 24px;
+  color: #999999;
+  border-color: black;
   background-color: ghostwhite;
   text-align: center;
   border-style: solid;
 }
-
+ 
  #great{
+  color: black;
   font-size: 30px;
   margin-bottom: 7px;
   font-weight: bold;
- }
+ } 
 
 
 #board{
@@ -51,19 +54,20 @@
 
   #learn_again{
     position: absolute;
-    top: 380px;
+    top: 400px;
     right: 90px;
     background-color: #FFB085;
     padding: 6px;
     border-radius: 3px;
     font-size: 17px;
     font-family: Arial;
-    width: 148px;
+    width: 140px;
     border-style: solid;
+    border-color: black;
   }
   #learn_again:hover{
       cursor: pointer;
-   }
+   } 
 
    #game_again{
     position: absolute;
@@ -74,9 +78,13 @@
     border-radius: 3px;
     font-size: 17px;
     font-family: Arial;
-    width: 148px;
+    width: 140px;
     border-style: solid;
+    border-color: black;
   }
      #game_again:hover{
       cursor: pointer;
-     }
+     } 
+
+
+  
