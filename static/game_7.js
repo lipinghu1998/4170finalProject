@@ -162,7 +162,7 @@ $(document).ready(function(){
         data : JSON.stringify({"check":"success"}),
         success: function(response){
           $("#hints").hide();
-          $("#instruction").html(instruction["description"].concat(" and ").concat(instruction["sub"][0]));
+          $("#instruction").html(instruction["description"]);
         },
         error: function(request, status, error){
           console.log("Error");
