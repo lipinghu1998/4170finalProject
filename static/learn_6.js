@@ -218,8 +218,8 @@ $(document).ready(function(){
                   
                   // clearInterval(countdown);
                   $("#timer").html("00:01:00");
-                  $("#alert-near-timer").empty()
-                  $("#alert-near-timer").append("<div> Click the steak to turn it ! </div>");
+                  $("#alert-near-timer").empty();
+                  $("#alert-near-pan").append("<div> Click the steak to turn it ! </div>");
 
 
                   $("#timer").off();
@@ -237,9 +237,10 @@ $(document).ready(function(){
 
                   $("#seasoned-steak").click(function(){
                       flip_steak = true
-                      $("#seasoned-steak").hide()
-                      $("#cooked-steak").show()
-                      $("#alert-near-timer").empty()
+                      $("#seasoned-steak").hide();
+                      $("#cooked-steak").show();
+                      $("#alert-near-pan").empty();
+                      $("#alert-near-timer").empty();
                       $("#alert-near-timer").append("<div> Now  click the timer again then the searing is done! </div>");
 
                       $("#timer").click(function(){
