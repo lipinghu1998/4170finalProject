@@ -175,6 +175,7 @@ $(document).ready(function(){
     console.log("dropped")
     $("#alert-near-pan").empty()
     $("#timer").html("00:01:00");
+    
     $("#alert-near-timer").append("<div class = row> Start the timer for searing! </div>")
 
 
@@ -263,7 +264,7 @@ $(document).ready(function(){
         $("#timer").click(function(){
           // //Disable Timer from being clicked again
           // $("#timer").off('click');
-          // if(flip_steak == false){          
+          // if(flip_steak == false){   
               $("#timer").hover(
               function() {
                 $("#timer").css("cursor","default");

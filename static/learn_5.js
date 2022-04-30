@@ -6,7 +6,7 @@ $(document).ready(function(){
 
     $("#nav_home").removeClass("active");
     $("#nav_game").removeClass("active");
-
+    
     // Hide next arrow
     document.getElementById("arrow-next").style.visibility = 'hidden';
 
@@ -135,7 +135,7 @@ $(document).ready(function(){
     stop: function( event, ui ) {
       $("#seasoned-steak").find(".description").show();
     }
-});
+}); 
 
   $("#knife").draggable({
         revert: "invalid"
@@ -212,7 +212,7 @@ $(document).ready(function(){
     setTimeout(function(){
       $("#smoke").show();
       console.log("smoking!!!")
-
+      
     },3000)
       $.ajax({
         type: "POST",
