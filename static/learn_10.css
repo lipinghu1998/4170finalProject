@@ -38,6 +38,11 @@ body{
     font-weight: bold;
 }
 
+/* #timer:hover{
+  background-color: darkseagreen;
+  cursor: pointer;
+} */
+
 #finished-steak{
     position: absolute;
     top: 360px;

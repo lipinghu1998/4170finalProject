@@ -55,7 +55,7 @@ $(document).ready(function(){
                     if(minutes==0){
                         //Stop further decrement
                         clearInterval(countdown);
-                        $("#timer").css("background-color","lightgray");
+                        $("#timer").css("background-color","ghostwhite");
 
                         // $('<p>Complete! Press the arrow or wait for the page to timeout</p>').appendTo('#message');
                         $("#message").html("Complete! Press the arrow or wait for the page to timeout");
@@ -85,6 +85,13 @@ $(document).ready(function(){
             // disable timer from being clicked again
             $("#timer").off('click');
             $("#timer").hover(function() {$("#timer").css("cursor","default");});
+
+            $("#timer").hover(
+              function() {
+                $("#timer").css("cursor","default");
+                $("#timer").css("background-color","darkseagreen");
+              }
+            );
 
             $.ajax({
                 type: "POST",
