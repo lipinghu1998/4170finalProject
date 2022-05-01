@@ -52,12 +52,6 @@ $(document).ready(function(){
                         clearInterval(countdown);
                         $("#timer").css("background-color","ghostwhite");
 
-                        // $('<p>Complete! Press the arrow or wait for the page to timeout</p>').appendTo('#message');
-                        $("#message").html("Complete! Press the arrow or wait for the page to timeout");
-                        $("#arrow-next").show();
-
-                        $("#timer-label").html("The steak is done resting!");
-
                         $.ajax({
                             type: "POST",
                             url: "/increase_steps_completed",
@@ -71,6 +65,8 @@ $(document).ready(function(){
                                 setTimeout(function(){
                                     window.location.href="/learn/11";
                                 }, 10900);
+
+                                $("#arrow-next").show();
                             },
                             error: function(request, status, error){
                             console.log("Error");
@@ -79,6 +75,12 @@ $(document).ready(function(){
                             console.log(error)
                             }
                         });
+
+                        // $('<p>Complete! Press the arrow or wait for the page to timeout</p>').appendTo('#message');
+                        $("#message").html("Complete! Press the arrow or wait for the page to timeout");
+                        //$("#arrow-next").show();
+
+                        $("#timer-label").html("The steak is done resting!");
                     }
                     else{
                         minutes-=1;
@@ -96,37 +98,6 @@ $(document).ready(function(){
 
         //Timer
         timer(minutes, 60);
-
-        // WHEN TIMER CLICKED -
-        // $("#timer").click(function(){
-        //     // disable timer from being clicked again
-        //     $("#timer").off('click');
-        //     $("#timer").hover(function() {$("#timer").css("cursor","default");});
-        //
-        //
-        //
-        //     $.ajax({
-        //         type: "POST",
-        //         url: "/increase_steps_completed",
-        //         dataType : "json",
-        //         contentType: "application/json; charset=utf-8",
-        //         data : JSON.stringify({"check":"success"}),
-        //         success: function(response){
-        //             $("#arrow-next").click(function(){
-        //                 window.location.href="/learn/11";
-        //             })
-        //             setTimeout(function(){
-        //                 window.location.href="/learn/11";
-        //             }, 10900);
-        //         },
-        //         error: function(request, status, error){
-        //         console.log("Error");
-        //         console.log(request)
-        //         console.log(status)
-        //         console.log(error)
-        //         }
-        //     });
-        // });
     }
 
     console.log(clickState)

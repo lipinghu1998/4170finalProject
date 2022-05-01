@@ -13,9 +13,9 @@ $(document).ready(function(){
     $("#nav_home").removeClass("active");
     $("#nav_game").removeClass("active");
 
-    $("#arrow-next").click(function(){
-      window.location.href="/game";
-    })
+    // $("#arrow-next").click(function(){
+    //   window.location.href="/game";
+    // })
 
     // Set current instruction
     $("#instruction").html(instruction["description"]);
