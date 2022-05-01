@@ -52,33 +52,9 @@ $(document).ready(function(){
                         clearInterval(countdown);
                         $("#timer").css("background-color","ghostwhite");
 
-                        $.ajax({
-                            type: "POST",
-                            url: "/increase_steps_completed",
-                            dataType : "json",
-                            contentType: "application/json; charset=utf-8",
-                            data : JSON.stringify({"check":"success"}),
-                            success: function(response){
-                                $("#arrow-next").click(function(){
-                                    window.location.href="/learn/11";
-                                })
-                                setTimeout(function(){
-                                    window.location.href="/learn/11";
-                                }, 10900);
-
-                                $("#arrow-next").show();
-                            },
-                            error: function(request, status, error){
-                            console.log("Error");
-                            console.log(request)
-                            console.log(status)
-                            console.log(error)
-                            }
-                        });
-
                         // $('<p>Complete! Press the arrow or wait for the page to timeout</p>').appendTo('#message');
                         $("#message").html("Complete! Press the arrow or wait for the page to timeout");
-                        //$("#arrow-next").show();
+                        $("#arrow-next").show();
 
                         $("#timer-label").html("The steak is done resting!");
                     }
@@ -98,6 +74,29 @@ $(document).ready(function(){
 
         //Timer
         timer(minutes, 60);
+        $.ajax({
+            type: "POST",
+            url: "/increase_steps_completed",
+            dataType : "json",
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify({"check":"success"}),
+            success: function(response){
+                $("#arrow-next").click(function(){
+                    window.location.href="/learn/11";
+                })
+                setTimeout(function(){
+                    window.location.href="/learn/11";
+                }, 10900);
+
+                // $("#arrow-next").show();
+            },
+            error: function(request, status, error){
+            console.log("Error");
+            console.log(request)
+            console.log(status)
+            console.log(error)
+            }
+        });
     }
 
     console.log(clickState)

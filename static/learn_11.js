@@ -1,6 +1,7 @@
 $(document).ready(function(){
     $("#filled-pan").hide();
     $("#fire").hide();
+    console.log("HERE");
 
     let empty_pan = $("<img>");
     empty_pan.attr("src", utensils["pan"]["empty"]["image"]);
@@ -12,10 +13,6 @@ $(document).ready(function(){
     $("#nav_learn").addClass("active");
     $("#nav_home").removeClass("active");
     $("#nav_game").removeClass("active");
-
-    // $("#arrow-next").click(function(){
-    //   window.location.href="/game";
-    // })
 
     // Set current instruction
     $("#instruction").html(instruction["description"]);
