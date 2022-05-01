@@ -22,7 +22,7 @@
     border-radius: 3px;
    
   }
-  #upper_title{
+  #title{
     position: absolute;
     top: 20px;
     left: 500px;
@@ -31,25 +31,17 @@
     font-weight: bold;
    
   }
-  #lower_title{
-    position: absolute;
-    top: 70px;
-    left: 500px;
-    font-family: Arial;
-    color: gray;
-    font-size: 20px;
 
-  }
   #game_instruction{
     position: absolute;
-    top: 300px;
+    top: 225px;
     left: 500px;
     font-family: Arial;
     font-size: 21px;
   }
   #start_game{
     position: absolute;
-    top: 475px;
+    top: 400px;
     left: 600px;
     font-size: 17px;
     background-color: #FFB085;
