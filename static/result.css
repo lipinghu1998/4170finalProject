@@ -1,6 +1,6 @@
-  body{
-    background-color: #FEF1E6;
-  }
+body{
+  background-color: #FAFAFA;
+}
 
 
 #congrats{
@@ -56,35 +56,24 @@
     position: absolute;
     top: 550px;
     right: 90px;
-    background-color: #FFB085;
-    padding: 6px;
-    border-radius: 3px;
+    color: white;
     font-size: 17px;
     font-family: Arial;
     width: 140px;
-    border-style: solid;
-    border-color: black;
+
   }
-  #learn_again:hover{
-      cursor: pointer;
-   } 
+
 
    #game_again{
     position: absolute;
     top: 600px;
     right: 90px;
-    background-color: #FFB085;
-    padding: 6px;
-    border-radius: 3px;
+    color: white;
     font-size: 17px;
     font-family: Arial;
     width: 140px;
-    border-style: solid;
-    border-color: black;
+
   }
-     #game_again:hover{
-      cursor: pointer;
-     } 
 
 
   

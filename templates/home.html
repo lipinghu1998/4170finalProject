@@ -20,11 +20,12 @@ let stat = {{stat|tojson}}
 
 <img src={{steak["banner"]["image"]}} alt={{steak["banner"]["image"]}} id="banner"> </img>
 
-<button type="button" id="start">START LEARNING</button>
+<button type="button" id="start" class="btn btn-primary">Start Learning</button>
 
 <div id="report">
  You have learned <b>{{stat["steps_completed"]}}/{{stat["total_steps"]}} steps</b> so far.
 </div>
-<button type="button" id="resume">RESUME</button>
+<button type="button" id="resume" class="btn btn-primary">Resume</button>
+
 
 {% endblock %}

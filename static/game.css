@@ -1,6 +1,4 @@
- body{
-    background-color: #FEF1E6;
-  }
+
 
   #container{
     position: absolute;
@@ -8,7 +6,6 @@
     left: 100px;
     width: 1200px;
     height: 550px;
-    background-color: ghostwhite;
     border-style: solid;
   }
 
@@ -18,8 +15,6 @@
     left: 25px;
     width: 300px;
     height: 500px;
-    border-style: solid;
-    border-radius: 3px;
    
   }
   #title{
@@ -44,10 +39,7 @@
     top: 400px;
     left: 600px;
     font-size: 17px;
-    background-color: #FFB085;
-    padding: 7px;
-    border-radius: 3px;
-    border: solid;
+
   }
   #start_game:hover{
       cursor: pointer;

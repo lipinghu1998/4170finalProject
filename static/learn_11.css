@@ -5,9 +5,7 @@
     font-family: Arial;
     font-size: 18px;
 }
-body{
-  background-color: #FEF1E6;
-}
+
 #message{
     position: absolute;
     top: 60px;

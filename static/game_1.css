@@ -1,6 +1,4 @@
- body{
-    background-color: #FEF1E6;
-  }
+
 
   #instruction{
     position: absolute;
@@ -16,9 +14,9 @@
     top: 100px;
     left: 40px;
     padding: 10px;
-    border-radius: 4px;
-    border-style: solid;
-    background-color: #FFB085;
+    border-radius: 6px;
+    background-color: #2E7CF6;
+    color: white;
     cursor: pointer;
     display: none;
   }
